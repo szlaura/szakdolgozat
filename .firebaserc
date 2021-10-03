@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "szakdolgozat-a3e9a": {
+      "hosting": {
+        "app": [
+          "szakdolgozat-a3e9a"
+        ]
+      }
+    }
+  }
+}

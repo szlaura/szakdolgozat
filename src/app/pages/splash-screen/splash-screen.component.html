@@ -1,0 +1,14 @@
+<ion-content>
+  <h1>Üdvözöllek!</h1>
+  <ion-list>
+    <ion-item>
+    <ion-label  id="iowa" (click)="openIntro(); sendDesc('iowa')" [routerLink]="[ '/home/iowa' ]">IOWA Gambling</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label id="wcst" (click)="openIntro(); sendDesc('wcst')" [routerLink]="[ '/home/wcst' ]">Wisconsin Card Sorting Test</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Valami</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

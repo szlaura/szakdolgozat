@@ -1,21 +1,21 @@
 <app-resmodal></app-resmodal>
 <ion-card>
-  <ion-radio-group [(ngModel)]="ans">
+  <ion-radio-group >
   <ion-item >
     <ion-label>A kártya</ion-label>
-    <ion-radio id="A" slot="end" [value]="valueA"></ion-radio>
+    <ion-radio (ionSelect)="valueHandler(88888)" id="A" slot="end" value=valueA></ion-radio>
   </ion-item>
   <ion-item>
     <ion-label>B kártya</ion-label>
-    <ion-radio id="B" slot="end" [value]="valueB"></ion-radio>
+    <ion-radio (ionSelect)="valueHandler(valueB)" id="B" slot="end" value=valueB></ion-radio>
   </ion-item>
   <ion-item>
     <ion-label>C kártya</ion-label>
-    <ion-radio id="C" slot="end" [value]="valueC" ></ion-radio>
+    <ion-radio (ionSelect)="valueHandler(valueC)" id="C" slot="end" value=valueC ></ion-radio>
   </ion-item>
   <ion-item>
     <ion-label>D kártya</ion-label>
-    <ion-radio id="chboxD" slot="end" [value]="valueD" ></ion-radio>
+    <ion-radio (ionSelect)="valueHandler(valueD)" id="chboxD" slot="end" value=valueD ></ion-radio>
     <!-- <input type="checkbox" id="chboxD" slot="end" [value]="valueD" checked> -->
   </ion-item>
 </ion-radio-group>

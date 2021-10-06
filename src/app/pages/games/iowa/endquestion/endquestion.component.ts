@@ -40,6 +40,7 @@ export class EndquestionComponent implements OnInit {
   clickedB = false;
   clickedC = false;
   clickedD = false;
+  value: any;
 
 
   constructor(public resService: ResultService) { }
@@ -51,7 +52,7 @@ export class EndquestionComponent implements OnInit {
   }
 
   check(){
-    if(this.valueA === this.maxValues){
+   if(this.valueA === this.maxValues){
       console.log('A: '+this.valueA);
     }
     if(this.valueB === this.maxValues){
@@ -63,6 +64,22 @@ export class EndquestionComponent implements OnInit {
     if(this.valueC === this.maxValues){
       console.log('D: '+this.valueD);
     }
+  }
+
+  valueHandler(event: any){
+    console.log('event');
+    /*if(this.valueA === this.maxValues){
+      console.log('A: '+this.valueA);
+    }
+    if(this.valueB === this.maxValues){
+      console.log('B: '+this.valueB);
+    }
+    if(this.valueC === this.maxValues){
+      console.log('C: '+this.valueC);
+    }
+    if(this.valueC === this.maxValues){
+      console.log('D: '+this.valueD);
+    }*/
   }
 
 

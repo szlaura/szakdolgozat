@@ -1,15 +1,20 @@
+import { ConfirmexitModule } from './../../../shared/components/confirmexit/confirmexit.module';
+import { Exit } from './../../../shared/guards/exitgame.guard';
 import { EndquestionComponent } from './endquestion/endquestion.component';
 import { ResultService } from './../../../services/result.service';
-import { Component, ViewChild } from '@angular/core';
+import { Component, HostListener, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-iowa',
   templateUrl: './iowa.component.html',
   styleUrls: ['./iowa.component.scss']
 })
-export class IowaComponent {
+export class IowaComponent implements Exit{
 
-  @ViewChild(EndquestionComponent) endquestion;
+  @HostListener('window:beforeunload')
+  @ViewChild(EndquestionComponent) endquestion: any;
 
   arrayCards = ['A', 'B', 'C', 'D'];
   arrayTwo = [];
@@ -54,6 +59,13 @@ export class IowaComponent {
     //this.separateArrays(this.arrayCards);
     console.log('Array: ' +this.arrayCards[0]+','+this.arrayCards[1]+','+this.arrayCards[2]+','+this.arrayCards[3]);
   }
+  canExit(): boolean | Observable<boolean> | Promise<boolean>{
+    if(this.korte === false){
+      return confirm('Do you wanna go?');;
+    } else{
+    return true;
+  }
+  };
 
   caseOne(): any{
     this.wonMoney=0;

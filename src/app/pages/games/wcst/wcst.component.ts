@@ -1,13 +1,15 @@
+import { Exit } from './../../../shared/guards/exitgame.guard';
 import { RigthorwrongComponent } from './modal/rigthorwrong/rigthorwrong.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ResultService } from './../../../services/result.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-wcst',
   templateUrl: './wcst.component.html',
   styleUrls: ['./wcst.component.scss']
 })
-export class WcstComponent implements OnInit{
+export class WcstComponent implements OnInit, Exit{
 
   @ViewChild(RigthorwrongComponent) rightorwrong: any;
 
@@ -74,6 +76,15 @@ export class WcstComponent implements OnInit{
     }
     console.log(this.kulonkartya);
 }*/
+
+canExit(): boolean | Observable<boolean> | Promise<boolean>{
+  if(this.korte === false){
+    return confirm('Do you wanna go?');
+  } else{
+  return true;
+}
+};
+
 
 starttimer(){
   const startTime = new Date();
@@ -225,7 +236,5 @@ randomEset(array: any) {
     return item;
   };
 }
+
 }
-
-
-

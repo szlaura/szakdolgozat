@@ -1,4 +1,5 @@
 <ion-content >
+  <ion-title class="tit">Iowa Gambling Task </ion-title>
   <app-endquestion [hidden]=hidewhileend [valueA]="valueA" [valueB]="valueB" [valueC]="valueC" [valueD]="valueD" [maxValues]="whichisTheMostValueable()"></app-endquestion>
     <!-- <ion-backdrop tappable="true"></ion-backdrop> -->
     <ion-button [hidden]=showstartbtn [disabled]="clicked" (click)="clickie(); startbtnhide(); clicked = true;"> Start </ion-button>

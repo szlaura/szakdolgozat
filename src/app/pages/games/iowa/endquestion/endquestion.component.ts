@@ -1,7 +1,5 @@
 import { ResultService } from './../../../../services/result.service';
-import { ResmodalComponent } from './resmodal/resmodal.component';
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-
+import { Component, Input, OnInit } from '@angular/core';
 
 
 @Component({
@@ -11,7 +9,6 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 })
 export class EndquestionComponent implements OnInit {
 
-@ViewChild(ResmodalComponent) resModal: any;
 
   @Input() valueA: any;
   @Input() valueB: any;
@@ -19,69 +16,45 @@ export class EndquestionComponent implements OnInit {
   @Input() valueD: any;
   @Input() maxValues: any;
 
-  valueSelected: string;
-
-  answer: any = {
-
-  };
-
-  ans: any;
-
-
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-  chboxA = <HTMLInputElement> document.getElementById('A');
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-  chboxB = <HTMLInputElement> document.getElementById('B');
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-  chboxC = <HTMLInputElement> document.getElementById('C');
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-  chboxD = <HTMLInputElement> document.getElementById('chboxD');
-  clickedA = false;
-  clickedB = false;
-  clickedC = false;
-  clickedD = false;
-  value: any;
+  valueSelected: any;
+  isShown = false;
+  rightAnswer= false;
+  disableRadioBox=false;
 
 
   constructor(public resService: ResultService) { }
 
   ngOnInit(): void {}
 
-  resShow(){
-    this.resModal.presentAlert();
-  }
-
-  check(){
-   if(this.valueA === this.maxValues){
-      console.log('A: '+this.valueA);
-    }
-    if(this.valueB === this.maxValues){
-      console.log('B: '+this.valueB);
-    }
-    if(this.valueC === this.maxValues){
-      console.log('C: '+this.valueC);
-    }
-    if(this.valueC === this.maxValues){
-      console.log('D: '+this.valueD);
-    }
+  showResult(){
+    this.resService.presentModal();
   }
 
   valueHandler(event: any){
-    console.log('event');
-    /*if(this.valueA === this.maxValues){
-      console.log('A: '+this.valueA);
-    }
-    if(this.valueB === this.maxValues){
-      console.log('B: '+this.valueB);
-    }
-    if(this.valueC === this.maxValues){
-      console.log('C: '+this.valueC);
-    }
-    if(this.valueC === this.maxValues){
-      console.log('D: '+this.valueD);
-    }*/
+    this.valueSelected = event;
   }
 
+  check(){
+    this.isShown = !this.isShown;
+    this.disableRadioBox = !this.disableRadioBox;
 
+   if(this.valueA === this.maxValues && this.valueA === this.valueSelected){
+      console.log('A: '+this.valueA);
+      this.rightAnswer = !this.rightAnswer;
+    }
+    else if(this.valueB === this.maxValues && this.valueB === this.valueSelected){
+      console.log('B: '+this.valueB);
+      this.rightAnswer = !this.rightAnswer;
+    }
+    else if(this.valueC === this.maxValues && this.valueC === this.valueSelected){
+      console.log('C: '+this.valueC);
+      this.rightAnswer = !this.rightAnswer;
+    }
+    else if(this.valueD === this.maxValues && this.valueD === this.valueSelected){
+      console.log('D: '+this.valueD);
+      this.rightAnswer = !this.rightAnswer;
+
+    }
+  }
 
 }

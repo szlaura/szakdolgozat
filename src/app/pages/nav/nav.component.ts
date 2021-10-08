@@ -14,7 +14,7 @@ export class NavComponent{
   logout(): void {
    this.authService.logout();
     console.log('mukodok');
-    this.router.navigateByUrl('login');
+    this.router.navigateByUrl('welcome'); //login volt
   }
 
   navigate(page: string){

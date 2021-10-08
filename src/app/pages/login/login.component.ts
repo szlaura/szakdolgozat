@@ -10,7 +10,6 @@ import { Component, HostListener, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-
   form: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', [Validators.minLength(6), Validators.required])
@@ -28,8 +27,6 @@ export class LoginComponent implements OnInit {
     this.login();
   }
 
-
-
   ngOnInit(): void {
     this.authService.logout();
   }
@@ -38,14 +35,14 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl(url);
   }
 
-  signAnonymus(): void {
+  /*signAnonymus(): void {
     this.authService.signinAsAGusedt().then(
       result => {
         //console.log(result);
         this.navTo('/home');
       },
     );
-  }
+  }*/
 
   login(): void {
     if (this.form.invalid) {

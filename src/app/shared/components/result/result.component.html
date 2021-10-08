@@ -1,5 +1,4 @@
 <ion-content>
-  <ion-button (click)="closemodal()">Close</ion-button>
   <ion-card>
     <ion-card-header>
       <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
@@ -10,4 +9,8 @@
       Message {{this.message}}
     </ion-card-content>
   </ion-card>
+
+  <ion-button (click)="closemodal(); gotoSplash(); ">Kezőlap</ion-button>
+  <ion-button (click)="closemodal(); gotoStatics(); ">Statisztikák</ion-button>
+
 </ion-content>

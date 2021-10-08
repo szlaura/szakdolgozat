@@ -2,13 +2,14 @@ import { ResultComponent } from './result.component';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
   declarations: [ResultComponent],
   imports: [
-    CommonModule, IonicModule
+    CommonModule, IonicModule, RouterModule
   ]
 })
 export class ResultModule { }

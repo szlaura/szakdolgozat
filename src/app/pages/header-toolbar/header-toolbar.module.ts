@@ -11,7 +11,6 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule, IonicModule, RouterModule
   ],
-  exports:[HeaderToolbarComponent
-  ]
+  exports:[HeaderToolbarComponent]
 })
 export class HeaderToolbarModule { }

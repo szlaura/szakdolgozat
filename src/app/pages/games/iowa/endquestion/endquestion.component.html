@@ -1,25 +1,32 @@
-<app-resmodal></app-resmodal>
-<ion-card>
+<ion-card [disabled]="disableRadioBox">
   <ion-radio-group >
   <ion-item >
     <ion-label>A kártya</ion-label>
-    <ion-radio (ionSelect)="valueHandler(88888)" id="A" slot="end" value=valueA></ion-radio>
+    <ion-radio (ionFocus)="valueHandler(valueA)" id="A" slot="end" value=valueA></ion-radio>
   </ion-item>
   <ion-item>
     <ion-label>B kártya</ion-label>
-    <ion-radio (ionSelect)="valueHandler(valueB)" id="B" slot="end" value=valueB></ion-radio>
+    <ion-radio (ionFocus)="valueHandler(valueB)" id="B" slot="end" value=valueB></ion-radio>
   </ion-item>
   <ion-item>
     <ion-label>C kártya</ion-label>
-    <ion-radio (ionSelect)="valueHandler(valueC)" id="C" slot="end" value=valueC ></ion-radio>
+    <ion-radio (ionFocus)="valueHandler(valueC)" id="C" slot="end" value=valueC ></ion-radio>
   </ion-item>
   <ion-item>
     <ion-label>D kártya</ion-label>
-    <ion-radio (ionSelect)="valueHandler(valueD)" id="chboxD" slot="end" value=valueD ></ion-radio>
-    <!-- <input type="checkbox" id="chboxD" slot="end" [value]="valueD" checked> -->
+    <ion-radio (ionFocus)="valueHandler(valueD)" id="chboxD" slot="end" value=valueD ></ion-radio>
   </ion-item>
 </ion-radio-group>
   <ion-button (click)="check()">Ellenőrzés</ion-button>
-  <ion-button (click)="resShow()">Ellenőrzés</ion-button>
 </ion-card>
+<ion-card *ngIf="isShown">
+  <ion-item [hidden]="!rightAnswer">
+    <ion-label>Helyes</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label [hidden]="rightAnswer">Helytelen</ion-label>
+  </ion-item>
+<ion-button (click)="showResult()">Eredmény</ion-button>
+</ion-card>
+
 

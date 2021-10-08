@@ -69,14 +69,6 @@ export class WcstComponent implements OnInit, Exit{
 
   }
 
-/*public shakethecards(){
-    const random = Math.floor(Math.random() * this.months.length);
-    for (let i = 0; i < this.months.length; i++) {
-      this.kulonkartya=this.months[random];
-    }
-    console.log(this.kulonkartya);
-}*/
-
 canExit(): boolean | Observable<boolean> | Promise<boolean>{
   if(this.korte === false){
     return confirm('Do you wanna go?');
@@ -94,6 +86,7 @@ starttimer(){
 endtimer(){
   const endTime = new Date();
   this.nd=endTime;
+  this.korte=true;
 }
 
 countTime(){

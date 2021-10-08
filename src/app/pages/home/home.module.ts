@@ -1,4 +1,3 @@
-import { ExitgameGuard } from './../../shared/guards/exitgame.guard';
 import { HeaderToolbarModule } from './../header-toolbar/header-toolbar.module';
 import { IonicModule } from '@ionic/angular';
 import { NavModule } from './../nav/nav.module';

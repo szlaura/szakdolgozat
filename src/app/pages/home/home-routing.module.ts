@@ -2,7 +2,6 @@ import { AuthGuard } from 'src/app/shared/guards/auth.guard';
 import { HomeComponent } from './home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ExitgameGuard } from 'src/app/shared/guards/exitgame.guard';
 
 const routes: Routes = [
     { path: '', redirectTo: 'splash', pathMatch: 'full' },

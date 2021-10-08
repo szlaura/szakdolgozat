@@ -1,13 +1,22 @@
-.tit {
+ion-title {
   text-align: center;
+  display: block;
 }
 
 ion-button {
   text-align: center;
 }
+.container {
+  width: 100%;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-flow: wrap;
+}
 
 .card {
-  box-sizing: border-box;
+  /*box-sizing: border-box;
   margin-right: 4%;
   float: left;
   width: 20%;
@@ -17,7 +26,11 @@ ion-button {
   border-radius: 5px;
   -moz-box-shadow: 0 0 1px #bdbdbd;
   -webkit-box-shadow: 0 0 10px #bdbdbd;
-  box-shadow: 0 0 1px #bdbdbd;
+  box-shadow: 0 0 1px #bdbdbd;*/
+  box-sizing: border-box;
+  width: 220px;
+  height: 220px;
+  margin: 20px;
 }
 .randomcard {
   box-sizing: border-box;
@@ -40,3 +53,17 @@ ion-content {
   overflow: hidden;
   --padding-top: 70px;
 }
+
+@media and and (max-widht: 700px) {
+  .card {
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+  }
+}
+/*@media and and (max-widht: 1200px) {
+  .card {
+    width: 40%;
+  }
+}*/

@@ -1,8 +1,7 @@
-import { ConfirmexitModule } from './../../../shared/components/confirmexit/confirmexit.module';
 import { Exit } from './../../../shared/guards/exitgame.guard';
 import { EndquestionComponent } from './endquestion/endquestion.component';
 import { ResultService } from './../../../services/result.service';
-import { Component, HostListener, ViewChild } from '@angular/core';
+import { Component, HostListener, ViewChild, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 
@@ -11,7 +10,7 @@ import { Observable } from 'rxjs';
   templateUrl: './iowa.component.html',
   styleUrls: ['./iowa.component.scss']
 })
-export class IowaComponent implements Exit{
+export class IowaComponent implements OnInit,Exit{
 
   @HostListener('window:beforeunload')
   @ViewChild(EndquestionComponent) endquestion: any;
@@ -59,6 +58,8 @@ export class IowaComponent implements Exit{
     //this.separateArrays(this.arrayCards);
     console.log('Array: ' +this.arrayCards[0]+','+this.arrayCards[1]+','+this.arrayCards[2]+','+this.arrayCards[3]);
   }
+  ngOnInit() {}
+
   canExit(): boolean | Observable<boolean> | Promise<boolean>{
     if(this.korte === false){
       return confirm('Do you wanna go?');;
@@ -171,6 +172,7 @@ export class IowaComponent implements Exit{
       this.enable=true;
       this.clickie();
       this.hidewhileend = !this.hidewhileend;
+      this.korte=true;
   }
 
   clickieCard(whichyouclicked: string){

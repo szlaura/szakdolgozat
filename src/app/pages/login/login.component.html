@@ -12,14 +12,13 @@
 
       <br>
       <ion-card-content class="max-width">
-        <ion-card-title>Password</ion-card-title>
+        <ion-card-title>Jelszó</ion-card-title>
         <ion-input type="password" name="password" matInput minlength="6" placeholder="Jelszó" formControlName="password"></ion-input>
       </ion-card-content>
       <br>
-      <ion-button type="submit" class="max-width"
-      [disabled]="form.invalid">LOGIN</ion-button>
+      <ion-button type="submit" class="max-width" [disabled]="form.invalid">Bejelentkezés</ion-button>
       <br>
-      <ion-button (click)="navTo('/registration')">REGISTER</ion-button>
+      <ion-button (click)="navTo('/registration')">Regisztráció</ion-button>
       <br>
       <!-- <ion-button (click)="signAnonymus()">Guest</ion-button> -->
     </form>

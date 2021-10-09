@@ -1,11 +1,13 @@
-<ion-content>
+<ion-content id="background-content">
   <ion-card>
-    <ion-title>ÜDVÖZÖLLEK</ion-title>
-    <ion-button (click)="navTo('/login')">Bejelentkezés</ion-button>
-    <br>
-    <ion-button (click)="navTo('/registration')">Regisztráció</ion-button>
-    <br>
-    <ion-button (click)="signAnonymus()">Bejelentkezés vendégként</ion-button>
-    <br>
+    <ion-item >
+      <ion-button class="center-button" (click)="navTo('/login')">Bejelentkezés</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-button class="center-button" (click)="navTo('/registration')">Regisztráció</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-button class="center-button" (click)="signAnonymus()">Vendég</ion-button>
+    </ion-item>
   </ion-card>
 </ion-content>

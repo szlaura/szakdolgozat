@@ -20,7 +20,8 @@ export class ResultService {
   async presentModal() {
     const modal = await this.modalController.create({
       component: ResultComponent,
-      cssClass: 'my-custom-class'
+      cssClass: 'my-custom-class',
+      backdropDismiss: false
     });
     return await modal.present();
   }

@@ -1,5 +1,9 @@
 <ion-content>
   <ion-title class="tit">Go/No-go Task</ion-title>
-  <ion-button> Start </ion-button>
+  <ion-button [hidden]=showstartbtn (click)="starttt(); startbtnhide()"> Start </ion-button>
+  <ion-card [hidden]=korte>
+    <ion-item (click)="clickEvent()" id="green" *ngIf="clickNow===true"><img [src]=click></ion-item>
+    <ion-item (click)="clickEvent()" *ngIf="clickNow===false"><img [src]=dontclick></ion-item>
+  </ion-card>
 </ion-content>
 

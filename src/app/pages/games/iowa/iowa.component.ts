@@ -1,7 +1,7 @@
 import { Exit } from './../../../shared/guards/exitgame.guard';
 import { EndquestionComponent } from './endquestion/endquestion.component';
 import { ResultService } from './../../../services/result.service';
-import { Component, HostListener, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 
@@ -10,9 +10,9 @@ import { Observable } from 'rxjs';
   templateUrl: './iowa.component.html',
   styleUrls: ['./iowa.component.scss']
 })
-export class IowaComponent implements OnInit,Exit{
+export class IowaComponent implements OnInit, Exit{
 
-  @HostListener('window:beforeunload')
+  //@HostListener('window:beforeunload')
   @ViewChild(EndquestionComponent) endquestion: any;
 
   arrayCards = ['A', 'B', 'C', 'D'];

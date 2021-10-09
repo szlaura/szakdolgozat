@@ -1,3 +1,4 @@
+import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { NavModule } from './pages/nav/nav.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -23,7 +24,6 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     CommonModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     MatNativeDateModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,

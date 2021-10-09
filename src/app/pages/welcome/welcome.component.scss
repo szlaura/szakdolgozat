@@ -1,3 +1,27 @@
 ion-content {
-  --background: url(/src/assets/pictures/psychiatry.png) 0 0/100% 100% no-repeat;
+  color: aquamarine;
+}
+ion-title {
+  margin: 20px;
+  text-align: center;
+}
+ion-card {
+  margin: 10%;
+  padding: 10px;
+}
+ion-item {
+  padding: 20px;
+}
+.center-button {
+  position: relative;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  margin-left: 10%;
+}
+
+#background-content {
+  background: aqua;
 }

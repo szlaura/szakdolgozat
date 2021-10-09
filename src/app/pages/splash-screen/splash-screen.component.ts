@@ -23,16 +23,26 @@ export class SplashScreenComponent {
 
   sendDesc(id: string){
   switch(id){
-    case 'iowa':
-      this.title= 'IOWA Gambling';
-      this.descript = 'Asddd IOWA gameeeee';
-      this.rule = 'Iowaaa rulzzz';
+    case 'wcst':
+      this.title= 'Wisconsin Card Sorting Feladat';
+      this.descript = 'A feladatot kártyákkal játsszák. Négy kártya közül kell kiválasztanod, hogy melyik lehet az alsó kártya párja.'+
+            'A teszt 10-20 percet vesz igénybe.';
+      this.rule = 'Minden körben csak egy helyes válasz van. A szabályra neked kell rájönni. \n'+
+      'Minden körben visszajelzést kapsz, hogy jól választottál-e.';
       break;
-      case 'wcst':
-        this.title= 'Wisconsin Card Sorting Game';
-        this.descript = 'WCST gameeeee';
-        this.rule = 'WCSTTTTTT rulzzz';
-        //console.log('KULDEEES');
+    case 'iowa':
+      this.title= 'IOWA Gambling Feladat';
+      this.descript = 'Négy pakli kártyából kell választani egyet minden körben. Minden pakliban'+
+      'vannak kártyák, amelyekkel pénzt nyerhetsz vagy vagy veszíthetsz. A játék célja, hogy minél több pénzt nyerj.'+
+      ' A teszt 10-20 percet vesz igénybe.';
+      this.rule = 'Minden körben válassz egy paklit, amellyel szerinted a legtöbbet nyerheted.';
+      break;
+
+      case 'gonogo':
+        this.title= 'Go/Go-go Feladat';
+        this.descript = 'Felvillanó képekre kell kattintani, azonban bizonyos szabályokat be kell hozzá tartani.'+
+        ' A gyorsaságodra és a figyelmedre is szükséged lesz, A játék 10 percet vesz igénybe.';
+        this.rule = 'Nyomd meg a képernyőt/jobb egérgombot, amikor a zöld kép jelenik meg. Ne nyomj meg semmit, ha a fekete jelenik meg';
         break;
   }
   this.sendValue(this.title, this.descript, this.rule);

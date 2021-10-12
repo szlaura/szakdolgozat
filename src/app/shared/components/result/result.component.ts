@@ -1,4 +1,4 @@
-import { Subscription } from 'rxjs';
+import { DataService } from './../../../services/data.service';
 import { ResultService } from './../../../services/result.service';
 import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
@@ -15,12 +15,15 @@ export class ResultComponent implements OnInit {
   message: any;
   ans: any;
 
-  constructor(private modalCtrl: ModalController, private res: ResultService, private router: Router) { }
+  constructor(private modalCtrl: ModalController, private res: ResultService, private router: Router, private dataService: DataService) { }
 
   ngOnInit() {
-    this.res.getMessage().subscribe((message) =>{
+    //this.dataService.getGamesList();
+    //console.log(this.dataService.getGamesList());
+    //this.message = this.dataService.getGame('M54oeP4kFriDjxZ17mkM');
+    /*this.res.getMessage().subscribe((message) =>{
       this.message = message;
-    } );
+    } );*/
   }
 
   async closemodal(){

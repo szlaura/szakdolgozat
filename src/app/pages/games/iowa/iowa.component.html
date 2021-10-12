@@ -1,7 +1,7 @@
 <ion-content >
-  <ion-title>Iowa Gambling Task </ion-title>
+  <ion-title>Iowa Gambling</ion-title>
   <app-endquestion [hidden]=hidewhileend [valueA]="valueA" [valueB]="valueB" [valueC]="valueC" [valueD]="valueD" [maxValues]="whichisTheMostValueable()"></app-endquestion>
-    <ion-button size="large" [hidden]=showstartbtn [disabled]="clicked" (click)="clickie(); startbtnhide(); clicked = true;"> Start </ion-button>
+    <ion-button size="large" [hidden]=showstartbtn [disabled]="clicked" (click)="clickie(); startbtnhide();starttimer(); clicked = true;"> Start </ion-button>
     <ion-chip [hidden]=korte color="warning">
       <ion-label> Tartozás: {{currentMoney}}</ion-label>
     </ion-chip>

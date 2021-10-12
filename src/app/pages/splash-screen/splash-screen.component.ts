@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { StartgameComponent } from './../../shared/components/startgame/startgame/startgame.component';
 import { StartnavService } from './../../services/startnav.service';
 import { Component } from '@angular/core';
@@ -14,8 +15,11 @@ export class SplashScreenComponent {
   title: string;
   descript: string;
   rule: string;
+  iduser: any;
 
-  constructor(public introService: StartnavService, public modal: ModalController) {}
+  constructor(public introService: StartnavService, public modal: ModalController, public service: AuthService) {
+   this.iduser = this.service.currentUserId;
+  }
 
   openIntro(){
     this.introService.presentModal();

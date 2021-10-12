@@ -1,8 +1,14 @@
 ion-button {
-  text-align: center;
+  margin-left: 30%;
+  margin-top: 10%;
+  height: 10%;
+  width: 40%;
 }
-.tit {
+
+ion-title {
   text-align: center;
+  font-size: x-large;
+  margin: 10px;
 }
 
 ion-header {
@@ -11,5 +17,5 @@ ion-header {
 
 ion-content {
   overflow: hidden;
-  --padding-top: 60px;
+  --padding-top: 70px;
 }

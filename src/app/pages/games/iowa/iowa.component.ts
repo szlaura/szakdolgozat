@@ -1,3 +1,4 @@
+import { DataService } from './../../../services/data.service';
 import { Exit } from './../../../shared/guards/exitgame.guard';
 import { EndquestionComponent } from './endquestion/endquestion.component';
 import { ResultService } from './../../../services/result.service';
@@ -40,6 +41,9 @@ export class IowaComponent implements OnInit, Exit{
   valueB = 0;
   valueC = 0;
   valueD = 0;
+  gameTime: any;
+  st: any;
+  nd: any;
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   content = <HTMLInputElement> document.getElementById('content');
    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
@@ -52,7 +56,7 @@ export class IowaComponent implements OnInit, Exit{
   cardD = <HTMLInputElement> document.getElementById('D');
 
 
-  constructor(public modalService: ResultService) {
+  constructor(private modalService: ResultService, private dataservice: DataService) {
     this.currentMoney =this.startMoney;
     this.shuffleArray(this.arrayCards);
     //this.separateArrays(this.arrayCards);
@@ -67,6 +71,22 @@ export class IowaComponent implements OnInit, Exit{
     return true;
   }
   };
+
+  starttimer(){
+    const startTime = new Date();
+    this.st=startTime.getTime();
+  }
+  endtimer(){
+    const endTime = new Date();
+    this.nd=endTime.getTime();
+    this.korte=true;
+    this.countTime();
+  }
+
+  countTime(){
+    this.gameTime = this.nd-this.st;
+    console.log('Time'+this.gameTime);
+  }
 
   caseOne(): any{
     this.wonMoney=0;
@@ -179,7 +199,9 @@ export class IowaComponent implements OnInit, Exit{
     this.clickCount++;
 
     if(this.clickCount === 15){
+      this.endtimer();
       this.gameEnd();
+      this.dataservice.addIOWA(this.wonMoney, this.lostMoney, this.currentMoney, this.gameTime);
     }
     this.cardClicked=!this.cardClicked;
     //console.log('Kartya klikkelve'+this.cardClicked);

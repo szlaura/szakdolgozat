@@ -1,18 +1,19 @@
 import { Exit } from './../../../shared/guards/exitgame.guard';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ResultService } from './../../../services/result.service';
 import { Observable } from 'rxjs';
+import { AttachSession } from 'protractor/built/driverProviders';
 
 @Component({
   selector: 'app-go-nogo',
   templateUrl: './go-nogo.component.html',
   styleUrls: ['./go-nogo.component.scss'],
 })
-export class GoNogoComponent implements OnInit, Exit {
+export class GoNogoComponent implements OnInit, Exit ,OnDestroy{
 
   click = '../../../../assets/pictures/112.jpg';
   dontclick ='../../../../assets/pictures/111.jpg';
-  clickNow: any;
+  clickNow= false;
   startdate: any;
   starttime: any;
   clicked = false;
@@ -25,6 +26,13 @@ export class GoNogoComponent implements OnInit, Exit {
   showstartbtn=false;
   korte = true;
   clickcount = 0;
+  detectclick= false;
+  rnd: any;
+  mimi=0;
+  mimi2 =0;
+  variable: any;
+  variable2: any;
+  variable3: any;
 
   constructor(private resService: ResultService) { }
 
@@ -39,16 +47,39 @@ export class GoNogoComponent implements OnInit, Exit {
   }
   };
 
+
   startbtnhide(){
     this.showstartbtn=!this.showstartbtn;
+      this.variable = setInterval(() =>{
+        this.clickNow=false;
+        this.mimi2=0;
+        this.variable3=setInterval(() =>{
+          this.clickNow=true;
+          if (++this.mimi === 1) {
+            window.clearInterval(this.variable3);
+        }
+        },500);
+        //this.clickNow=3;
+        //this.rnd= Math.random() < 0.7;
+        /*if(this.rnd === true){
+          this.green();
+        }
+        else{
+          this.red();
+        }*/
+        if (++this.mimi === 5) {
+            window.clearInterval(this.variable);
+            this.endGame();
+        }
+      }, 2000); //repeat every 2s
   }
 
   green(){
-    this.clickNow=true;
-
+    //this.clickNow=true;
   }
+
   red(){
-    this.clickNow=false;
+    //this.clickNow=false;
   }
 
   endGame(){
@@ -62,8 +93,8 @@ export class GoNogoComponent implements OnInit, Exit {
     this.starttime =this.startdate.getTime();
     this.times.push(this.starttime);
     console.log(this.times);
-    const rnd= Math.random() < 0.7;
-    if(rnd === true){
+    this.rnd= Math.random() < 0.7;
+    if(this.rnd === true){
       this.green();
     }
     else{
@@ -71,12 +102,22 @@ export class GoNogoComponent implements OnInit, Exit {
     }
   }
 
-  func(){
-    this.startttttt = !this.startttttt;
-    if(!this.startttttt){
 
-    }
+  valamihathajo(){
+        //this.green();
+          // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+        document.getElementById('green').style.display ='none'; //displaying the button again after 3000ms or 3 seconds*/
+        setTimeout(() => {
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+          document.getElementById('green').style.display ='inline'; //displaying the button again after 3000ms or 3 seconds
+        },2000);
+
   }
+  stopInterval(){
+    clearInterval(this.variable);
+  }
+
+
 
   myFunction()
   {
@@ -91,21 +132,24 @@ export class GoNogoComponent implements OnInit, Exit {
   },1000);
   }
 
+
+
   timeTracking(){
     this.starttime=0;
-      this.startdate=0;
-      this.startdate =new Date();
-      this.starttime =this.startdate.getTime();
-      this.times.push(this.starttime);
-      this.lastElement = this.times[this.times.length - 1];
-      this.beforelastElement = this.times[this.times.length - 2];
-      this.avg= this.lastElement - this.beforelastElement;
-      this.average.push(this.avg);
-      console.log('Average: '+this.average);
+    this.startdate=0;
+    this.startdate =new Date();
+    this.starttime =this.startdate.getTime();
+    this.times.push(this.starttime);
+    this.lastElement = this.times[this.times.length - 1];
+    this.beforelastElement = this.times[this.times.length - 2];
+    this.avg= this.lastElement - this.beforelastElement;
+    this.average.push(this.avg);
+    console.log('Average: '+this.average);
   }
 
 
   clickEvent(){
+      /*this.detectclick=true;
       this.clickcount++;
       if(this.clickcount > 10){
        this.endGame();
@@ -120,7 +164,17 @@ export class GoNogoComponent implements OnInit, Exit {
       else{
         this.red();
       }
-      console.log('times: '+this.times);
+      console.log('times: '+this.times);*/
+      if(this.rnd === true){
+        this.timeTracking();
+      } else if(this.rnd===false){
+        console.log('NEEEEEEEEEMSZABAAD');
+      }
     }
+
   //}
+
+  ngOnDestroy() {
+
+  }
 }

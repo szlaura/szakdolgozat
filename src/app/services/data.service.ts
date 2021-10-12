@@ -1,42 +1,102 @@
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Injectable } from '@angular/core';
-import { AngularFireModule } from '@angular/fire/compat';
-import { list } from '@angular/fire/database';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { Observable } from 'rxjs';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AuthService } from 'src/app/services/auth.service';
+import { AngularFireDatabase, AngularFireList, AngularFireObject  } from '@angular/fire/compat/database';
+import { collection, addDoc ,setDoc, getFirestore, getDocs, where, query, collectionGroup } from 'firebase/firestore';
 
-
-export class WCST {
-  time: any;
-  right: any;
-  wrong: any;
-}
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  items: Observable<WCST[]> = null;
-  userid: any;
-
-  constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth, private afs: AngularFirestore ) {
-    this.afAuth.authState.subscribe(user => {
-      if(user) {this.userid = user.uid;}
-    });
-   }
-
-   async add(collectionName: string, data: any, id?: string): Promise<string> {
-    const uid = id ? id : this.afs.createId();
-    data.id = uid;
-    await this.afs.collection(collectionName).doc(uid).set(data);
-    return uid;
+  iduser: any;
+  db = getFirestore();
+  wcstarray = [];
+  constructor(private service: AuthService) {
+    this.iduser = this.service.currentUserId;
   }
 
-   getItemList(): any{
-    if(!this.userid) {return;}
-    //this.items = this.db.list(`items/${this.userid}`);
-    return this.items;
-   }
+  async getWcst(array: any){
+    const wcsts = query(collection(this.db, 'wcst'), where('usersid', '==', this.iduser));
+    const quesrySnapshot = await getDocs(wcsts);
+    quesrySnapshot.forEach((doc) => {
+      // eslint-disable-next-line @typescript-eslint/quotes
+      console.log(doc.id, " => ", doc.data());
+      array.push(doc.data());
+    });
+  }
+
+  /*addResult(game: Game){
+    this.gamesRef.push({
+      user: game.user,
+      time: game.time,
+      right: game.right,
+      wrong: game.wrong
+    }).catch(error => {
+      this.errorMgmt(error);
+    });
+  }*/
+
+  /*add(asdd: any){
+     push(ref(this.databaseRef, 'games-list'), asdd);
+  }
+
+  getGame(id: string) {
+    this.gameRef = this.db.object('games-list/' + id);
+    return this.gameRef;
+  }
+
+  /* Get book list */
+  /*getGamesList() {
+    this.gamesRef = this.db.list('games-list');
+    return this.gamesRef;
+  }
+
+  private errorMgmt(error: any) {
+    console.log(error);
+  }*/
+
+  async addWCST(good: number, bad: number, timee: number){
+    const ref = collection(this.db, 'wcst');
+
+    const docRef = await addDoc(
+      ref, {
+        usersid: this.iduser,
+        right: good,
+        wrong: bad,
+        time: timee
+      }
+    );
+
+  }
+  async addIOWA(won: number, lost: number,all: number, timee: number){
+    const ref = collection(this.db, 'iowa');
+
+    const docRef = await addDoc(
+      ref, {
+        usersid: this.iduser,
+        wonmoney: won,
+        lostmoney: lost,
+        allmoney: all,
+        time: timee
+      }
+    );
+
+  }
+
+  async addGonogo(good: number, bad: number, timee: number){
+    const ref = collection(this.db, 'go-nogo');
+
+    const docRef = await addDoc(
+      ref, {
+        usersid: this.iduser,
+        avgreacttime: good,
+        goodclick: bad,
+        wrongclick: timee
+      }
+    );
+
+  }
+
+
 }

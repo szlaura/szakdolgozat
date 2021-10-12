@@ -1,11 +1,19 @@
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Injectable } from '@angular/core';
 
+
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
-    constructor(private afAuth: AngularFireAuth) { }
+
+  authState: any = null;
+
+    constructor(private afAuth: AngularFireAuth) {
+      this.afAuth.authState.subscribe( authState => {
+        this.authState = authState;
+      });
+     }
 
     async logout(): Promise<void> {
         await this.afAuth.signOut();
@@ -30,6 +38,10 @@ export class AuthService {
 
     signinAsAGusedt(): Promise<any>{
       return this.afAuth.signInAnonymously();
+    }
+
+    get currentUserId(): string {
+      return this.authenticated ? this.authState.uid : null;
     }
 
 }

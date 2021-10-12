@@ -1,3 +1,6 @@
+import { SoundService } from './../../../services/sound.service';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { DataService } from './../../../services/data.service';
 import { Exit } from './../../../shared/guards/exitgame.guard';
 import { RigthorwrongComponent } from './modal/rigthorwrong/rigthorwrong.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -13,6 +16,7 @@ export class WcstComponent implements OnInit, Exit{
 
   @ViewChild(RigthorwrongComponent) rightorwrong: any;
 
+
   cards = ['111', '112', '113', '114', '121', '122', '123', '124', '131', '132', '133', '134', '141', '142', '143', '144'];
   //'211', '212', '213', '214', '221', '222', '223', '224', '231', '232', '233', '234', '241', '242', '243', '244',
   //'311', '312', '313', '314', '321', '322', '323', '324', '331', '332', '333', '334', '341', '342', '343', '344',
@@ -24,6 +28,7 @@ export class WcstComponent implements OnInit, Exit{
   variable2='222';
   variable3='334';
   variable4='443';
+
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   randomkartya = <HTMLInputElement> document.getElementById('btn');
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
@@ -50,16 +55,13 @@ export class WcstComponent implements OnInit, Exit{
   clicked=false;
   ishidden = true;
   randomnumber: any;
-  kinti: any;
   interval: any;
-  gameTIme: any;
+  gameTime: any;
   st: any;
   nd: any;
 
-  //time = this.currntTime.getHours() + ':' + this.currntTime.getMinutes() + ':' + this.currntTime.getSeconds();
 
-
-  constructor(public modalService: ResultService) { }
+  constructor(public modalService: ResultService, private dataService: DataService, private soundService: SoundService) { }
 
 
   ngOnInit() {
@@ -71,40 +73,45 @@ export class WcstComponent implements OnInit, Exit{
 
 canExit(): boolean | Observable<boolean> | Promise<boolean>{
   if(this.korte === false){
-    return confirm('Do you wanna go?');
+    return confirm('Biztosan kilépsz?');
   } else{
   return true;
 }
 };
 
+proba(){
+  //this.dataService.getWcst();
+}
+
 
 starttimer(){
   const startTime = new Date();
-  this.st=startTime;
+  this.st=startTime.getTime();
 }
 
 endtimer(){
   const endTime = new Date();
-  this.nd=endTime;
+  this.nd=endTime.getTime();
   this.korte=true;
+  this.countTime();
 }
 
+
 countTime(){
-  //const gameTime= this.nd-this.st;
-  //return gameTime;
-  this.gameTIme = this.nd-this.st;
-  console.log(this.gameTIme);
+  this.gameTime = this.nd-this.st;
+  console.log('Time'+this.gameTime);
 }
+
 
 randomNoRepeats(array: any) {
   const copy = array.slice(0);
-  this.kinti=copy; //holnapra
+
   return function() {
     if (copy.length < 1) {
       console.log('Elfogyott');
-      this.modalService.presentModal();
       this.endtimer();
-      this.countTime();
+      this.dataService.addWCST(this.right, this.wrong, this.gameTime);
+      this.modalService.presentModal();
       return 0;
       /*copy = array.slice(0);*/ }
     const index = Math.floor(Math.random() * copy.length);
@@ -120,14 +127,15 @@ randomNoRepeats(array: any) {
 }
 
 
+
 public jovalasz(){
-  //alert('Jo a valasz');
+  this.soundService.playAudio('../../../../assets/audio/right.wav');
   this.rightorwrong.showAlert('Jo valasz', `<img src="../../../../assets/pictures/rightanswer.png">`);
   this.choos();
 }
 
 public rosszvalasz(){
-  //alert('Rossz a valasz');
+  this.soundService.playAudio('../../../../assets/audio/wrong.mp3');
   this.rightorwrong.showAlert('Rossz valasz', `<img src="../../../../assets/pictures/wronganswer.png">`);
   this.choos();
 }
@@ -187,7 +195,6 @@ public chooseEset(event2: string){
 
   switch(whichcase) {
     case 0: //szam alapjan
-      //console.log('Kivalaszottam a szin szerinti caset'+event2);
       this.chooseByNumber(event2);
       break;
     case 1: //szin alapjan
@@ -199,9 +206,6 @@ public chooseEset(event2: string){
   }
 }
 
-hanyatNyomottrosszul(){
-  this.alma = this.wrong;
-}
 
 countRight(){
   this.right++;
@@ -217,7 +221,7 @@ clickie(){
   this.korte=!this.korte;
 }
 
-randomEset(array: any) {
+/*randomEset(array: any) {
   const copy = array.slice(0);
   return function() {
     if (copy.length < 1) {
@@ -228,6 +232,6 @@ randomEset(array: any) {
     copy.splice(index, 1);
     return item;
   };
-}
+}*/
 
 }

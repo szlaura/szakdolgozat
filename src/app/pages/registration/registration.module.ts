@@ -1,3 +1,4 @@
+import { IonicModule } from '@ionic/angular';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -13,7 +14,7 @@ import { RegistrationComponent } from './registration.component';
   declarations: [RegistrationComponent],
   imports: [
     CommonModule, FormsModule, ReactiveFormsModule, RegistrationRoutingModule, MatCardModule, MatButtonModule,
-    MatFormFieldModule, MatInputModule, MatChipsModule
+    MatFormFieldModule, MatInputModule, MatChipsModule, IonicModule
   ]
 })
 export class RegistrationModule { }

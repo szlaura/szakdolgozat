@@ -1,18 +1,19 @@
-import { StatisticsComponent } from './statistics.component';
+import { IowaStatComponent } from './iowa-stat.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    component: StatisticsComponent,
-    data: { title: 'Statistics' }
+    component: IowaStatComponent,
+    data: { title: 'IOWA Statistics' }
   }
 ];
 
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class StatsticsRoutingModule { }
+
+export class IowaStatRoutingModule { }

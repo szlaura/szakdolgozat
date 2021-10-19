@@ -6,10 +6,10 @@
       <ion-label> Tartozás: {{currentMoney}}</ion-label>
     </ion-chip>
     <ion-chip [hidden]=korte color="success">
-      <ion-label> Nyeremenx: {{wonMoney}}</ion-label>
+      <ion-label> Nyeremény: {{wonMoney}}</ion-label>
     </ion-chip>
     <ion-chip [hidden]=korte color="danger">
-      <ion-label> Veszteseg: {{lostMoney}}</ion-label>
+      <ion-label> Veszteség: {{lostMoney}}</ion-label>
     </ion-chip>
     <ion-chip [hidden]=korte>
       <ion-label> A: {{valueA}}</ion-label>
@@ -24,9 +24,9 @@
       <ion-label> D: {{valueD}}</ion-label>
     </ion-chip>
   <div [hidden]=korte id="content">
-    <div class="card"  id="A" (click)="clickieCard('A')"> <img src="../../../../assets/pictures/222.jpg"></div>
-    <div class="card"  id="B" (click)="clickieCard('B')"> <img src="../../../../assets/pictures/222.jpg"></div>
-    <div class="card"  id="C" (click)="clickieCard('C')"> <img src="../../../../assets/pictures/222.jpg"></div>
-    <div class="card"  id="D" (click)="clickieCard('D')"> <img src="../../../../assets/pictures/222.jpg"></div>
+    <div class="card"  id="A" (click)="clickieCard('A')"> <img src="../../../../assets/pictures/bluecard.png"></div>
+    <div class="card"  id="B" (click)="clickieCard('B')"> <img src="../../../../assets/pictures/redcard.png"></div>
+    <div class="card"  id="C" (click)="clickieCard('C')"> <img src="../../../../assets/pictures/bluecard.png"></div>
+    <div class="card"  id="D" (click)="clickieCard('D')"> <img src="../../../../assets/pictures/redcard.png"></div>
   </div>
   </ion-content>

@@ -1,4 +1,4 @@
-<ion-content>
+<!-- <ion-content>
   <ion-card class="log-card">
     <form [formGroup]="form" (ngSubmit)="login()">
       <h3>Login</h3>
@@ -20,7 +20,28 @@
       <br>
       <ion-button (click)="navTo('/registration')">Regisztráció</ion-button>
       <br>
-      <!-- <ion-button (click)="signAnonymus()">Guest</ion-button> -->
-    </form>
+      <ion-button (click)="signAnonymus()">Guest</ion-button> -->
+    <!-- </form>
   </ion-card>
-</ion-content>
+</ion-content>  -->
+
+<div class="centering">
+  <mat-card class="log-card">
+    <form  [formGroup]="form" (ngSubmit)="login()">
+      <h1>Bejelentkezés</h1>
+      <mat-form-field class="form">
+        <mat-label>E-mail</mat-label>
+        <input class= "input" type="email" name="email" matInput placeholder="Pl. vicc.elek@email.com" formControlName="email">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="form">
+        <mat-label>Jelszó</mat-label>
+        <input class= "input" type="password" name="password" matInput minlength="6" placeholder="Jelszó" formControlName="password">
+      </mat-form-field>
+      <mat-card id="alertCard" class="alert" *ngIf="alertMessage"> {{alertMessage}} </mat-card>
+      <div class="btn"><button type="submit" mat-raised-button class="max-width" [disabled]="form.invalid">Bejelentkezés</button></div>
+      <div class="btn"><button mat-raised-button [routerLink]="[ '/welcome' ]">Kezdőoldal</button></div>
+    </form>
+  </mat-card>
+</div>
+

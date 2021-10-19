@@ -1,13 +1,15 @@
 <ion-content id="background-content">
+  <ion-img src="../../../../assets/pictures/thinking-removebg-preview.png" alt=""></ion-img>
+  <ion-title>CogSkills</ion-title>
   <ion-card>
     <ion-item >
-      <ion-button class="center-button" (click)="navTo('/login')">Bejelentkezés</ion-button>
+      <ion-button (click)="navTo('/login')">Bejelentkezés</ion-button>
     </ion-item>
     <ion-item>
-      <ion-button class="center-button" (click)="navTo('/registration')">Regisztráció</ion-button>
+      <ion-button (click)="navTo('/registration')">Regisztráció</ion-button>
     </ion-item>
     <ion-item>
-      <ion-button class="center-button" (click)="signAnonymus()">Vendég</ion-button>
+      <ion-button (click)="signAnonymus()">Vendég</ion-button>
     </ion-item>
   </ion-card>
 </ion-content>

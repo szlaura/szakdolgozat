@@ -1,11 +1,47 @@
 .alert {
   text-align: center;
-  margin: 16px -16px;
-  color: rgb(185, 53, 36);
+  color: black;
   background-color: rgb(245, 219, 215);
   border: 1px solid rgb(245, 176, 182);
   border-radius: 0;
   height: 50px;
-  line-height: 50px;
+  width: 100%;
   box-shadow: none;
+}
+
+.centering {
+  margin-top: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+mat-form-field {
+  width: 90%;
+}
+
+.btn {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+button {
+  margin-left: 15%;
+  margin-right: 10%;
+  width: 70%;
+  height: 100%;
+  font-size: large;
+  padding: 0px;
+}
+
+.form {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+h1 {
+  text-align: center;
+}
+
+.log-card {
+  background-color: #6c648b;
 }

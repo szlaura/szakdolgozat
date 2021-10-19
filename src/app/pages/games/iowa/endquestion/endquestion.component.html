@@ -3,22 +3,22 @@
   <ion-item>Melyik kártával szerezted a legtöbb pénzt? </ion-item>
   <ion-item >
     <ion-label>A kártya</ion-label>
-    <ion-radio (ionFocus)="valueHandler(valueA)" id="A" slot="end" value=valueA></ion-radio>
+    <ion-radio color="secondary" (ionFocus)="valueHandler(valueA)" id="A" slot="end" value=valueA></ion-radio>
   </ion-item>
   <ion-item>
     <ion-label>B kártya</ion-label>
-    <ion-radio (ionFocus)="valueHandler(valueB)" id="B" slot="end" value=valueB></ion-radio>
+    <ion-radio color="secondary" (ionFocus)="valueHandler(valueB)" id="B" slot="end" value=valueB></ion-radio>
   </ion-item>
   <ion-item>
     <ion-label>C kártya</ion-label>
-    <ion-radio (ionFocus)="valueHandler(valueC)" id="C" slot="end" value=valueC ></ion-radio>
+    <ion-radio color="secondary"(ionFocus)="valueHandler(valueC)" id="C" slot="end" value=valueC ></ion-radio>
   </ion-item>
   <ion-item>
     <ion-label>D kártya</ion-label>
-    <ion-radio (ionFocus)="valueHandler(valueD)" id="chboxD" slot="end" value=valueD ></ion-radio>
+    <ion-radio color="secondary" (ionFocus)="valueHandler(valueD)" id="chboxD" slot="end" value=valueD ></ion-radio>
   </ion-item>
 </ion-radio-group>
-  <ion-button (click)="check()">Ellenőrzés</ion-button>
+  <ion-button color="secondary" (click)="check()">Ellenőrzés</ion-button>
 </ion-card>
 <ion-card *ngIf="isShown">
   <ion-item [hidden]="!rightAnswer">
@@ -27,7 +27,7 @@
   <ion-item>
     <ion-label [hidden]="rightAnswer">Helytelen</ion-label>
   </ion-item>
-<ion-button (click)="showResult()">Eredmény</ion-button>
+<ion-button color="secondary" (click)="showResult()">Eredmény</ion-button>
 </ion-card>
 
 

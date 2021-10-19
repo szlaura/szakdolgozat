@@ -42,8 +42,10 @@ export class IowaComponent implements OnInit, Exit{
   valueC = 0;
   valueD = 0;
   gameTime: any;
+  startTime: any;
   st: any;
   nd: any;
+  fillDate: any;
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   content = <HTMLInputElement> document.getElementById('content');
    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
@@ -62,7 +64,16 @@ export class IowaComponent implements OnInit, Exit{
     //this.separateArrays(this.arrayCards);
     console.log('Array: ' +this.arrayCards[0]+','+this.arrayCards[1]+','+this.arrayCards[2]+','+this.arrayCards[3]);
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.showstartbtn=false;
+    this.startMoney = -2000;
+    this.wonMoney = 0;
+    this.lostMoney=0;
+    this.valueA = 0;
+    this.valueB = 0;
+    this.valueC = 0;
+    this.valueD = 0;
+  }
 
   canExit(): boolean | Observable<boolean> | Promise<boolean>{
     if(this.korte === false){
@@ -73,8 +84,9 @@ export class IowaComponent implements OnInit, Exit{
   };
 
   starttimer(){
-    const startTime = new Date();
-    this.st=startTime.getTime();
+    this.startTime = new Date();
+    this.st=this.startTime.getTime();
+    this.fillDate= new Date();
   }
   endtimer(){
     const endTime = new Date();
@@ -201,7 +213,7 @@ export class IowaComponent implements OnInit, Exit{
     if(this.clickCount === 15){
       this.endtimer();
       this.gameEnd();
-      this.dataservice.addIOWA(this.wonMoney, this.lostMoney, this.currentMoney, this.gameTime);
+      this.dataservice.addIOWA(this.wonMoney, this.lostMoney, this.currentMoney, this.gameTime, this.fillDate);
     }
     this.cardClicked=!this.cardClicked;
     //console.log('Kartya klikkelve'+this.cardClicked);

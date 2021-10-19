@@ -1,3 +1,4 @@
+import { StatisticsComponent } from './../statistics/statistics.component';
 import { AuthGuard } from 'src/app/shared/guards/auth.guard';
 import { HomeComponent } from './home.component';
 import { NgModule } from '@angular/core';
@@ -17,7 +18,6 @@ const routes: Routes = [
           {
             path: 'iowa',
             loadChildren: () => import('./../games/iowa/iowa.module').then(m => m.IowaModule),
-
           },
           {
             path: 'wcst',
@@ -32,13 +32,17 @@ const routes: Routes = [
             loadChildren: () => import('./../statistics/statistics.module').then(m => m.StatisticsModule),
           },
           {
-            path: 'profile',
-            loadChildren: () => import('./../profile/profile.module').then(m => m.ProfileModule),
+            path: 'statwcst',
+            loadChildren: () => import('./../statistics/wcst-stat/wcst-stat.module').then(m => m.WcstStatModule),
           },
           {
-            path: 'settings',
-            loadChildren: () => import('./../settings/settings.module').then(m => m.SettingsModule),
+            path: 'statiowa',
+            loadChildren: () => import('./../statistics/iowa-stat/iowa-stat.module').then(m => m.IowaStatModule),
           },
+          {
+            path: 'profile',
+            loadChildren: () => import('./../profile/profile.module').then(m => m.ProfileModule),
+          }
 
         ],
         canActivateChild: [AuthGuard]

@@ -1,7 +1,7 @@
 import { AuthService } from 'src/app/services/auth.service';
 import { StartgameComponent } from './../../shared/components/startgame/startgame/startgame.component';
 import { StartnavService } from './../../services/startnav.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { stringify } from 'querystring';
 
@@ -10,7 +10,7 @@ import { stringify } from 'querystring';
   templateUrl: './splash-screen.component.html',
   styleUrls: ['./splash-screen.component.scss']
 })
-export class SplashScreenComponent {
+export class SplashScreenComponent implements OnInit{
 
   title: string;
   descript: string;
@@ -18,7 +18,10 @@ export class SplashScreenComponent {
   iduser: any;
 
   constructor(public introService: StartnavService, public modal: ModalController, public service: AuthService) {
-   this.iduser = this.service.currentUserId;
+
+  }
+  ngOnInit(): void {
+    this.iduser = this.service.currentUserId;
   }
 
   openIntro(){

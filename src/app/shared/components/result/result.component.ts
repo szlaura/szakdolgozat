@@ -14,6 +14,7 @@ export class ResultComponent implements OnInit {
 
   message: any;
   ans: any;
+  wcst=[];
 
   constructor(private modalCtrl: ModalController, private res: ResultService, private router: Router, private dataService: DataService) { }
 

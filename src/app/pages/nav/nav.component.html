@@ -1,18 +1,3 @@
-<!-- <mat-toolbar color="primary">
-<mat-toolbar-row>
-  <a mat-button (click)="navigate('home')" [routerLink]="[ '/home/splash' ]">Főoldal</a>
-  <a mat-button (click)="navigate('home')" [routerLink]="[ '/home/iowa' ]">Iowa</a>
-  <a mat-button (click)="navigate('home')"[routerLink]="[ '/home/wcst' ]">WCST</a>
-
-<span style="flex: 1 1;"></span>
-<button mat-button style="float: right;" [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item (click)="logout()"><mat-icon>arrow_back</mat-icon>
-    <span>Log out</span></button>
-</mat-menu>
-</mat-toolbar-row>
-</mat-toolbar> -->
-
 <ion-menu side="end" menuId="first" contentId="main">
   <ion-header>
     <ion-toolbar color="primary">
@@ -21,11 +6,10 @@
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item (click)="closeMenu()" [routerLink]="[ '/home/splash' ]">Games</ion-item>
-      <ion-item (click)="closeMenu()" [routerLink]="[ '/home/statistics' ]">Statistics</ion-item>
-      <ion-item (click)="closeMenu()"[routerLink]="[ '/home/profile' ]">Profile</ion-item>
-      <ion-item (click)="closeMenu()"[routerLink]="[ '/home/settings' ]">Settings</ion-item>
-      <ion-item button (click)="logout(); closeMenu()">Log out</ion-item>
+      <ion-item (click)="closeMenu()" [routerLink]="[ '/home/splash' ]">Játékok</ion-item>
+      <ion-item (click)="closeMenu()" [routerLink]="[ '/home/statistics' ]">Statisztikák</ion-item>
+      <ion-item (click)="closeMenu()"[routerLink]="[ '/home/profile' ]">Profil</ion-item>
+      <ion-item button (click)="logout(); closeMenu()">Kijelentkezés</ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>

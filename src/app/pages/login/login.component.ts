@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   });
   alertMessage = '';
   alertsList: any = {
-    user: () => 'Hibás E-mail cím vagy jelszó.',
+    user: () => 'Hibás e-mail cím vagy jelszó.',
     server: () => 'A szolgáltatás nem elérhető.',
     false: () => ''
   };
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
     }
     this.authService.login(this.form.value.email, this.form.value.password).then(
       result => {
-        //console.log(result);
+        console.log(result);
         this.navTo('/home');
       },
       (error) => {

@@ -1,8 +1,35 @@
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { AngularFireDatabase, AngularFireList, AngularFireObject  } from '@angular/fire/compat/database';
-import { collection, addDoc ,setDoc, getFirestore, getDocs, where, query, collectionGroup } from 'firebase/firestore';
+import { collection, addDoc, getFirestore} from 'firebase/firestore';
+import { AngularFirestore, CollectionReference, Query} from '@angular/fire/compat/firestore';
+import { map } from 'rxjs/operators';
+//import { CollectionReference, Query } from '@angular/fire/firestore';
 
+export interface WCST {
+  right: number;
+  wrong: number;
+  usersid: string;
+  time: number;
+  date: any;
+}
+export interface IOWA {
+  usersid: string;
+  wonmoney: number;
+  lostmoney: number;
+  allmoney: number;
+  time: number;
+  date: any;
+
+}
+
+export interface GoNoGo {
+  right: number;
+  wrong: number;
+  avgreacttime: number;
+  usersid: string;
+  date: any;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -11,19 +38,32 @@ export class DataService {
 
   iduser: any;
   db = getFirestore();
-  wcstarray = [];
-  constructor(private service: AuthService) {
+  //wcstarray = [];
+  //asdarayy: Observable<any[]>;
+  constructor(private service: AuthService, private afs: AngularFirestore) {
     this.iduser = this.service.currentUserId;
   }
 
-  async getWcst(array: any){
-    const wcsts = query(collection(this.db, 'wcst'), where('usersid', '==', this.iduser));
-    const quesrySnapshot = await getDocs(wcsts);
-    quesrySnapshot.forEach((doc) => {
-      // eslint-disable-next-line @typescript-eslint/quotes
-      console.log(doc.id, " => ", doc.data());
-      array.push(doc.data());
-    });
+  get(id: any, dbname: string, order: string): Observable<any[]> {
+    return this.afs.collection(dbname, ref => {
+      let que: CollectionReference | Query = ref;
+      que = que.orderBy(order, 'desc').where('usersid','==', id);
+      return que;
+    }).valueChanges() as Observable<any[]>;
+  }
+
+  getItem(): Observable<WCST> {
+    const collect = this.afs.collection<WCST>('wcst', ref => ref.where('usersid', '==', this.iduser));
+    const userasd = collect
+    .valueChanges()
+    .pipe( map(users => {
+        const user = users[0];
+        console.log(user);
+        return user;
+      })
+    );
+
+  return userasd;
   }
 
   /*addResult(game: Game){
@@ -56,7 +96,7 @@ export class DataService {
     console.log(error);
   }*/
 
-  async addWCST(good: number, bad: number, timee: number){
+  async addWCST(good: number, bad: number, timee: number, datee: any){
     const ref = collection(this.db, 'wcst');
 
     const docRef = await addDoc(
@@ -64,12 +104,13 @@ export class DataService {
         usersid: this.iduser,
         right: good,
         wrong: bad,
-        time: timee
+        time: timee,
+        date: datee
       }
     );
 
   }
-  async addIOWA(won: number, lost: number,all: number, timee: number){
+  async addIOWA(won: number, lost: number,all: number, timee: number, datee: any){
     const ref = collection(this.db, 'iowa');
 
     const docRef = await addDoc(
@@ -78,7 +119,8 @@ export class DataService {
         wonmoney: won,
         lostmoney: lost,
         allmoney: all,
-        time: timee
+        time: timee,
+        date: datee
       }
     );
 

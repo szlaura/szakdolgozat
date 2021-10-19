@@ -1,0 +1,40 @@
+<ion-content>
+  <ion-segment color="secondary">
+    <ion-segment-button checked (click)="iowaWonmoney()" value="A">
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button (click)="iowaLostmoney()" value="B">
+      <ion-icon name="close-circle-outline"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button (click)="iowaLoanEnd()" value="C">
+      <ion-icon name="cash-outline"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button (click)="iowaFIllDate()" value="D">
+      <ion-icon name="calendar-outline"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-card  *ngFor="let item of iowa | async">
+    <ion-card-header>
+      <ion-card-title>IOWA Gambling Eredmény</ion-card-title>
+    </ion-card-header>
+    <ion-item>
+      <ion-label>Nyeremény: {{item.wonmoney}}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Veszteség: {{item.lostmoney}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>usersid: {{item.usersid}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Kitöltési idő: {{msToTime(item.time)}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Össznyeremény: {{item.allmoney}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Dátum: {{item.date?.toDate() | date: 'yyyy.MM.dd. HH:mm:ss'}}</ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>

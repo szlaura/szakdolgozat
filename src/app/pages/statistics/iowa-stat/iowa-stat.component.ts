@@ -1,48 +1,43 @@
-import { Router, RouterModule } from '@angular/router';
-import { DataService, WCST, IOWA } from './../../services/data.service';
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
-
-
+import { DataService, IOWA } from 'src/app/services/data.service';
 
 @Component({
-  selector: 'app-statistics',
-  templateUrl: './statistics.component.html',
-  styleUrls: ['./statistics.component.scss'],
+  selector: 'app-iowa-stat',
+  templateUrl: './iowa-stat.component.html',
+  styleUrls: ['./iowa-stat.component.scss'],
 })
-export class StatisticsComponent implements OnInit {
+export class IowaStatComponent implements OnInit {
 
-  wcst=[];
-  //wcst=new Observable<any[]>();
   iowa: Observable<IOWA[]> | null = null;
   h: any;
   m: any;
   s: any;
-  asd: any;
-  msg: any;
-  ok= false;
-  ok2=false;
   iduser: any;
 
   constructor(private service: AuthService, private dataService: DataService) { }
 
   ngOnInit() {
-    //this.dataService.getWcst(this.wcst);
-    //this.asd = this.dataService.getAsd();
-      //his.asd = this.dataService.getItem();
-      this.iduser = this.service.currentUserId;
-      console.log('statpagere lepeskor:'+this.iduser);
+    this.iduser = this.service.currentUserId;
+    this.iowaWonmoney();
   }
 
-
-  iowashow(){
+  iowaWonmoney(){
     this.iowa = this.dataService.get(this.iduser, 'iowa','wonmoney');
-    this.ok2=true;
   }
 
+  iowaLostmoney(){
+    this.iowa = this.dataService.get(this.iduser, 'iowa','lostmoney');
+  }
 
+  iowaLoanEnd(){
+    this.iowa = this.dataService.get(this.iduser, 'iowa','allmoney');
+  }
+  iowaFIllDate(){
+    this.iowa = this.dataService.get(this.iduser, 'iowa','date');
+
+  }
 
   msToTime(duration: any) {
     const milliseconds = Math.floor((duration % 1000) / 100);
@@ -56,6 +51,5 @@ export class StatisticsComponent implements OnInit {
 
     return  minutes + ' p ' + seconds + ' mp ' + milliseconds + ' ms';
   }
-
 
 }

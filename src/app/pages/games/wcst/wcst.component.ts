@@ -59,6 +59,10 @@ export class WcstComponent implements OnInit, Exit{
   gameTime: any;
   st: any;
   nd: any;
+  h: any;
+  m: any;
+  s: any;
+  date: any;
 
 
   constructor(public modalService: ResultService, private dataService: DataService, private soundService: SoundService) { }
@@ -79,14 +83,12 @@ canExit(): boolean | Observable<boolean> | Promise<boolean>{
 }
 };
 
-proba(){
-  //this.dataService.getWcst();
-}
 
 
 starttimer(){
   const startTime = new Date();
   this.st=startTime.getTime();
+  this.date = new Date();
 }
 
 endtimer(){
@@ -110,7 +112,7 @@ randomNoRepeats(array: any) {
     if (copy.length < 1) {
       console.log('Elfogyott');
       this.endtimer();
-      this.dataService.addWCST(this.right, this.wrong, this.gameTime);
+      this.dataService.addWCST(this.right, this.wrong, this.gameTime, this.date);
       this.modalService.presentModal();
       return 0;
       /*copy = array.slice(0);*/ }
@@ -125,8 +127,6 @@ randomNoRepeats(array: any) {
     return item;
   };
 }
-
-
 
 public jovalasz(){
   this.soundService.playAudio('../../../../assets/audio/right.wav');

@@ -65,7 +65,6 @@ export class IowaComponent implements OnInit, Exit{
     console.log('Array: ' +this.arrayCards[0]+','+this.arrayCards[1]+','+this.arrayCards[2]+','+this.arrayCards[3]);
   }
   ngOnInit() {
-    this.showstartbtn=false;
     this.startMoney = -2000;
     this.wonMoney = 0;
     this.lostMoney=0;

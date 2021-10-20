@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { DataService } from './../../../services/data.service';
 import { ResultService } from './../../../services/result.service';
 import { ModalController } from '@ionic/angular';
@@ -12,19 +13,23 @@ import { Router } from '@angular/router';
 })
 export class ResultComponent implements OnInit {
 
-  message: any;
+  message: number;
+  alu: any;
+  alu2: any;
+  alu3: any;
   ans: any;
-  wcst=[];
+  h: any;
+  m: any;
+  s: any;
 
   constructor(private modalCtrl: ModalController, private res: ResultService, private router: Router, private dataService: DataService) { }
 
   ngOnInit() {
-    //this.dataService.getGamesList();
-    //console.log(this.dataService.getGamesList());
-    //this.message = this.dataService.getGame('M54oeP4kFriDjxZ17mkM');
-    /*this.res.getMessage().subscribe((message) =>{
-      this.message = message;
-    } );*/
+
+    this.res.getMessage().subscribe(data => {
+      this.alu = data.data;
+      this.alu2=data.data2;
+      this.alu3 = data.data3;});
   }
 
   async closemodal(){
@@ -37,6 +42,19 @@ export class ResultComponent implements OnInit {
 
   gotoSplash(){
     this.router.navigate(['/home/splash']);
+  }
+
+  msToTime(duration: any) {
+    const milliseconds = Math.floor((duration % 1000) / 100);
+    const seconds = Math.floor((duration / 1000) % 60);
+    const minutes = Math.floor((duration / (1000 * 60)) % 60);
+    const hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+    this.h = (hours < 10) ? '0' + hours : hours;
+    this.m = (minutes < 10) ? '0' + minutes : minutes;
+    this.s = (seconds < 10) ? '0' + seconds : seconds;
+
+    return  minutes + ' p ' + seconds + ' mp ' + milliseconds + ' ms';
   }
 
 

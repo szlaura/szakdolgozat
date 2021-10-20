@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
   declarations: [ResultComponent],
   imports: [
     CommonModule, IonicModule, RouterModule
-  ]
+  ],
+  exports: [ResultComponent]
 })
 export class ResultModule { }

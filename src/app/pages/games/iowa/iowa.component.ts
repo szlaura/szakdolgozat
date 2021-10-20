@@ -2,7 +2,7 @@ import { DataService } from './../../../services/data.service';
 import { Exit } from './../../../shared/guards/exitgame.guard';
 import { EndquestionComponent } from './endquestion/endquestion.component';
 import { ResultService } from './../../../services/result.service';
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import { Observable } from 'rxjs';
 
 
@@ -46,6 +46,7 @@ export class IowaComponent implements OnInit, Exit{
   st: any;
   nd: any;
   fillDate: any;
+  showstart = true;
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   content = <HTMLInputElement> document.getElementById('content');
    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
@@ -64,6 +65,14 @@ export class IowaComponent implements OnInit, Exit{
     //this.separateArrays(this.arrayCards);
     console.log('Array: ' +this.arrayCards[0]+','+this.arrayCards[1]+','+this.arrayCards[2]+','+this.arrayCards[3]);
   }
+  /*ngOnChanges(){
+    this.showstartbtn=this.showstartbtn;
+  }
+
+  ngOnDestroy() {
+   this.showstartbtn=this.showstartbtn;
+  }*/
+
   ngOnInit() {
     this.startMoney = -2000;
     this.wonMoney = 0;
@@ -76,7 +85,7 @@ export class IowaComponent implements OnInit, Exit{
 
   canExit(): boolean | Observable<boolean> | Promise<boolean>{
     if(this.korte === false){
-      return confirm('Do you wanna go?');;
+      return confirm('Biztosan kilépsz?');;
     } else{
     return true;
   }
@@ -193,6 +202,7 @@ export class IowaComponent implements OnInit, Exit{
     //this.modalService.setMessage('Almaaaa');
   }
 
+
   dialog(){
     this.modalService.presentModal();
     //this.enable=!this.enable;
@@ -212,6 +222,7 @@ export class IowaComponent implements OnInit, Exit{
     if(this.clickCount === 15){
       this.endtimer();
       this.gameEnd();
+      this.modalService.setMessage({data:this.wonMoney, data2: this.lostMoney, data3:this.gameTime});
       this.dataservice.addIOWA(this.wonMoney, this.lostMoney, this.currentMoney, this.gameTime, this.fillDate);
     }
     this.cardClicked=!this.cardClicked;

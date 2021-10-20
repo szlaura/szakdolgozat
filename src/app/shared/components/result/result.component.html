@@ -1,18 +1,18 @@
-<ion-content>
-  <ion-card>
+  <ion-content>
+ <ion-card >
     <ion-card-header>
       <ion-card-title>Eredmények</ion-card-title>
     </ion-card-header>
-    <ion-card-content>
-      Right {{this.message}}
-    </ion-card-content>
-    <ion-card-content>
-      Wrong {{this.message}}
-    </ion-card-content>
-    <ion-card-content>
-      Time {{this.message}}
-    </ion-card-content>
+    <ion-item>
+      Jó válasz: {{alu}}
+    </ion-item>
+    <ion-item>
+      Rossz Válasz: {{alu2}}
+    </ion-item>
+    <ion-item>
+      Idő: {{msToTime(alu3)}}
+    </ion-item>
   </ion-card>
-  <ion-button (click)="closemodal(); gotoSplash(); ">Kezőlap</ion-button>
-  <ion-button (click)="closemodal(); gotoStatics(); ">Statisztikák</ion-button>
-</ion-content>
+  <ion-button (click)="closemodal(); gotoSplash();">Kezőlap</ion-button>
+  <ion-button (click)="closemodal(); gotoStatics();">Statisztikák</ion-button>
+ </ion-content>

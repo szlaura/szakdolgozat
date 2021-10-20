@@ -10,9 +10,9 @@
       <ion-icon name="calendar-outline"></ion-icon>
     </ion-segment-button>
   </ion-segment>
-  <ion-card  *ngFor="let item of wcst | async">
+  <ion-card  *ngFor="let item of wcst | async ; let i = index">
     <ion-card-header>
-      <ion-card-title>Wisconsin Card Sorting Eredmény</ion-card-title>
+      <ion-card-title>Wisconsin Card Sorting Eredmény {{i+1}}</ion-card-title>
     </ion-card-header>
     <ion-item>
       <ion-label>Jó válasz: {{item.right}}</ion-label>

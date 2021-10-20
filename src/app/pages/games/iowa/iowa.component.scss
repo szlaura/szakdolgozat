@@ -32,11 +32,21 @@ img {
   border-radius: 25px;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1000px) {
   .card {
     border-radius: 10px;
   }
   img {
     border-radius: 10px;
+  }
+  .card {
+    box-sizing: border-box;
+    margin-right: 4%;
+    margin-top: 20px;
+    float: left;
+    width: 40%;
+    height: 40%;
+    background-color: none;
+    border-radius: 25px;
   }
 }

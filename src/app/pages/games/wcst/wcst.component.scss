@@ -36,18 +36,16 @@ ion-button {
   width: 220px;
   height: 220px;
   margin: 20px;
+  position: relative;
 }
 .randomcard {
   box-sizing: border-box;
-  width: 20%;
-  background-color: white;
-  -webkit-border-radius: 5px;
+  width: 220px;
+  height: 220px;
   border-radius: 5px;
-  -moz-box-shadow: 0 0 1px #bdbdbd;
-  -webkit-box-shadow: 0 0 10px #bdbdbd;
-  box-shadow: 0 0 1px #bdbdbd;
   margin-top: 25%;
   margin-left: 37%;
+  position: absolute;
 }
 img {
   max-width: 100%;
@@ -58,15 +56,70 @@ ion-content {
   overflow: hidden;
   --padding-top: 70px;
 }
-
-@media and and (max-widht: 700px) {
+@media (max-width: 1700px) {
   .card {
     box-sizing: border-box;
-    width: 20px;
-    height: 20px;
-    margin: 5px;
+    margin-right: 2%;
+    /*float: left;
+    width: 20%;
+    height: 20%;
+    background-color: white;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 0 1px #bdbdbd;
+    -webkit-box-shadow: 0 0 10px #bdbdbd;
+    box-shadow: 0 0 1px #bdbdbd;*/
+    box-sizing: border-box;
+    width: 220px;
+    height: 220px;
+    margin-top: 20px;
+    position: relative;
+  }
+  .randomcard {
+    box-sizing: border-box;
+    width: 220px;
+    height: 220px;
+    border-radius: 5px;
+    margin-top: 25%;
+    margin-left: 40%;
+    position: absolute;
   }
 }
+@media (max-width: 1000px) {
+  .card {
+    box-sizing: border-box;
+    margin-right: 4%;
+    margin-top: 20px;
+    float: left;
+    width: 220px;
+    height: 220px;
+    background-color: none;
+    border-radius: 25px;
+  }
+  .randomcard {
+    margin-top: 75%;
+  }
+}
+
+@media (max-width: 695px) {
+  .card {
+    box-sizing: border-box;
+    margin: 2%;
+    margin-top: 20px;
+    float: left;
+    width: 150px;
+    height: 150px;
+    background-color: none;
+    border-radius: 25px;
+  }
+  .randomcard {
+    margin-top: 95%;
+    width: 150px;
+    height: 150px;
+    margin-left: 30%;
+  }
+}
+
 /*@media and and (max-widht: 1200px) {
   .card {
     width: 40%;

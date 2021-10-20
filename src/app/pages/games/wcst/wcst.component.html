@@ -3,7 +3,7 @@
 <ion-title class="tit">Wisconsin Card Sorting Test </ion-title>
 <ion-button [disabled]="clicked" [hidden]=!korte (click)="clickie(); starttimer(); clicked = true;"> Start </ion-button>
 <app-startgame [hidden]=ishidden></app-startgame>
-    <ion-chip [hidden]=korte>
+    <!-- <ion-chip [hidden]=korte>
       <ion-label>{{hanynaltart}}</ion-label>
     </ion-chip>
     <ion-chip [hidden]=korte>
@@ -14,7 +14,7 @@
     </ion-chip>
     <ion-chip [hidden]=korte>
       <ion-label>Valtas utan rossz: {{valtasutanrossz}}</ion-label>
-    </ion-chip>
+    </ion-chip> -->
 
 <app-rigthorwrong></app-rigthorwrong>
 <div class="container" [hidden]=korte>
@@ -28,7 +28,6 @@
   <a id="334" (click)="chooseEset('334')" (click)="clickCount()"> <img src="../../../../assets/pictures/{{variable3}}.jpg"/></a>
   <a id="443"(click)="chooseEset('443')" (click)="clickCount()"> <img src="../../../../assets/pictures/{{variable4}}.jpg"/></a> -->
 </div>
-   <br>
 <div class="randomcard" [hidden]=korte> <img src="../../../../assets/pictures/{{kulonkartya}}.jpg"></div>
 
   <!-- <a> <img src="../../../../assets/pictures/{{kulonkartya}}.jpg" width="100" height="100"/></a> -->

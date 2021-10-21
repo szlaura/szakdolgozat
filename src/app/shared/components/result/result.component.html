@@ -1,5 +1,5 @@
   <ion-content>
- <ion-card >
+ <ion-card *ngIf="name==='wcst'">
     <ion-card-header>
       <ion-card-title>Eredmények</ion-card-title>
     </ion-card-header>
@@ -11,6 +11,17 @@
     </ion-item>
     <ion-item>
       Idő: {{msToTime(alu3)}}
+    </ion-item>
+  </ion-card>
+  <ion-card *ngIf="name==='iowa'">
+    <ion-card-header>
+      <ion-card-title>Eredmények</ion-card-title>
+    </ion-card-header>
+    <ion-item>
+      Össz pénz: {{alu}}
+    </ion-item>
+    <ion-item>
+      Idő: {{msToTime(alu2)}}
     </ion-item>
   </ion-card>
   <ion-button (click)="closemodal(); gotoSplash();">Kezőlap</ion-button>

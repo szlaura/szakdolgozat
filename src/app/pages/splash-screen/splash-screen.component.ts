@@ -1,3 +1,4 @@
+import { LoadingService } from './../../services/loading.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { StartgameComponent } from './../../shared/components/startgame/startgame/startgame.component';
 import { StartnavService } from './../../services/startnav.service';
@@ -17,7 +18,7 @@ export class SplashScreenComponent implements OnInit{
   rule: string;
   iduser: any;
 
-  constructor(public introService: StartnavService, public modal: ModalController, public service: AuthService) {
+  constructor(private introService: StartnavService, private modal: ModalController, private service: AuthService) {
 
   }
   ngOnInit(): void {

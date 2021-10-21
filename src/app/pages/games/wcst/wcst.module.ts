@@ -1,3 +1,4 @@
+import { ResultComponent } from './../../../shared/components/result/result.component';
 import { IonicModule } from '@ionic/angular';
 import { WcstRoutingModule } from './wcst-routing.module';
 import { NgModule } from '@angular/core';
@@ -7,7 +8,7 @@ import { RigthorwrongComponent } from './modal/rigthorwrong/rigthorwrong.compone
 import { StartgameModule } from './../../../shared/components/startgame/startgame/startgame.module';
 
 @NgModule({
-  declarations: [WcstComponent, RigthorwrongComponent],
+  declarations: [WcstComponent, RigthorwrongComponent, ResultComponent],
   imports: [
     CommonModule, WcstRoutingModule, IonicModule, StartgameModule
   ]

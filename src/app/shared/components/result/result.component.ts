@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { DataService } from './../../../services/data.service';
 import { ResultService } from './../../../services/result.service';
 import { ModalController } from '@ionic/angular';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -11,9 +11,10 @@ import { Router } from '@angular/router';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.scss'],
 })
-export class ResultComponent implements OnInit {
+export class ResultComponent implements OnInit, OnDestroy {
 
-  message: number;
+  message: any;
+  name: string;
   alu: any;
   alu2: any;
   alu3: any;
@@ -26,7 +27,8 @@ export class ResultComponent implements OnInit {
 
   ngOnInit() {
 
-    this.res.getMessage().subscribe(data => {
+    this.message = this.res.getData().subscribe(data => {
+      this.name = data.name;
       this.alu = data.data;
       this.alu2=data.data2;
       this.alu3 = data.data3;});
@@ -57,5 +59,9 @@ export class ResultComponent implements OnInit {
     return  minutes + ' p ' + seconds + ' mp ' + milliseconds + ' ms';
   }
 
+
+    ngOnDestroy() {
+      this.message.unsubscribe();
+  }
 
 }

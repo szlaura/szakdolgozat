@@ -13,8 +13,8 @@ export class Results {
 })
 export class ResultService {
 
-  private messageSource: BehaviorSubject<{data: number; data2: number; data3: any}>
-  = new BehaviorSubject<{data: number; data2: number; data3: any}>({data: 0, data2: 0, data3: 0});
+  private messageSource: BehaviorSubject<{name: string; data: number; data2?: any; data3?: any}>
+  = new BehaviorSubject<{name: string; data: number; data2?: any; data3?: any}>({name: '', data: 0, data2: 0, data3: 0});
 
   constructor(public modalController: ModalController) { }
 
@@ -27,11 +27,11 @@ export class ResultService {
     return await modal.present();
   }
 
-  setMessage(obj: any) {
-    return this.messageSource.next(obj ? obj : {data:0, data2: 0, data3: 0});
+  setData(obj: any) {
+    return this.messageSource.next(obj ? obj : {name:'', data:0, data2: 0, data3: 0});
   }
 
-  getMessage(): Observable<{data: number; data2: number; data3: any}> {
+  getData(): Observable<{name: string; data: number; data2?: number; data3?: any}> {
     return this.messageSource.asObservable();
   }
 

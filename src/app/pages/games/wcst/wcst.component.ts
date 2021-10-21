@@ -112,7 +112,7 @@ randomNoRepeats(array: any) {
     if (copy.length < 1) {
       console.log('Elfogyott');
       this.endtimer();
-      this.modalService.setMessage({data:this.right, data2: this.wrong, data3:this.gameTime});
+      this.modalService.setData({name:'wcst', data:this.right, data2: this.wrong, data3:this.gameTime});
       this.dataService.addWCST(this.right, this.wrong, this.gameTime, this.date);
       this.modalService.presentModal();
       return 0;

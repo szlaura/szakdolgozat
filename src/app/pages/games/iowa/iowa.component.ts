@@ -222,7 +222,7 @@ export class IowaComponent implements OnInit, Exit{
     if(this.clickCount === 15){
       this.endtimer();
       this.gameEnd();
-      this.modalService.setMessage({data:this.wonMoney, data2: this.lostMoney, data3:this.gameTime});
+      this.modalService.setData({name: 'iowa', data:this.currentMoney, data2:this.gameTime});
       this.dataservice.addIOWA(this.wonMoney, this.lostMoney, this.currentMoney, this.gameTime, this.fillDate);
     }
     this.cardClicked=!this.cardClicked;

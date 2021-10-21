@@ -20,6 +20,11 @@ ion-button {
   flex-flow: wrap;
 }
 
+img:active {
+  box-shadow: 0 5px black;
+  transform: translateY(4px);
+}
+
 .card {
   /*box-sizing: border-box;
   margin-right: 4%;

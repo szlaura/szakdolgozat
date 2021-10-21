@@ -232,4 +232,11 @@
 
     --ion-card-background: #1e1e1e;
   }
+
+  .myspinner {
+    --spinner-color: white;
+    --height: 30%;
+    --width: 30%;
+    opacity: 0.9;
+  }
 }

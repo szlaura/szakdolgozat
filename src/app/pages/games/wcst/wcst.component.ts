@@ -1,8 +1,8 @@
+import { RightorwrongService } from './../../../services/rightorwrong.service';
 import { SoundService } from './../../../services/sound.service';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { DataService } from './../../../services/data.service';
 import { Exit } from './../../../shared/guards/exitgame.guard';
-import { RigthorwrongComponent } from './modal/rigthorwrong/rigthorwrong.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ResultService } from './../../../services/result.service';
 import { Observable } from 'rxjs';
@@ -13,9 +13,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./wcst.component.scss']
 })
 export class WcstComponent implements OnInit, Exit{
-
-  @ViewChild(RigthorwrongComponent) rightorwrong: any;
-
 
 cards = ['111', '112', '113', '114'/*, '121', '122', '123', '124', '131', '132', '133', '134', '141', '142', '143', '144'*/];
   //'211', '212', '213', '214', '221', '222', '223', '224', '231', '232', '233', '234', '241', '242', '243', '244',
@@ -65,7 +62,8 @@ cards = ['111', '112', '113', '114'/*, '121', '122', '123', '124', '131', '132',
   date: any;
 
 
-  constructor(public modalService: ResultService, private dataService: DataService, private soundService: SoundService) { }
+  constructor(public modalService: ResultService, private dataService: DataService,
+    private soundService: SoundService, private rightorwrongService: RightorwrongService) { }
 
 
   ngOnInit() {
@@ -127,13 +125,13 @@ randomNoRepeats(array: any) {
 
  jovalasz(){
   this.soundService.playAudio('../../../../assets/audio/right.wav');
-  this.rightorwrong.showAlert('Jo valasz', `<img src="../../../../assets/pictures/rightanswer.png">`);
+  this.rightorwrongService.showAlert('Jo valasz', `<img src="../../../../assets/pictures/rightanswer.png">`);
   this.choos();
 }
 
  rosszvalasz(){
   this.soundService.playAudio('../../../../assets/audio/wrong.mp3');
-  this.rightorwrong.showAlert('Rossz valasz', `<img src="../../../../assets/pictures/wronganswer.png">`);
+  this.rightorwrongService.showAlert('Rossz valasz', `<img src="../../../../assets/pictures/wronganswer.png">`);
   this.choos();
 }
 

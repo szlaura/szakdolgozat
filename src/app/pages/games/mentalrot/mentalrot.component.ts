@@ -3,6 +3,8 @@ import { DataService } from './../../../services/data.service';
 import { Exit } from './../../../shared/guards/exitgame.guard';
 import { ResultService } from './../../../services/result.service';
 import { Observable } from 'rxjs';
+import { RightorwrongService } from 'src/app/services/rightorwrong.service';
+import { SoundService } from 'src/app/services/sound.service';
 
 
 @Component({
@@ -23,8 +25,12 @@ export class MentalrotComponent implements OnInit, Exit {
   variable1='alak1';
   variable2='alak2';
   variable3='alak3';
-  cases = ['1', '2', '3'];
-  choos = this.randomRepeats(this.cases);
+  cases = [1, 2, 3];
+  ranNums = [];
+  i = this.cases.length;
+  j = 0;
+  timetoend=false;
+  //choos = this.randomRepeats(this.cases);
     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     maincard = <HTMLInputElement> document.getElementById('main');
       // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
@@ -32,9 +38,11 @@ export class MentalrotComponent implements OnInit, Exit {
     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     rightcard = <HTMLInputElement> document.getElementById('right');
 
-  constructor() { }
+  constructor(private rightorwrongService: RightorwrongService, private soundService: SoundService, public resService: ResultService) {
+   }
 
   ngOnInit() {
+    this.solution();
   }
 
   canExit(): boolean | Observable<boolean> | Promise<boolean>{
@@ -68,13 +76,23 @@ export class MentalrotComponent implements OnInit, Exit {
   }
 
   right(){
-    alert('Helyeees');
+    this.soundService.playAudio('../../../../assets/audio/right.wav');
+    this.rightorwrongService.showAlert('Jo valasz', `<img src="../../../../assets/pictures/rightanswer.png">`);
     //this.choos();
+    if(this.timetoend === true){
+      this.resService.presentModal();
+    }
+    this.solution();
   }
 
   wrong(){
-    alert('Helyteleeen');
-    //this.choos();
+    this.soundService.playAudio('../../../../assets/audio/wrong.mp3');
+    this.rightorwrongService.showAlert('Rossz valasz', `<img src="../../../../assets/pictures/wronganswer.png">`);
+///this.choos();
+    if(this.timetoend === true){
+      this.resService.presentModal();
+    }
+    this.solution();
   }
   random(list: any){
      return list[Math.floor((Math.random()*list.length))];
@@ -92,13 +110,25 @@ export class MentalrotComponent implements OnInit, Exit {
       this.wrong();
     }
   }
+  shuffleArray(array: any) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
 
   solution(){
-     const rnd = this.random(this.cases);
+    this.shuffleArray(this.cases);
+    const rnd = this.cases.pop();
+    if(this.cases.length === 0){
+      this.timetoend = true;
+      //return 0;
+    }
+     //const rnd = this.random(this.cases);
      //const rnd = this.randomRepeats(this.cases);
      console.log(rnd);
      switch(rnd){
-       case '1':
+       case 1:
          this.variable1 = 'alak1';
          const what = this.randomInRange(0, 1);
          if(what === 0) {
@@ -113,7 +143,7 @@ export class MentalrotComponent implements OnInit, Exit {
          }
 
          break;
-       case '2':
+       case 2:
          this.variable1 = 'rbetu1';
          const what2 = this.randomInRange(0, 1);
          if(what2 === 0) {
@@ -127,7 +157,7 @@ export class MentalrotComponent implements OnInit, Exit {
           console.log('variables2: '+ this.variable2 +this.variable3);
          }
          break;
-       case '3':
+       case 3:
          this.variable1 = 'madar1';
          const what3 = this.randomInRange(0, 1);
          if(what3 === 0) {
@@ -144,7 +174,7 @@ export class MentalrotComponent implements OnInit, Exit {
      }
   }
 
-  randomRepeats(array: string[]) {
+  /*randomRepeats(array: string[]) {
     let copy = array.slice(0);
 
     return function() {
@@ -154,14 +184,14 @@ export class MentalrotComponent implements OnInit, Exit {
         /*this.modalService.setData({name:'wcst', data:this.right, data2: this.wrong, data3:this.gameTime});
         this.dataService.addWCST(this.right, this.wrong, this.gameTime, this.date);
         this.modalService.presentModal();*/
-        copy = array.slice(0);}
+       /* copy = array.slice(0);}
       const index = Math.floor(Math.random() * copy.length);
       const item = copy[index];
       copy.splice(index, 1);
       console.log(item);
-      //this.variable1=item;
+      this.variable1=item;
       //this.hanynaltart++;
       return item;
     };
-  }
+  }*/
 }

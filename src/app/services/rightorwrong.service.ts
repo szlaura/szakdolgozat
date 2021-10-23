@@ -1,19 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 
-@Component({
-  selector: 'app-rigthorwrong',
-  templateUrl: './rigthorwrong.component.html',
-  styleUrls: ['./rigthorwrong.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class RigthorwrongComponent implements OnInit {
+export class RightorwrongService {
 
   someTime = 1000;
 
   constructor(private alertCtrl: AlertController) { }
-
-  ngOnInit(): void {
-  }
 
   async showAlert(text: string, url: string) {
     const alert = await this.alertCtrl.create({
@@ -28,5 +23,6 @@ export class RigthorwrongComponent implements OnInit {
   }, this.someTime);
 
   };
+
 
 }

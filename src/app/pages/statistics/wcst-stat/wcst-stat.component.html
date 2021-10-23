@@ -1,12 +1,12 @@
 <ion-content>
-  <ion-segment color="secondary" >
-    <ion-segment-button checked (click)="wcstRight()">
+  <ion-segment color="secondary" value="right">
+    <ion-segment-button (click)="wcstRight()" value="right">
       <ion-icon name="checkmark-circle-outline"></ion-icon>
     </ion-segment-button>
-    <ion-segment-button (click)="wcstWrong()">
+    <ion-segment-button (click)="wcstWrong()" value="wrong">
       <ion-icon name="close-circle-outline"></ion-icon>
     </ion-segment-button>
-    <ion-segment-button (click)="wcstFillDate()">
+    <ion-segment-button (click)="wcstFillDate()" value="date">
       <ion-icon name="calendar-outline"></ion-icon>
     </ion-segment-button>
   </ion-segment>

@@ -83,8 +83,6 @@ canExit(): boolean | Observable<boolean> | Promise<boolean>{
 }
 };
 
-
-
 starttimer(){
   const startTime = new Date();
   this.st=startTime.getTime();
@@ -120,20 +118,20 @@ randomNoRepeats(array: any) {
     const index = Math.floor(Math.random() * copy.length);
     const item = copy[index];
     copy.splice(index, 1);
-    console.log(item);
+    console.log('Ittbezzegjo'+item);
     this.kulonkartya=item;
     this.hanynaltart++;
     return item;
   };
 }
 
-public jovalasz(){
+ jovalasz(){
   this.soundService.playAudio('../../../../assets/audio/right.wav');
   this.rightorwrong.showAlert('Jo valasz', `<img src="../../../../assets/pictures/rightanswer.png">`);
   this.choos();
 }
 
-public rosszvalasz(){
+ rosszvalasz(){
   this.soundService.playAudio('../../../../assets/audio/wrong.mp3');
   this.rightorwrong.showAlert('Rossz valasz', `<img src="../../../../assets/pictures/wronganswer.png">`);
   this.choos();
@@ -205,15 +203,14 @@ public chooseEset(event2: string){
   }
 }
 
-
 countRight(){
   this.right++;
-  console.log('Jo valasz: '+this.right);
+  //console.log('Jo valasz: '+this.right);
 }
 
 countWrong(){
   this.wrong++;
-  console.log('Rossz valasz: '+this.wrong);
+  //console.log('Rossz valasz: '+this.wrong);
 }
 
 clickie(){

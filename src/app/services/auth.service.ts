@@ -1,5 +1,7 @@
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Injectable } from '@angular/core';
+import * as firebase from 'firebase/compat';
+import { getAuth, updatePassword } from 'firebase/auth';
 
 
 @Injectable({
@@ -45,3 +47,4 @@ export class AuthService {
     }
 
 }
+

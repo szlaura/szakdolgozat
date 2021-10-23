@@ -46,11 +46,11 @@ export class SplashScreenComponent implements OnInit{
       this.rule = 'Minden körben válassz egy paklit, amellyel szerinted a legtöbbet nyerheted.';
       break;
 
-      case 'gonogo':
-        this.title= 'Go/Go-go Feladat';
-        this.descript = 'Felvillanó képekre kell kattintani, azonban bizonyos szabályokat be kell hozzá tartani.'+
-        ' A gyorsaságodra és a figyelmedre is szükséged lesz, A játék 10 percet vesz igénybe.';
-        this.rule = 'Nyomd meg a képernyőt/jobb egérgombot, amikor a zöld kép jelenik meg. Ne nyomj meg semmit, ha a fekete jelenik meg';
+      case 'mentalrotation':
+        this.title= 'Mental Rotation Feladat';
+        this.descript = 'Fel szabályokat be kell hozzá tartani.'+
+        '  A játék 10 percet vesz igénybe.';
+        this.rule = 'p meg';
         break;
   }
   this.sendValue(this.title, this.descript, this.rule);

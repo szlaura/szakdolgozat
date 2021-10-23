@@ -1,16 +1,16 @@
-import { GoNogoRoutingModule } from './go-nogo-routing.module';
 import { StartgameModule } from './../../../shared/components/startgame/startgame/startgame.module';
+import { MentalrotComponent } from './mentalrot.component';
+import { MentalrotRoutingModule } from './mentalrot-routing.module';
 import { IonicModule } from '@ionic/angular';
-import { GoNogoComponent } from './go-nogo.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
 
 @NgModule({
-  declarations: [GoNogoComponent],
+  declarations: [MentalrotComponent],
   imports: [
-    CommonModule, IonicModule, StartgameModule, GoNogoRoutingModule
+    CommonModule, IonicModule, MentalrotRoutingModule, StartgameModule
   ]
 })
-export class GoNogoModule { }
+export class MentalrotModule { }

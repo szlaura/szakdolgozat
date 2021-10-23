@@ -3,33 +3,8 @@ import { Injectable } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { collection, addDoc, getFirestore} from 'firebase/firestore';
 import { AngularFirestore, CollectionReference, Query} from '@angular/fire/compat/firestore';
-import { map } from 'rxjs/operators';
 //import { CollectionReference, Query } from '@angular/fire/firestore';
 
-export interface WCST {
-  right: number;
-  wrong: number;
-  usersid: string;
-  time: number;
-  date: any;
-}
-export interface IOWA {
-  usersid: string;
-  wonmoney: number;
-  lostmoney: number;
-  allmoney: number;
-  time: number;
-  date: any;
-
-}
-
-export interface GoNoGo {
-  right: number;
-  wrong: number;
-  avgreacttime: number;
-  usersid: string;
-  date: any;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -52,7 +27,7 @@ export class DataService {
     }).valueChanges() as Observable<any[]>;
   }
 
-  getItem(): Observable<WCST> {
+  /*getItem(): Observable<WCST> {
     const collect = this.afs.collection<WCST>('wcst', ref => ref.where('usersid', '==', this.iduser));
     const userasd = collect
     .valueChanges()
@@ -64,7 +39,7 @@ export class DataService {
     );
 
   return userasd;
-  }
+  }*/
 
   /*addResult(game: Game){
     this.gamesRef.push({
@@ -126,8 +101,8 @@ export class DataService {
 
   }
 
-  async addGonogo(good: number, bad: number, timee: number){
-    const ref = collection(this.db, 'go-nogo');
+  async addMentalrotation(good: number, bad: number, timee: number){
+    const ref = collection(this.db, 'mentalrotation');
 
     const docRef = await addDoc(
       ref, {

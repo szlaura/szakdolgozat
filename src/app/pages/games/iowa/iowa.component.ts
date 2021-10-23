@@ -18,7 +18,7 @@ export class IowaComponent implements OnInit, Exit{
 
   arrayCards = ['A', 'B', 'C', 'D'];
   arrayTwo = [];
-  startMoney = -2000;
+  startMoney = 2000;
   wonMoney = 0;
   lostMoney=0;
   randomBoolean = Math.random() < 0.5;
@@ -74,7 +74,7 @@ export class IowaComponent implements OnInit, Exit{
   }*/
 
   ngOnInit() {
-    this.startMoney = -2000;
+    this.startMoney = 2000;
     this.wonMoney = 0;
     this.lostMoney=0;
     this.valueA = 0;

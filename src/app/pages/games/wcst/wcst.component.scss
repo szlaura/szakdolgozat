@@ -21,7 +21,8 @@ ion-button {
 }
 
 img:active {
-  box-shadow: 0 5px black;
+  background-color: #b6a19e;
+  opacity: 0.5;
   transform: translateY(4px);
 }
 

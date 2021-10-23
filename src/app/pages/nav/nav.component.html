@@ -7,7 +7,8 @@
   <ion-content>
     <ion-list>
       <ion-item (click)="closeMenu()" [routerLink]="[ '/home/splash' ]">Játékok</ion-item>
-      <ion-item (click)="closeMenu()" [routerLink]="[ '/home/statistics' ]">Statisztikák</ion-item>
+      <ion-item (click)="closeMenu()" [routerLink]="[ '/home/statistics' ]">Eredmények</ion-item>
+      <ion-item (click)="closeMenu()"[routerLink]="[ '/home/diagrams' ]">Statisztikák</ion-item>
       <ion-item (click)="closeMenu()"[routerLink]="[ '/home/profile' ]">Profil</ion-item>
       <ion-item button (click)="logout(); closeMenu()">Kijelentkezés</ion-item>
     </ion-list>

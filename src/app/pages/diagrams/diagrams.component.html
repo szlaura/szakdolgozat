@@ -1,0 +1,28 @@
+<ion-content [fullscreen]="true">
+  <ion-header [translucent]="true">
+    <ion-title>Statisztikák</ion-title>
+</ion-header>
+<ion-button (click)="click()">Frissítés</ion-button>
+<ion-button (click)="getWcstData()">wcst</ion-button>
+<ion-button (click)="getIowaData()">iowa</ion-button>
+
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header>
+        Bar Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #barCanvas style="position: relative; height:20vh; width:40vw"></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        Line Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas style="position: relative; height:20vh; width:40vw"></canvas>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

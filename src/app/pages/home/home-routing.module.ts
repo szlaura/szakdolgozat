@@ -1,4 +1,3 @@
-import { StatisticsComponent } from './../statistics/statistics.component';
 import { AuthGuard } from 'src/app/shared/guards/auth.guard';
 import { HomeComponent } from './home.component';
 import { NgModule } from '@angular/core';
@@ -24,8 +23,8 @@ const routes: Routes = [
             loadChildren: () => import('./../games/wcst/wcst.module').then(m => m.WcstModule),
           },
           {
-            path: 'gonogo',
-            loadChildren: () => import('./../games/go-nogo/go-nogo.module').then(m => m.GoNogoModule),
+            path: 'mentalrotation',
+            loadChildren: () => import('./../games/mentalrot/mentalrot.module').then(m => m.MentalrotModule),
           },
           {
             path: 'statistics',
@@ -42,6 +41,10 @@ const routes: Routes = [
           {
             path: 'profile',
             loadChildren: () => import('./../profile/profile.module').then(m => m.ProfileModule),
+          },
+          {
+            path: 'diagrams',
+            loadChildren: () => import('./../diagrams/diagrams.module').then(m => m.DiagramsModule),
           }
 
         ],

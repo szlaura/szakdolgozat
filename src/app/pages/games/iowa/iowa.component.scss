@@ -31,12 +31,10 @@ ion-content {
 img {
   border-radius: 25px;
 }
-img:hover {
-  background-color: black;
-  opacity: 0.5;
-}
+
 img:active {
-  box-shadow: 0 5px black;
+  background-color: #b6a19e;
+  opacity: 0.5;
   transform: translateY(4px);
 }
 

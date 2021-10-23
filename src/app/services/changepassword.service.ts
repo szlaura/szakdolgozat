@@ -1,6 +1,9 @@
 import { AlertController } from '@ionic/angular';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { getAuth, updatePassword } from 'firebase/auth';
+//import * as Firebase from 'firebase';
+//import { AngularFire, FirebaseAuth } from '';
 
 
 
@@ -9,8 +12,24 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   providedIn: 'root'
 })
 export class ChangepasswordService {
+ // firebaseAuth: FirebaseAuth;
+  //private firebase: Firebase;
 
-  constructor(private alertCtrl: AlertController, private auth: AngularFireAuth) { }
+  constructor(private alertCtrl: AlertController) { }
+
+  /*changePassword(credentials: FirebaseChangePasswordCredentials): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.firebase.changePassword(credentials, error => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve();
+        }
+      });
+    });
+  }
+
+
 
   /*changePassword(){
     console.log('Change Password Button Clicked');

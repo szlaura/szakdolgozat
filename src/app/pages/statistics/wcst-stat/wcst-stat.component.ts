@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
-import { DataService, WCST } from 'src/app/services/data.service';
+import { DataService } from 'src/app/services/data.service';
+import { WCST } from 'src/app/shared/model/wcst.model';
 
 @Component({
   selector: 'app-wcst-stat',

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
-import { DataService, IOWA } from 'src/app/services/data.service';
+import { DataService } from 'src/app/services/data.service';
+import { IOWA } from 'src/app/shared/model/iowa.model';
 
 @Component({
   selector: 'app-iowa-stat',
@@ -16,7 +17,8 @@ export class IowaStatComponent implements OnInit {
   s: any;
   iduser: any;
 
-  constructor(private service: AuthService, private dataService: DataService) { }
+  constructor(private service: AuthService, private dataService: DataService) {
+  }
 
   ngOnInit() {
     this.iduser = this.service.currentUserId;

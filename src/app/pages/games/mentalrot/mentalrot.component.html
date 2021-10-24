@@ -1,12 +1,12 @@
 <ion-content >
   <ion-title>Mental Rotation Test </ion-title>
-  <ion-button [hidden]=!korte (click)="clickie(); starttimer();"> Start </ion-button>
-  <ion-button class="btn" (click)="solution()">Buttonn</ion-button>
+  <ion-button [hidden]=!korte (click)="clickie(); starttimer();">Start</ion-button>
   <app-startgame [hidden]=ishidden></app-startgame>
  <ion-card>
-  <div class="card"  id="main"> <img src="../../../../assets/pictures/{{variable1}}.png"></div>
-  <div class="card" (click)="answer('left')" id="left"> <img src="../../../../assets/pictures/{{variable2}}.png"></div>
-  <div class="card"  (click)="answer('right')" id="right"> <img src="../../../../assets/pictures/{{variable3}}.png"></div>
-
+<div class="container" [hidden]=korte>
+  <div id="main"> <img src="../../../../assets/pictures/{{variable1}}.png"></div>
+  <div id="left" class="card" (click)="answer('left')" id="left"> <img class="img" src="../../../../assets/pictures/{{variable2}}.png"></div>
+  <div class="card" (click)="answer('right')" id="right"> <img class="img" src="../../../../assets/pictures/{{variable3}}.png"></div>
+</div>
 </ion-card>
   </ion-content>

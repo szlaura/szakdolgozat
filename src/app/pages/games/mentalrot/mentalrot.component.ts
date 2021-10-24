@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataService } from './../../../services/data.service';
 import { Exit } from './../../../shared/guards/exitgame.guard';
 import { ResultService } from './../../../services/result.service';
@@ -12,36 +12,54 @@ import { SoundService } from 'src/app/services/sound.service';
   templateUrl: './mentalrot.component.html',
   styleUrls: ['./mentalrot.component.scss'],
 })
-export class MentalrotComponent implements OnInit, Exit {
+export class MentalrotComponent implements OnInit, Exit, OnDestroy {
 
   ishidden = true;
   korte=true;
-  aa: string;
-  bb: string;
   st: any;
   nd: any;
   date: any;
   gameTime: any;
-  variable1='alak1';
-  variable2='alak2';
-  variable3='alak3';
+  variable1='';
+  variable2='';
+  variable3='';
   cases = [1, 2, 3];
-  ranNums = [];
-  i = this.cases.length;
-  j = 0;
   timetoend=false;
-  //choos = this.randomRepeats(this.cases);
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-    maincard = <HTMLInputElement> document.getElementById('main');
-      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-    leftcard = <HTMLInputElement> document.getElementById('left');
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-    rightcard = <HTMLInputElement> document.getElementById('right');
+  rightans = 0;
+  wrongans = 0;
+  average = [];
+  times = [];
+  avg=0;
+  starttime=0;
+  startdate: any;
+  lastElement: any;
+  beforelastElement: any;
+  count=0;
+  max = 0;
 
-  constructor(private rightorwrongService: RightorwrongService, private soundService: SoundService, public resService: ResultService) {
+  constructor(private rightorwrongService: RightorwrongService, private soundService: SoundService,
+    private resService: ResultService, private dataService: DataService) {
    }
+  ngOnDestroy(): void {
+    this.rightans = 0;
+    this.wrongans = 0;
+    this.average = [];
+    this.times = [];
+    this.avg=0;
+    this.starttime=0;
+    this.count=0;
+    this.max=0;
+  }
 
   ngOnInit() {
+    this.count=0;
+    this.max = this.cases.length;
+    this.rightans = 0;
+    this.wrongans = 0;
+    this.average = [];
+    this.times = [];
+    this.avg=0;
+    this.starttime=0;
     this.solution();
   }
 
@@ -55,6 +73,8 @@ export class MentalrotComponent implements OnInit, Exit {
 
   clickie(){
     this.korte=!this.korte;
+   // this.times.push(0);
+    this.firsttime();
   }
 
   starttimer(){
@@ -76,27 +96,39 @@ export class MentalrotComponent implements OnInit, Exit {
   }
 
   right(){
+    this.count++;
+    this.rightans++;
     this.soundService.playAudio('../../../../assets/audio/right.wav');
-    this.rightorwrongService.showAlert('Jo valasz', `<img src="../../../../assets/pictures/rightanswer.png">`);
+    this.rightorwrongService.showAlert('Jó válasz', `<img src="../../../../assets/pictures/rightanswer.png">`);
     //this.choos();
-    if(this.timetoend === true){
-      this.resService.presentModal();
-    }
     this.solution();
+    this.timeTracking();
+    if(this.count === this.max){
+      this.gameEnd();
+      return 0;
+    }
   }
 
   wrong(){
+    this.count++;
+    this.wrongans++;
     this.soundService.playAudio('../../../../assets/audio/wrong.mp3');
-    this.rightorwrongService.showAlert('Rossz valasz', `<img src="../../../../assets/pictures/wronganswer.png">`);
-///this.choos();
-    if(this.timetoend === true){
-      this.resService.presentModal();
-    }
+    this.rightorwrongService.showAlert('Rossz válasz', `<img src="../../../../assets/pictures/wronganswer.png">`);
     this.solution();
+    this.timeTracking();
+    if(this.count === this.max){
+     this.gameEnd();
+      return 0;
+    }
   }
-  random(list: any){
-     return list[Math.floor((Math.random()*list.length))];
+
+  gameEnd(){
+    this.endtimer();
+    this.resService.setData({name:'mentalrotation', data:this.rightans, data2: this.wrongans, data3:this.gameTime});
+    this.dataService.addMentalrotation(this.rightans, this.wrongans, this.averageReactTime(), this.gameTime, this.date);
+    this.resService.presentModal();
   }
+
   randomInRange(min: number, max: number){
 	  return Math.floor(Math.random() * (max - min + 1) + min);
   }
@@ -115,7 +147,57 @@ export class MentalrotComponent implements OnInit, Exit {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
-}
+  }
+  firsttime(){
+    this.starttime=0;
+    this.startdate=0;
+
+    this.startdate =new Date();
+    this.starttime =this.startdate.getTime();
+
+    this.times.push(this.starttime);
+    console.log('Times: '+this.times);
+  }
+
+  timeTracking(){
+    this.starttime=0;
+    this.startdate=0;
+
+    this.startdate =new Date();
+    this.starttime =this.startdate.getTime();
+
+    this.times.push(this.starttime);
+    console.log('Times: '+this.times);
+
+    this.lastElement = this.times[this.times.length - 1];
+    console.log('Lastelement: '+this.lastElement);
+
+    this.beforelastElement = this.times[this.times.length - 2];
+    console.log('BeforelastElement: '+this.beforelastElement);
+
+    this.avg= this.lastElement - this.beforelastElement;
+    this.average.push(this.avg);
+    console.log('Average: '+this.average);
+
+    this.averageReactTime();
+  }
+
+  averageReactTime(){
+    let sum = 0;
+    // eslint-disable-next-line prefer-const
+    let length = this.average.length;
+    console.log('AVERAGE LENGT'+length);
+    // eslint-disable-next-line prefer-const
+    // eslint-disable-next-line @typescript-eslint/prefer-for-of
+    for(let i = 0; i < this.average.length; i++ ){
+      console.log('i ertekek:'+this.average[i]);
+        sum += this.average[i]; //don't forget to add the base
+    }
+    console.log('SUM:'+sum);
+    const avger = sum/length;
+    console.log('AVERAGE: '+avger);
+    return avger;
+  }
 
   solution(){
     this.shuffleArray(this.cases);

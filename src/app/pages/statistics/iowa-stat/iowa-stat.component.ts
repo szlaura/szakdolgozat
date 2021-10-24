@@ -1,3 +1,4 @@
+import { MstotimeService } from './../../../helpers/mstotime.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
@@ -17,7 +18,7 @@ export class IowaStatComponent implements OnInit {
   s: any;
   iduser: any;
 
-  constructor(private service: AuthService, private dataService: DataService) {
+  constructor(private service: AuthService, private dataService: DataService, private timeService: MstotimeService) {
   }
 
   ngOnInit() {
@@ -42,16 +43,7 @@ export class IowaStatComponent implements OnInit {
   }
 
   msToTime(duration: any) {
-    const milliseconds = Math.floor((duration % 1000) / 100);
-    const seconds = Math.floor((duration / 1000) % 60);
-    const minutes = Math.floor((duration / (1000 * 60)) % 60);
-    const hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
-
-    this.h = (hours < 10) ? '0' + hours : hours;
-    this.m = (minutes < 10) ? '0' + minutes : minutes;
-    this.s = (seconds < 10) ? '0' + seconds : seconds;
-
-    return  minutes + ' p ' + seconds + ' mp ' + milliseconds + ' ms';
+    return this.timeService.msToTime(duration);
   }
 
 }

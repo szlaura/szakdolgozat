@@ -10,7 +10,67 @@ ion-button {
   height: 10%;
   width: 40%;
 }
+ion-card {
+  height: 90%;
+}
 
 ion-content {
   --padding-top: 70px;
+}
+
+#main {
+  border-radius: 5px;
+  margin-left: 45%;
+  margin-right: 30%;
+  margin-top: 2%;
+  margin-bottom: 6%;
+}
+#left {
+  margin-right: 20%;
+  margin-left: 10%;
+}
+
+.card {
+  display: inline;
+  box-sizing: border-box;
+  width: 220px;
+  height: 220px;
+  margin: 20px;
+  position: relative;
+  border-radius: 5px;
+}
+
+img {
+  width: 220px;
+  height: 220px;
+}
+
+.img:active {
+  background-color: black;
+  opacity: 0.5;
+}
+
+@media (max-width: 695px) {
+  #main {
+    border-radius: 5px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+    margin-bottom: 6%;
+    width: 150px;
+    height: 150px;
+  }
+  #left {
+    margin-right: 2%;
+    margin-left: 5%;
+  }
+  .card {
+    width: 150px;
+    height: 150px;
+    margin: 0px;
+  }
+  img {
+    width: 150px;
+    height: 150px;
+  }
 }

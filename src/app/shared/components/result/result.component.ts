@@ -1,3 +1,4 @@
+import { MstotimeService } from 'src/app/helpers/mstotime.service';
 import { Observable } from 'rxjs';
 import { DataService } from './../../../services/data.service';
 import { ResultService } from './../../../services/result.service';
@@ -23,7 +24,8 @@ export class ResultComponent implements OnInit, OnDestroy {
   m: any;
   s: any;
 
-  constructor(private modalCtrl: ModalController, private res: ResultService, private router: Router, private dataService: DataService) { }
+  constructor(private modalCtrl: ModalController, private res: ResultService,
+     private router: Router, private dataService: DataService, private timeService: MstotimeService) { }
 
   ngOnInit() {
 
@@ -47,20 +49,10 @@ export class ResultComponent implements OnInit, OnDestroy {
   }
 
   msToTime(duration: any) {
-    const milliseconds = Math.floor((duration % 1000) / 100);
-    const seconds = Math.floor((duration / 1000) % 60);
-    const minutes = Math.floor((duration / (1000 * 60)) % 60);
-    const hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
-
-    this.h = (hours < 10) ? '0' + hours : hours;
-    this.m = (minutes < 10) ? '0' + minutes : minutes;
-    this.s = (seconds < 10) ? '0' + seconds : seconds;
-
-    return  minutes + ' p ' + seconds + ' mp ' + milliseconds + ' ms';
+   return this.timeService.msToTime(duration);
   }
 
-
-    ngOnDestroy() {
+  ngOnDestroy() {
       this.message.unsubscribe();
   }
 

@@ -1,6 +1,5 @@
 import { RightorwrongService } from './../../../services/rightorwrong.service';
 import { SoundService } from './../../../services/sound.service';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { DataService } from './../../../services/data.service';
 import { Exit } from './../../../shared/guards/exitgame.guard';
 import { Component, OnInit, ViewChild } from '@angular/core';

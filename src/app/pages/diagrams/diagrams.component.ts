@@ -14,15 +14,17 @@ export class DiagramsComponent implements OnInit, AfterViewInit, OnDestroy {
   // Importing ViewChild. We need @ViewChild decorator to get a reference to the local variable
   // that we have added to the canvas element in the HTML template.
   @ViewChild('barCanvas') private barCanvas: ElementRef;
+  @ViewChild('barCanvas2') private barCanvas2: ElementRef;
   @ViewChild('lineCanvas') private lineCanvas: ElementRef;
 
 
   barChart: any;
-  doughnutChart: any;
+  barChart2: any;
   lineChart: any;
   userid: any;
   wcst: any;
   iowa: any;
+  mentrot: any;
   date: any;
   right: any;
   data: any;
@@ -31,6 +33,7 @@ export class DiagramsComponent implements OnInit, AfterViewInit, OnDestroy {
   gametime = [];
   gametime2 = [];
   allmoney = [];
+  avgreacttime = [];
 
   constructor(private dataService: DataService, private authService: AuthService) {
     Chart.register(...registerables);
@@ -54,7 +57,7 @@ click(){
         num++;
         this.gametime.push(num);
       }
-      this.lineChartMethod(this.wrongans, this.wrongans, this.gametime);
+      this.lineChartMethod(this.wrongans, this.rightans, this.gametime);
       //this.lineChart.destroy();
     });
   }
@@ -74,11 +77,26 @@ click(){
 
   }
 
+  getMentrotData(){
+    this.mentrot = this.dataService.get(this.userid,'mentalrotation','right').subscribe((data) => {
+      this.data = data;
+      let num = 0;
+      for (const d of this.data){
+        this.avgreacttime.push(d.avgreacttime);
+        num++;
+        this.gametime.push(num);
+      }
+      this.barChartMethod2(this.avgreacttime, this.gametime);
+      //this.lineChart.destroy();
+    });
+  }
+
   // When we try to call our chart to initialize methods in ngOnInit() it shows an error nativeElement of undefined.
   // So, we need to call all chart methods in ngAfterViewInit() where @ViewChild and @ViewChildren will be resolved.
   ngAfterViewInit() {
     this.getWcstData();
     this.getIowaData();
+    this.getMentrotData();
   }
 
 
@@ -150,6 +168,34 @@ click(){
             borderWidth: 3,
           }
         ]
+      }
+    });
+  }
+
+  barChartMethod2(arr: any, arr2: any) {
+
+    this.barChart2 = new Chart(this.barCanvas2.nativeElement, {
+      type: 'bar',
+      data: {
+        labels: arr,
+        datasets: [{
+          label: 'Átlagos reakcióidő',
+          data: arr2,
+          backgroundColor: [
+            'rgba(255, 206, 86, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 206, 86, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: {
+              beginAtZero: true
+          }
+        }
       }
     });
   }

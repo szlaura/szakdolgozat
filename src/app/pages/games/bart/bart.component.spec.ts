@@ -1,18 +1,19 @@
-import { MentalrotComponent } from './mentalrot.component';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-describe('MentalrotComponent', () => {
-  let component: MentalrotComponent;
-  let fixture: ComponentFixture<MentalrotComponent>;
+import { BartComponent } from './bart.component';
+
+describe('BartComponent', () => {
+  let component: BartComponent;
+  let fixture: ComponentFixture<BartComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MentalrotComponent ],
+      declarations: [ BartComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MentalrotComponent);
+    fixture = TestBed.createComponent(BartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

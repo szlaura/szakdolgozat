@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { MstotimeService } from 'src/app/helpers/mstotime.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
 import { WCST } from 'src/app/shared/model/wcst.model';
@@ -17,7 +18,7 @@ export class WcstStatComponent implements OnInit {
   s: any;
   iduser: any;
 
-  constructor(private service: AuthService, private dataService: DataService) { }
+  constructor(private service: AuthService, private dataService: DataService, private timeService: MstotimeService) { }
 
   ngOnInit() {
     this.iduser = this.service.currentUserId;
@@ -36,16 +37,7 @@ export class WcstStatComponent implements OnInit {
   }
 
   msToTime(duration: any) {
-    const milliseconds = Math.floor((duration % 1000) / 100);
-    const seconds = Math.floor((duration / 1000) % 60);
-    const minutes = Math.floor((duration / (1000 * 60)) % 60);
-    const hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
-
-    this.h = (hours < 10) ? '0' + hours : hours;
-    this.m = (minutes < 10) ? '0' + minutes : minutes;
-    this.s = (seconds < 10) ? '0' + seconds : seconds;
-
-    return  minutes + ' p ' + seconds + ' mp ' + milliseconds + ' ms';
+    return this.timeService.msToTime(duration);
   }
 
 }

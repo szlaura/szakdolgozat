@@ -101,15 +101,17 @@ export class DataService {
 
   }
 
-  async addMentalrotation(good: number, bad: number, timee: number){
+  async addMentalrotation(good: number, bad: number, avgtimee: number,timee: number, dateee: any){
     const ref = collection(this.db, 'mentalrotation');
 
     const docRef = await addDoc(
       ref, {
         usersid: this.iduser,
-        avgreacttime: good,
-        goodclick: bad,
-        wrongclick: timee
+        right: good,
+        wrong: bad,
+        avgreacttime: avgtimee,
+        time:timee,
+        date: dateee
       }
     );
 

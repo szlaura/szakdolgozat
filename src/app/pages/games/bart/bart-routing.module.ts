@@ -1,14 +1,14 @@
-import { MentalrotComponent } from './mentalrot.component';
+import { BartComponent } from './bart.component';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ExitgameGuard } from 'src/app/shared/guards/exitgame.guard';
-
 const routes: Routes = [
   {
       path: '',
-      component: MentalrotComponent,
+      component: BartComponent,
       canDeactivate: [ExitgameGuard],
-      data: { title: 'Mental Rotartion' }
+      data: { title: 'Balloon Analog Rist Task' }
   }
 ];
 
@@ -17,4 +17,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: [ExitgameGuard]
 })
-export class MentalrotRoutingModule { }
+export class BartRoutingModule { }

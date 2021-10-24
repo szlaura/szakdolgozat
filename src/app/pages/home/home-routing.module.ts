@@ -1,3 +1,4 @@
+import { MentrotStatModule } from './../statistics/mentrot-stat/mentrot-stat.module';
 import { AuthGuard } from 'src/app/shared/guards/auth.guard';
 import { HomeComponent } from './home.component';
 import { NgModule } from '@angular/core';
@@ -27,6 +28,10 @@ const routes: Routes = [
             loadChildren: () => import('./../games/mentalrot/mentalrot.module').then(m => m.MentalrotModule),
           },
           {
+            path: 'bart',
+            loadChildren: () => import('./../games/bart/bart.module').then(m => m.BartModule),
+          },
+          {
             path: 'statistics',
             loadChildren: () => import('./../statistics/statistics.module').then(m => m.StatisticsModule),
           },
@@ -37,6 +42,10 @@ const routes: Routes = [
           {
             path: 'statiowa',
             loadChildren: () => import('./../statistics/iowa-stat/iowa-stat.module').then(m => m.IowaStatModule),
+          },
+          {
+            path: 'statmentalrot',
+            loadChildren: () => import('./../statistics/mentrot-stat/mentrot-stat.module').then(m => m.MentrotStatModule),
           },
           {
             path: 'profile',

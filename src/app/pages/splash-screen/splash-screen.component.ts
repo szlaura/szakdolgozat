@@ -52,6 +52,14 @@ export class SplashScreenComponent implements OnInit{
         '  A játék 10 percet vesz igénybe.';
         this.rule = 'p meg';
         break;
+
+      case 'bart':
+        this.title= 'Ballon Analog Risk Feladat';
+        this.descript = 'A feladanod, hogy melyik lehet az alsó kártya párja.'+
+                '.';
+        this.rule = 'Minden körben c'+
+          'Minden k';
+        break;
   }
   this.sendValue(this.title, this.descript, this.rule);
 }

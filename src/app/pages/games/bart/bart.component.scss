@@ -4,15 +4,41 @@ ion-content {
 
 ion-card {
   height: 90%;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 img {
   width: 100px;
   height: 150px;
-  margin-top: 15%;
-  margin-left: 30%;
+  margin-top: 28%;
+  margin-left: 33%;
 }
 
-.btn {
+#bank {
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+  height: 70px;
+  width: 120px;
+}
+
+#up {
+  position: fixed;
+  bottom: 20px;
+  left: 15px;
+  height: 70px;
+  width: 120px;
+}
+
+#startbtn {
+  margin-left: 30%;
   margin-top: 10%;
+  height: 10%;
+  width: 40%;
+}
+ion-title {
+  text-align: center;
+  font-size: x-large;
+  margin: 10px;
 }

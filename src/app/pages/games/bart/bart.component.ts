@@ -23,7 +23,7 @@ export class BartComponent implements OnInit {
   max = 0;
   one = [5, 10, 15, 20, 25];
   two = [30, 35, 40, 45, 50];
-  three = [55, 60, 65, 70, 75, 80];
+  three = [55, 60, 65, 70, 75];
   random = [1, 2, 3];
   scale = 0;
   scale2 = 1;
@@ -33,9 +33,6 @@ export class BartComponent implements OnInit {
   maxWon = 0;
   wonamount = [];
   putToBank = 0;
-
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-  balloon = <HTMLInputElement> document.getElementById('balloon');
 
   constructor(private rightorwrongService: RightorwrongService, private soundService: SoundService,
     private resService: ResultService, private dataService: DataService) { }
@@ -91,7 +88,8 @@ export class BartComponent implements OnInit {
       this.scale=0;
       this.scale2=1;
       document.getElementById('balloon').style.transform='scale('+this.scale2+'.'+this.scale+')';
-      this.rightorwrongService.showAlert('Rossz válasz', `<img src="../../../../assets/pictures/wronganswer.png">`);
+      this.soundService.playAudio('../../../../assets/audio/wrong.mp3');
+      this.rightorwrongService.showAlert('Elvesztetted a pénzt', `<img src="../../../../assets/pictures/wronganswer.png">`);
       if(this.round === 10){
         this.endtimer();
         this.maxWon = Math.max.apply(null, this.wonamount);
@@ -117,7 +115,8 @@ export class BartComponent implements OnInit {
     this.scale2=1;
     document.getElementById('balloon').style.transform='scale('+this.scale2+'.'+this.scale+')';
     if(this.tempmoney < this.max){
-      this.rightorwrongService.showAlert('Jó válasz', `<img src="../../../../assets/pictures/rightanswer.png">`);
+      this.soundService.playAudio('../../../../assets/audio/chaching.mp3');
+      this.rightorwrongService.showAlert('A bankban a pénz', `<img src="../../../../assets/pictures/dollar.png">`);
       this.round++;
       this.won++;
 

@@ -9,12 +9,14 @@ import { MatCardModule } from '@angular/material/card';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegistrationComponent } from './registration.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 
 @NgModule({
   declarations: [RegistrationComponent],
   imports: [
     CommonModule, FormsModule, ReactiveFormsModule, RegistrationRoutingModule, MatCardModule, MatButtonModule,
-    MatFormFieldModule, MatInputModule, MatChipsModule, IonicModule
+    MatFormFieldModule, MatInputModule, MatChipsModule, IonicModule, MatDatepickerModule
   ]
 })
 export class RegistrationModule { }

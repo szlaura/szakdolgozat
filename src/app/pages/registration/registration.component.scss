@@ -27,3 +27,12 @@ h1 {
 mat-form-field {
   width: 90%;
 }
+
+/* Sets the underline to red if dirty and invalid */
+.mat-form-field.ng-dirty.ng-invalid .mat-form-field-underline {
+  background-color: black;
+}
+/* Sets the label to red if dirty and invalid */
+.mat-form-field.ng-dirty.ng-invalid .mat-form-field-label {
+  color: black;
+}

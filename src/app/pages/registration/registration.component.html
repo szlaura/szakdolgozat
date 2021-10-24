@@ -6,7 +6,16 @@
         <mat-label>E-mail</mat-label>
         <input type="email" name="email" matInput placeholder="Pl. vicc.elek@email.com" formControlName="email">
       </mat-form-field>
-      <br>
+      <!-- <mat-form-field class="max-width">
+        <mat-label>Név</mat-label>
+        <input type="name" name="name" matInput placeholder="Vicc Elek">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Születési dátum</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> -->
       <mat-form-field class="max-width">
         <mat-label>Jelszó</mat-label>
         <input type="password" name="password" matInput placeholder="Jelszó" formControlName="password1">

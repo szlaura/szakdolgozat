@@ -223,7 +223,6 @@ export class MentalrotComponent implements OnInit, Exit, OnDestroy {
           console.log('variables1: '+ this.variable2 +this.variable3);
 
          }
-
          break;
        case 2:
          this.variable1 = 'rbetu1';
@@ -250,7 +249,6 @@ export class MentalrotComponent implements OnInit, Exit, OnDestroy {
           this.variable2 = 'madar3';
           this.variable3 = 'madar2';
           console.log('variables3: '+ this.variable2 +this.variable3);
-
          }
          break;
      }

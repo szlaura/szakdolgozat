@@ -38,6 +38,21 @@
       Idő: {{msToTime(alu3)}}
     </ion-item>
   </ion-card>
+
+  <ion-card *ngIf="name==='bart'">
+    <ion-card-header>
+      <ion-card-title>Eredmények</ion-card-title>
+    </ion-card-header>
+    <ion-item>
+      Bankban lévő pénz: {{alu}}
+    </ion-item>
+    <ion-item>
+      Legnagyobb nyeremény: {{alu2}}
+    </ion-item>
+    <ion-item>
+      Idő: {{msToTime(alu3)}}
+    </ion-item>
+  </ion-card>
   <ion-button (click)="closemodal(); gotoSplash();">Kezőlap</ion-button>
   <ion-button (click)="closemodal(); gotoStatics();">Eredmények</ion-button>
  </ion-content>

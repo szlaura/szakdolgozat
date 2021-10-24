@@ -1,15 +1,13 @@
 <ion-content [fullscreen]="true">
+  <ion-button color="secondary" (click)="click()">Frissítés</ion-button>
   <ion-header [translucent]="true">
     <ion-title>Statisztikák</ion-title>
 </ion-header>
-<ion-button (click)="click()">Frissítés</ion-button>
-<ion-button (click)="getWcstData()">wcst</ion-button>
-<ion-button (click)="getIowaData()">iowa</ion-button>
 
   <div class="ion-padding">
     <ion-card>
       <ion-card-header>
-        Bar Chart
+        Wsconsin Card Sorting Task
       </ion-card-header>
       <ion-card-content>
         <canvas #barCanvas style="position: relative; height:20vh; width:40vw"></canvas>
@@ -18,7 +16,7 @@
 
     <ion-card>
       <ion-card-header>
-        Line Chart
+        IOWA Gambling
       </ion-card-header>
       <ion-card-content>
         <canvas #lineCanvas style="position: relative; height:20vh; width:40vw"></canvas>
@@ -26,10 +24,18 @@
     </ion-card>
     <ion-card>
       <ion-card-header>
-        Bar Chart
+        Mental Rotation Task
       </ion-card-header>
       <ion-card-content>
         <canvas #barCanvas2 style="position: relative; height:20vh; width:40vw"></canvas>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        Ballon Analog Risk Task
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas2 style="position: relative; height:20vh; width:40vw"></canvas>
       </ion-card-content>
     </ion-card>
   </div>

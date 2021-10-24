@@ -1,7 +1,20 @@
 <ion-content>
-  <ion-card>
-    <ion-label>
-      OKkokokok
-    </ion-label>
-  </ion-card>
+  <ion-title>Mental Rotation Test </ion-title>
+  <ion-button [hidden]=!korte (click)="clickie(); starttimer();">Start</ion-button>
+  <app-startgame [hidden]=ishidden></app-startgame>
+ <ion-card>
+<div class="container" [hidden]=korte>
+  <ion-chip>
+    <ion-label>Temp: {{tempmoney}}</ion-label>
+  </ion-chip >
+  <ion-chip>
+    <ion-label>Bank: {{bankmoney}}</ion-label>
+  </ion-chip >
+  <div class="balloonn">
+    <img id="balloon" src="../../../../assets/pictures/balloon.png">
+  </div>
+  <ion-button class="btn" (click)="upMoney()">Up</ion-button>
+  <ion-button class="btn" (click)="addtoBank();">Add to Bank</ion-button>
+</div>
+</ion-card>
 </ion-content>

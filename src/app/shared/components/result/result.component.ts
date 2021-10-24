@@ -32,7 +32,7 @@ export class ResultComponent implements OnInit, OnDestroy {
     this.message = this.res.getData().subscribe(data => {
       this.name = data.name;
       this.alu = data.data;
-      this.alu2=data.data2;
+      this.alu2 = data.data2;
       this.alu3 = data.data3;});
   }
 

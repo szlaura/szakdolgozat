@@ -48,6 +48,10 @@ const routes: Routes = [
             loadChildren: () => import('./../statistics/mentrot-stat/mentrot-stat.module').then(m => m.MentrotStatModule),
           },
           {
+            path: 'statbart',
+            loadChildren: () => import('./../statistics/bart-stat/bart-stat.module').then(m => m.BartStatModule),
+          },
+          {
             path: 'profile',
             loadChildren: () => import('./../profile/profile.module').then(m => m.ProfileModule),
           },

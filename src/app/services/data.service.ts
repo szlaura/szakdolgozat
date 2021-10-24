@@ -98,7 +98,6 @@ export class DataService {
         date: datee
       }
     );
-
   }
 
   async addMentalrotation(good: number, bad: number, avgtimee: number,timee: number, dateee: any){
@@ -114,7 +113,22 @@ export class DataService {
         date: dateee
       }
     );
+  }
 
+  async addBART(won: number, lost: number, max: number, bank: number, timee: number, dateee: any){
+    const ref = collection(this.db, 'bart');
+
+    const docRef = await addDoc(
+      ref, {
+        usersid: this.iduser,
+        wontimes: won,
+        losttimes: lost,
+        maxwon: max,
+        bankmoey: bank,
+        time: timee,
+        date: dateee,
+      }
+    );
   }
 
 

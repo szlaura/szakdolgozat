@@ -2,6 +2,14 @@ ion-content {
   --padding-top: 60px;
 }
 
-ion-card {
-  background-color: #6c648b;
+#eredmenyek {
+  text-align: center;
+  font-size: x-large;
+  margin-top: 7px;
+  margin-right: 105px;
+}
+
+ion-header {
+  display: flex;
+  justify-content: space-between;
 }

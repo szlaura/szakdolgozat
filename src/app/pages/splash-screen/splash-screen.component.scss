@@ -1,11 +1,12 @@
 ion-title {
   text-align: center;
-  padding-top: 20px;
+  padding-top: 30px;
   padding-bottom: 10px;
+  font-size: xx-large;
 }
 ion-list {
   padding: 5px;
-  margin: 5px;
+  margin: 40px;
 }
 
 ion-img {
@@ -16,4 +17,10 @@ ion-img {
 
 ion-content {
   --padding-top: 70px;
+}
+#iowa,
+#wcst,
+#bart,
+#mentalrotation {
+  font-size: large;
 }

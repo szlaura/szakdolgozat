@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LoadingService } from './../../services/loading.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { StartgameComponent } from './../../shared/components/startgame/startgame/startgame.component';
@@ -18,11 +19,12 @@ export class SplashScreenComponent implements OnInit{
   rule: string;
   iduser: any;
 
-  constructor(private introService: StartnavService, private modal: ModalController, private service: AuthService) {
+  constructor(private introService: StartnavService, private modal: ModalController, private service: AuthService, private router: Router) {
+    this.router.onSameUrlNavigation='reload';
+    this.iduser = this.service.currentUserId;
 
   }
   ngOnInit(): void {
-    this.iduser = this.service.currentUserId;
   }
 
   openIntro(){

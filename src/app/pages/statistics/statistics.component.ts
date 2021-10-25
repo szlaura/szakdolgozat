@@ -13,7 +13,10 @@ export class StatisticsComponent implements OnInit {
 
   iduser: any;
 
-  constructor(private service: AuthService) { }
+  constructor(private service: AuthService) {
+    this.iduser = this.service.currentUserId;
+    console.log('statpagere lepeskor2:'+this.iduser);
+  }
 
   ngOnInit() {
     //this.dataService.getWcst(this.wcst);

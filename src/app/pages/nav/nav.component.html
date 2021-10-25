@@ -1,6 +1,6 @@
 <ion-menu side="end" menuId="first" contentId="main">
   <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="tertiary">
       <ion-icon (click)="closeMenu()"  name="close-sharp"></ion-icon>
     </ion-toolbar>
   </ion-header>
@@ -9,7 +9,7 @@
       <ion-item (click)="closeMenu()" [routerLink]="[ '/home/splash' ]">Játékok</ion-item>
       <ion-item (click)="closeMenu()" [routerLink]="[ '/home/statistics' ]">Eredmények</ion-item>
       <ion-item (click)="closeMenu()"[routerLink]="[ '/home/diagrams' ]">Statisztikák</ion-item>
-      <ion-item (click)="closeMenu()"[routerLink]="[ '/home/profile' ]">Profil</ion-item>
+      <ion-item *ngIf=isShown (click)="closeMenu()"[routerLink]="[ '/home/profile' ]">Profil</ion-item>
       <ion-item button (click)="logout(); closeMenu()">Kijelentkezés</ion-item>
     </ion-list>
   </ion-content>

@@ -12,13 +12,16 @@ export class WelcomeComponent implements OnInit {
 
   imgsrc = '../../../../assets/pictures/psychiatry.png';
 
-  constructor(private router: Router, private authService: AuthService, private loadingService: LoadingService) { }
+  constructor(private router: Router, private authService: AuthService, private loadingService: LoadingService) {
+    this.router.onSameUrlNavigation='reload';
+  }
 
   ngOnInit() {}
 
   navTo(url: string): void {
     this.loadingService.presentLoading();
     this.router.navigateByUrl(url);
+    this.authService.isAnonymus('not');
   }
 
   signAnonymus(): void {
@@ -26,6 +29,7 @@ export class WelcomeComponent implements OnInit {
       result => {
         //console.log(result);
         this.navTo('/home');
+        this.authService.isAnonymus('anon');
       },
     );
   }

@@ -1,13 +1,14 @@
 <ion-content>
   <ion-card>
     <ion-item>
-      <ion-label>Nev: ASDDDD</ion-label>
+      <ion-label>Email</ion-label>
+      <ion-label>{{email}}</ion-label>
     </ion-item>
     <ion-item>
       <ion-label>Jelszó megváltoztatása </ion-label>
     </ion-item>
    <ion-item>
-     <ion-button>Változtatás</ion-button>
+     <ion-button (click)="changePwd()">Változtatás</ion-button>
    </ion-item>
   </ion-card>
 </ion-content>

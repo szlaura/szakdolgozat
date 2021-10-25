@@ -1,4 +1,8 @@
 <ion-content>
+  <ion-header>
+    <ion-button [routerLink]="[ '/home/statistics' ]" color="light"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+    <ion-label id="eredmenyek">Eredmények</ion-label>
+  </ion-header>
   <ion-segment color="secondary" value="right">
     <ion-segment-button (click)="wcstRight()" value="right">
       <ion-icon name="checkmark-circle-outline"></ion-icon>
@@ -10,7 +14,7 @@
       <ion-icon name="calendar-outline"></ion-icon>
     </ion-segment-button>
   </ion-segment>
-  <ion-card  *ngFor="let item of wcst | async ; let i = index">
+  <ion-card  *ngFor="let item of wcst | async ; let i = index" color="secondary">
     <ion-card-header>
       <ion-card-title>Wisconsin Card Sorting Eredmény {{i+1}}</ion-card-title>
     </ion-card-header>

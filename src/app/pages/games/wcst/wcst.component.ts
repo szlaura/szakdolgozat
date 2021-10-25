@@ -1,8 +1,9 @@
+import { ConfirmexitService } from './../../../services/confirmexit.service';
 import { RightorwrongService } from './../../../services/rightorwrong.service';
 import { SoundService } from './../../../services/sound.service';
 import { DataService } from './../../../services/data.service';
 import { Exit } from './../../../shared/guards/exitgame.guard';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ResultService } from './../../../services/result.service';
 import { Observable } from 'rxjs';
 
@@ -61,8 +62,8 @@ cards = ['111', '112', '113', '114'/*, '121', '122', '123', '124', '131', '132',
   date: any;
 
 
-  constructor(public modalService: ResultService, private dataService: DataService,
-    private soundService: SoundService, private rightorwrongService: RightorwrongService) { }
+constructor(public modalService: ResultService, private dataService: DataService,
+    private soundService: SoundService, private rightorwrongService: RightorwrongService, private asd: ConfirmexitService) { }
 
 
   ngOnInit() {
@@ -124,13 +125,13 @@ randomNoRepeats(array: any) {
 
  jovalasz(){
   this.soundService.playAudio('../../../../assets/audio/right.wav');
-  this.rightorwrongService.showAlert('Jo valasz', `<img src="../../../../assets/pictures/rightanswer.png">`);
+  this.rightorwrongService.showAlert('Jó válasz', `<img src="../../../../assets/pictures/rightanswer.png">`);
   this.choos();
 }
 
  rosszvalasz(){
   this.soundService.playAudio('../../../../assets/audio/wrong.mp3');
-  this.rightorwrongService.showAlert('Rossz valasz', `<img src="../../../../assets/pictures/wronganswer.png">`);
+  this.rightorwrongService.showAlert('Rossz válasz', `<img src="../../../../assets/pictures/wronganswer.png">`);
   this.choos();
 }
 
@@ -213,6 +214,7 @@ countWrong(){
 clickie(){
   this.korte=!this.korte;
 }
+
 
 /*randomEset(array: any) {
   const copy = array.slice(0);

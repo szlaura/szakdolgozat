@@ -1,8 +1,10 @@
+import { Exit } from './../../shared/guards/exitgame.guard';
 import { MstotimeService } from './../../helpers/mstotime.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, OnDestroy, HostListener } from '@angular/core';
 import { LineController, LineElement, PointElement, LinearScale, Title,CategoryScale, Chart, registerables } from 'chart.js';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -10,7 +12,7 @@ import { LineController, LineElement, PointElement, LinearScale, Title,CategoryS
   templateUrl: './diagrams.component.html',
   styleUrls: ['./diagrams.component.scss'],
 })
-export class DiagramsComponent implements OnInit, AfterViewInit, OnDestroy {
+export class DiagramsComponent implements OnInit, AfterViewInit, Exit {
 
   // Importing ViewChild. We need @ViewChild decorator to get a reference to the local variable
   // that we have added to the canvas element in the HTML template.
@@ -28,6 +30,7 @@ export class DiagramsComponent implements OnInit, AfterViewInit, OnDestroy {
   wcst: any;
   iowa: any;
   mentrot: any;
+  bart: any;
   date: any;
   right: any;
   data: any;
@@ -50,6 +53,13 @@ export class DiagramsComponent implements OnInit, AfterViewInit, OnDestroy {
     //this.getIowaData();
 
   }
+
+  canExit(): boolean | Observable<boolean> | Promise<boolean>{
+      this.clickdestroy();
+      return true;
+  };
+
+
 click(){
   window.location.reload();
 }
@@ -98,7 +108,7 @@ click(){
   }
 
   getBartData(){
-    this.mentrot = this.dataService.get(this.userid,'bart','date').subscribe((data) => {
+    this.bart = this.dataService.get(this.userid,'bart','date').subscribe((data) => {
       this.data = data;
       let num = 0;
       for (const d of this.data){
@@ -252,12 +262,41 @@ click(){
     });
   }
 
-  ngOnDestroy() {
+  clickdestroy(){
+    this.lineChart.destroy();
+    this.lineChart2.destroy();
+    this.barChart.destroy();
+    this.barChart2.destroy();
     this.wcst.unsubscribe();
     this.iowa.unsubscribe();
-    this.barChart.clear();
-    this.lineChart.clear();
-    this.barChart.destroy();
-    this.lineChart.destroy();
+    this.mentrot.unsubscribe();
+    this.bart.unsubscribe();
   }
+
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  @HostListener('window:unload', ['$event'])
+  unloadHandler(event) {
+    console.log('DESTROYYYYYYYYY');
+    this.clickdestroy();
+  }
+
+  /*canExit(): boolean | Observable<boolean> | Promise<boolean>{
+    this.clickdestroy();
+    return true;
+  };*/
+
+ /*@HostListener('unloaded')
+ ngOnDestroy() {
+   console.log('DESTROYYYYYYYYY');
+  this.lineChart.destroy();
+  this.lineChart2.destroy();
+  this.barChart.destroy();
+  this.barChart2.destroy();
+  this.wcst.unsubscribe();
+  this.iowa.unsubscribe();
+  this.mentrot.unsubscribe();
+  this.bart.unsubscribe();
+ }*/
+
 }
+

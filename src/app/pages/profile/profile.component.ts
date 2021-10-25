@@ -1,3 +1,5 @@
+import { ChangepasswordService } from './../../services/changepassword.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,8 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  email: string;
 
-  ngOnInit() {}
+  constructor(private auth: AuthService, private pwdService: ChangepasswordService) { }
+
+  ngOnInit() {
+    this.email = this.auth.currentUserEmail;
+  }
+
+  changePwd(){
+    this.pwdService.presentAlertPrompt();
+  }
 
 }

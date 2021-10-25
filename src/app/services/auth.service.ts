@@ -10,6 +10,7 @@ import { getAuth, updatePassword } from 'firebase/auth';
 export class AuthService {
 
   authState: any = null;
+  anon: any;
 
     constructor(private afAuth: AngularFireAuth) {
       this.afAuth.authState.subscribe( authState => {
@@ -31,7 +32,7 @@ export class AuthService {
     }
 
     authenticated(): boolean {
-        return this.afAuth.authState !== null;
+      return this.afAuth.authState !== null;
     }
 
     currentUserObservable(): any {
@@ -44,6 +45,26 @@ export class AuthService {
 
     get currentUserId(): string {
       return this.authenticated ? this.authState.uid : null;
+    }
+
+    get currentUserEmail(): string {
+      return this.authenticated ? this.authState.email : null;
+    }
+
+    get currentUserPwd(): string {
+      return this.authenticated ? this.authState.pwd : null;
+    }
+
+    isAnonymus(add: string){
+      if(add==='anon'){
+        this.anon = true;
+      } else {
+        this.anon = false;
+      }
+    }
+
+    getifAnonymus(){
+      return this.anon;
     }
 
 }

@@ -23,22 +23,18 @@ export class IowaStatComponent implements OnInit {
 
   ngOnInit() {
     this.iduser = this.service.currentUserId;
-    this.iowaWonmoney();
+    this.iowaMaxCard();
   }
 
-  iowaWonmoney(){
-    this.iowa = this.dataService.get(this.iduser, 'iowa','wonmoney');
-  }
-
-  iowaLostmoney(){
-    this.iowa = this.dataService.get(this.iduser, 'iowa','lostmoney');
+  iowaMaxCard(){
+    this.iowa = this.dataService.get(this.iduser,'desc', 'iowa','maxcard');
   }
 
   iowaLoanEnd(){
-    this.iowa = this.dataService.get(this.iduser, 'iowa','allmoney');
+    this.iowa = this.dataService.get(this.iduser,'desc', 'iowa','allmoney');
   }
   iowaFIllDate(){
-    this.iowa = this.dataService.get(this.iduser, 'iowa','date');
+    this.iowa = this.dataService.get(this.iduser,'desc', 'iowa','date');
 
   }
 

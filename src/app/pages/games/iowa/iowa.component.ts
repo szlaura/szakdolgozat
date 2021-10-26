@@ -2,7 +2,7 @@ import { DataService } from './../../../services/data.service';
 import { Exit } from './../../../shared/guards/exitgame.guard';
 import { EndquestionComponent } from './endquestion/endquestion.component';
 import { ResultService } from './../../../services/result.service';
-import { Component, ViewChild, OnInit, OnDestroy, OnChanges } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 
@@ -41,12 +41,18 @@ export class IowaComponent implements OnInit, Exit{
   valueB = 0;
   valueC = 0;
   valueD = 0;
+  clickedA = 0;
+  clickedB = 0;
+  clickedC = 0;
+  clickedD = 0;
   gameTime: any;
   startTime: any;
   st: any;
   nd: any;
   fillDate: any;
   showstart = true;
+  mostClicked = '';
+  maxValueCard = '';
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   content = <HTMLInputElement> document.getElementById('content');
    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
@@ -65,13 +71,6 @@ export class IowaComponent implements OnInit, Exit{
     //this.separateArrays(this.arrayCards);
     console.log('Array: ' +this.arrayCards[0]+','+this.arrayCards[1]+','+this.arrayCards[2]+','+this.arrayCards[3]);
   }
-  /*ngOnChanges(){
-    this.showstartbtn=this.showstartbtn;
-  }
-
-  ngOnDestroy() {
-   this.showstartbtn=this.showstartbtn;
-  }*/
 
   ngOnInit() {
     this.startMoney = 2000;
@@ -81,6 +80,8 @@ export class IowaComponent implements OnInit, Exit{
     this.valueB = 0;
     this.valueC = 0;
     this.valueD = 0;
+    this.maxValueCard = '';
+    this.mostClicked = '';
   }
 
   canExit(): boolean | Observable<boolean> | Promise<boolean>{
@@ -140,6 +141,7 @@ export class IowaComponent implements OnInit, Exit{
   whichCardAdd(card: string, moneyValue: string){
     switch(card){
       case 'A':
+        this.clickedA++;
         if(moneyValue === 'lost250'){
           this.valueA-=250;
         } else if(moneyValue === 'won100'){
@@ -151,6 +153,7 @@ export class IowaComponent implements OnInit, Exit{
         }
         break;
       case 'B':
+        this.clickedB++;
         if(moneyValue === 'lost250'){
           this.valueB-=250;
         } else if(moneyValue === 'won100'){
@@ -162,6 +165,7 @@ export class IowaComponent implements OnInit, Exit{
         }
         break;
       case 'C':
+        this.clickedC++;
         if(moneyValue === 'lost250'){
           this.valueC-=250;
         } else if(moneyValue === 'won100'){
@@ -173,6 +177,7 @@ export class IowaComponent implements OnInit, Exit{
         }
         break;
       case 'D':
+        this.clickedD++;
         if(moneyValue === 'lost250'){
           this.valueD-=250;
         } else if(moneyValue === 'won100'){
@@ -185,13 +190,31 @@ export class IowaComponent implements OnInit, Exit{
         break;
     }
   }
-  whichisTheMostValueable(){
+  /*whichisTheMostValueable(){
     const a = this.valueA;
     const b = this.valueB;
     const c = this.valueC;
     const d = this.valueD;
 
+    console.log('WHICHISTHEMOSTVALUABLE'+Math.max(a, b, c, d));
+
     return Math.max(a, b, c, d);
+  }*/
+
+  whichisMax(a: number, b: number, c: number, d: number){
+    if(a >= b && a >= c && a >= d){
+      return 'A';
+    }
+    else if(b >= a && b >= c && b >= d){
+      return 'B';
+    }
+    else if(c >= b && c >= a && c >= d){
+      return 'C';
+    }
+    else if(d >= b && d >= c && d >= a){
+      return 'D';
+    }
+
   }
   startbtnhide(){
     this.showstartbtn=!this.showstartbtn;
@@ -210,6 +233,8 @@ export class IowaComponent implements OnInit, Exit{
   gameEnd(){
       //this.endquestion.showAlertAsd();
       //this.dialog();
+      this.mostClicked = this.whichisMax(this.clickedA, this.clickedB, this.clickedC, this.clickedD);
+      this.maxValueCard = this.whichisMax(this.valueA, this.valueB, this.valueC, this.valueD);
       this.enable=true;
       this.clickie();
       this.hidewhileend = !this.hidewhileend;
@@ -222,8 +247,8 @@ export class IowaComponent implements OnInit, Exit{
     if(this.clickCount === 15){
       this.endtimer();
       this.gameEnd();
-      this.modalService.setData({name: 'iowa', data:this.currentMoney, data2:this.gameTime});
-      this.dataservice.addIOWA(this.wonMoney, this.lostMoney, this.currentMoney, this.gameTime, this.fillDate);
+      this.modalService.setData({name: 'iowa', data:this.currentMoney, data2:this.gameTime, data3: this.maxValueCard});
+      this.dataservice.addIOWA(this.mostClicked, this.maxValueCard, this.currentMoney, this.gameTime, this.fillDate);
     }
     this.cardClicked=!this.cardClicked;
     //console.log('Kartya klikkelve'+this.cardClicked);

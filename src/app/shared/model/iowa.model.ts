@@ -1,7 +1,7 @@
 export interface IOWA {
   usersid: string;
-  wonmoney: number;
-  lostmoney: number;
+  mostclicked: string;
+  maxcard: string;
   allmoney: number;
   time: number;
   date: any;

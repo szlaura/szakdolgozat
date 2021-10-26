@@ -26,19 +26,19 @@ export class BartStatComponent implements OnInit {
   }
 
   bankMoney(){
-    this.bart = this.dataService.get(this.iduser,'bart','bankmoey');
+    this.bart = this.dataService.get(this.iduser,'desc','bart','bankmoey');
   }
   bartFillDate(){
-    this.bart = this.dataService.get(this.iduser,'bart','date');
+    this.bart = this.dataService.get(this.iduser,'desc','bart','date');
   }
   lostTimes(){
-    this.bart = this.dataService.get(this.iduser,'bart','losttimes');
+    this.bart = this.dataService.get(this.iduser,'desc','bart','losttimes');
   }
   wonTimes(){
-    this.bart = this.dataService.get(this.iduser,'bart','wontimes');
+    this.bart = this.dataService.get(this.iduser,'desc','bart','wontimes');
   }
   maxWonMoney(){
-    this.bart = this.dataService.get(this.iduser,'bart','maxwon');
+    this.bart = this.dataService.get(this.iduser,'desc','bart','maxwon');
   }
 
   msToTime(duration: any) {

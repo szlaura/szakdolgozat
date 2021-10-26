@@ -3,7 +3,7 @@ import { MstotimeService } from './../../helpers/mstotime.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, OnDestroy, HostListener } from '@angular/core';
-import { LineController, LineElement, PointElement, LinearScale, Title,CategoryScale, Chart, registerables } from 'chart.js';
+import { Chart, registerables } from 'chart.js';
 import { Observable } from 'rxjs';
 
 
@@ -40,7 +40,7 @@ export class DiagramsComponent implements OnInit, AfterViewInit, Exit {
   gametime2 = [];
   gametime3 = [];
   gametime4 = [];
-  allmoney = [];
+  allmoneyy = [];
   avgreacttime = [];
   maxwon = [];
 
@@ -64,7 +64,7 @@ click(){
   window.location.reload();
 }
   getWcstData(){
-    this.wcst = this.dataService.get(this.userid,'wcst','right').subscribe((data) => {
+    this.wcst = this.dataService.get(this.userid,'asc','wcst','date').subscribe((data) => {
       this.data = data;
       let num = 0;
       for (const d of this.data){
@@ -79,22 +79,23 @@ click(){
   }
 
   getIowaData(){
-    this.iowa = this.dataService.get(this.userid,'iowa','wonmoney').subscribe((data) => {
+    this.iowa = this.dataService.get(this.userid,'asc','iowa','date').subscribe((data) => {
       this.data = data;
       let num = 0;
       for (const d of this.data){
-        this.allmoney.push(d.allmoney);
+        this.allmoneyy.push(d.allmoney);
+        console.log('allmoney'+this.allmoneyy);
         num++;
         this.gametime2.push(num);
       }
-      this.barChartMethod(this.allmoney, this.gametime2);
+      this.barChartMethod(this.allmoneyy, this.gametime2);
       //this.barChart.destroy();
     });
 
   }
 
   getMentrotData(){
-    this.mentrot = this.dataService.get(this.userid,'mentalrotation','right').subscribe((data) => {
+    this.mentrot = this.dataService.get(this.userid,'asc','mentalrotation','date').subscribe((data) => {
       this.data = data;
       let num = 0;
       for (const d of this.data){
@@ -108,7 +109,7 @@ click(){
   }
 
   getBartData(){
-    this.bart = this.dataService.get(this.userid,'bart','date').subscribe((data) => {
+    this.bart = this.dataService.get(this.userid,'asc','bart','date').subscribe((data) => {
       this.data = data;
       let num = 0;
       for (const d of this.data){
@@ -139,7 +140,7 @@ click(){
       data: {
         labels: arr2,
         datasets: [{
-          label: '# of Votes',
+          label: 'Össznyeremények',
           data: arr,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
@@ -228,7 +229,7 @@ click(){
             pointRadius: 1,
             pointHitRadius: 10,
             data: arr2,
-            borderWidth: 3,
+            borderWidth: 3
           }
         ]
       }

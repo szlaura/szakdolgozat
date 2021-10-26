@@ -27,13 +27,13 @@ export class WcstStatComponent implements OnInit {
   }
 
   wcstRight(){
-    this.wcst = this.dataService.get(this.iduser,'wcst','right');
+    this.wcst = this.dataService.get(this.iduser,'desc','wcst','right');
   }
   wcstFillDate(){
-    this.wcst = this.dataService.get(this.iduser,'wcst','date');
+    this.wcst = this.dataService.get(this.iduser,'desc','wcst','date');
   }
   wcstWrong(){
-    this.wcst = this.dataService.get(this.iduser,'wcst','wrong');
+    this.wcst = this.dataService.get(this.iduser,'desc','wcst','wrong');
   }
 
   msToTime(duration: any) {

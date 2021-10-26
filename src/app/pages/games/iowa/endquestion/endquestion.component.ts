@@ -38,21 +38,44 @@ export class EndquestionComponent implements OnInit {
     this.isShown = !this.isShown;
     this.disableRadioBox = !this.disableRadioBox;
 
-   if(this.valueA === this.maxValues && this.valueA === this.valueSelected){
+   /*if(this.valueA >= this.valueB && this.valueA >= this.valueC && this.valueA >= this.valueD && this.valueA === this.valueSelected){
+      console.log('A: '+this.valueA);
+      this.rightAnswer = !this.rightAnswer;
+      return 'A';
+    }
+    else if(this.valueB >= this.valueA && this.valueB >= this.valueC && this.valueB >= this.valueD && this.valueB === this.valueSelected){
+      console.log('B: '+this.valueB);
+      this.rightAnswer = !this.rightAnswer;
+      return 'B';
+    }
+    else if(this.valueC >= this.valueB && this.valueC >= this.valueA && this.valueC >= this.valueD && this.valueC === this.valueSelected){
+      console.log('C: '+this.valueC);
+      this.rightAnswer = !this.rightAnswer;
+      return 'D';
+    }
+    else if(this.valueD >= this.valueB && this.valueD >= this.valueC && this.valueD >= this.valueA && this.valueD === this.valueSelected){
+      console.log('D: '+this.valueD);
+      this.rightAnswer = !this.rightAnswer;
+      return 'D';
+
+    }*/
+    console.log('maxvaluecard: '+this.maxValues);
+    if(this.maxValues==='A' && this.valueA === this.valueSelected){
       console.log('A: '+this.valueA);
       this.rightAnswer = !this.rightAnswer;
     }
-    else if(this.valueB === this.maxValues && this.valueB === this.valueSelected){
+    else if(this.maxValues==='B' && this.valueB === this.valueSelected){
       console.log('B: '+this.valueB);
       this.rightAnswer = !this.rightAnswer;
     }
-    else if(this.valueC === this.maxValues && this.valueC === this.valueSelected){
+    else if(this.maxValues ==='C' && this.valueC === this.valueSelected){
       console.log('C: '+this.valueC);
       this.rightAnswer = !this.rightAnswer;
     }
-    else if(this.valueD === this.maxValues && this.valueD === this.valueSelected){
+    else if(this.maxValues ==='D' && this.valueD === this.valueSelected){
       console.log('D: '+this.valueD);
       this.rightAnswer = !this.rightAnswer;
+
 
     }
   }

@@ -27,13 +27,13 @@ export class MentrotStatComponent implements OnInit {
   }
 
   mentrotRight(){
-    this.mentrot = this.dataService.get(this.iduser,'mentalrotation','right');
+    this.mentrot = this.dataService.get(this.iduser,'desc','mentalrotation','right');
   }
   mentrotWrong(){
-    this.mentrot = this.dataService.get(this.iduser,'mentalrotation','wrong');
+    this.mentrot = this.dataService.get(this.iduser,'desc','mentalrotation','wrong');
   }
   mentrotFillDate(){
-    this.mentrot = this.dataService.get(this.iduser,'mentalrotation','date');
+    this.mentrot = this.dataService.get(this.iduser,'desc','mentalrotation','date');
   }
 
   msToTime(value: any){

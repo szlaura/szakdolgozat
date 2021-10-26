@@ -19,13 +19,14 @@ export class DataService {
     this.iduser = this.service.currentUserId;
   }
 
-  get(id: any, dbname: string, order: string): Observable<any[]> {
+  get(id: any, sort: any, dbname: string, order: string): Observable<any[]> {
     return this.afs.collection(dbname, ref => {
       let que: CollectionReference | Query = ref;
-      que = que.orderBy(order, 'desc').where('usersid','==', id);
+      que = que.orderBy(order, sort).where('usersid','==', id);
       return que;
     }).valueChanges() as Observable<any[]>;
   }
+
 
   /*getItem(): Observable<WCST> {
     const collect = this.afs.collection<WCST>('wcst', ref => ref.where('usersid', '==', this.iduser));
@@ -85,14 +86,14 @@ export class DataService {
     );
 
   }
-  async addIOWA(won: number, lost: number,all: number, timee: number, datee: any){
+  async addIOWA(mostclick: string, realmax: string, all: number, timee: number, datee: any){
     const ref = collection(this.db, 'iowa');
 
     const docRef = await addDoc(
       ref, {
         usersid: this.iduser,
-        wonmoney: won,
-        lostmoney: lost,
+        mostclicked: mostclick,
+        maxcard: realmax,
         allmoney: all,
         time: timee,
         date: datee

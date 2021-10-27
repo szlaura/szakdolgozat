@@ -67,6 +67,7 @@ constructor(public modalService: ResultService, private dataService: DataService
 
 
   ngOnInit() {
+    //this.korte=true;
     this.kulonkartya='111';
     this.counter=Math.floor(Math.random() * 3);
     this.randomnumber = Math.floor(Math.random() * (5 - 3 + 1)) + 3;
@@ -77,7 +78,7 @@ canExit(): boolean | Observable<boolean> | Promise<boolean>{
   if(this.korte === false){
     return confirm('Biztosan kilépsz?');
   } else{
-  return true;
+    return true;
 }
 };
 

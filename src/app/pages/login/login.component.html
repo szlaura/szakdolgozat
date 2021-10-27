@@ -34,11 +34,18 @@
         <input class= "input" type="email" name="email" matInput placeholder="Pl. vicc.elek@email.com" formControlName="email">
       </mat-form-field>
       <br>
-      <mat-form-field class="form">
+      <mat-form-field class="form" id="last">
         <mat-label>Jelszó</mat-label>
-        <input class= "input" type="password" name="password" matInput minlength="6" placeholder="Jelszó" formControlName="password">
+        <input class= "input" type="password" name="password" matInput minlength="6" placeholder="Jelszó" formControlName="password" [type]="hide ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </mat-form-field>
-      <mat-card id="alertCard" class="alert" *ngIf="alertMessage"> {{alertMessage}} </mat-card>
+      <div id="marg">
+        <mat-chip-list *ngIf="alertMessage">
+          <mat-chip class="chip" > {{alertMessage}} </mat-chip>
+        </mat-chip-list>
+      </div>
+      <!-- <mat-card id="alertCard" class="alert" *ngIf="alertMessage"> {{alertMessage}} </mat-card> -->
+
       <div class="btn"><button type="submit" mat-raised-button class="max-width" [disabled]="form.invalid">Bejelentkezés</button></div>
       <div class="btn"><button mat-raised-button [routerLink]="[ '/welcome' ]">Kezdőoldal</button></div>
     </form>

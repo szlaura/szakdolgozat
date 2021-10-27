@@ -6,7 +6,7 @@ ion-title {
 
 ion-button {
   margin-left: 30%;
-  margin-top: 10%;
+  margin-top: 20%;
   height: 10%;
   width: 40%;
 }
@@ -19,30 +19,45 @@ ion-content {
 }
 
 #main {
-  border-radius: 5px;
-  margin-left: 45%;
+  border-radius: 15px;
+  margin-left: 40%;
   margin-right: 30%;
   margin-top: 2%;
-  margin-bottom: 6%;
+  width: 200px;
+  height: 200px;
+  background-color: #63a898;
+  border-width: 5px;
 }
+
 #left {
-  margin-right: 20%;
-  margin-left: 10%;
+  position: fixed;
+  bottom: 50px;
+  right: 25px;
+  width: 150px;
+  height: 150px;
 }
 
-.card {
-  display: inline;
-  box-sizing: border-box;
-  width: 220px;
-  height: 220px;
-  margin: 20px;
-  position: relative;
-  border-radius: 5px;
+#right {
+  position: fixed;
+  bottom: 50px;
+  left: 25px;
+  width: 150px;
+  height: 150px;
 }
 
-img {
-  width: 220px;
-  height: 220px;
+.img {
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
+}
+
+.imgmain {
+  width: 160px;
+  height: 160px;
+  border-radius: 15px;
+  margin: 20px 0px 0px 20px;
+  border: black;
+  border-width: 5px;
 }
 
 .img:active {
@@ -50,10 +65,49 @@ img {
   opacity: 0.5;
 }
 
-@media (max-width: 695px) {
+//------------------------------------------------------------------
+@media (max-width: 300px) {
+  #main {
+    border-radius: 15px;
+    margin-left: 22%;
+    margin-right: 10%;
+    margin-top: 2%;
+    width: 150px;
+    height: 150px;
+  }
+  .imgmain {
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+    margin: 15px 0px 0px 15px;
+    border: black;
+    border-width: 5px;
+  }
+  #left {
+    width: 110px;
+    height: 110px;
+    right: 10px;
+    bottom: 50px;
+  }
+
+  #right {
+    width: 110px;
+    height: 110px;
+    left: 10px;
+    bottom: 50px;
+  }
+  .img {
+    width: 110px;
+    height: 110px;
+    border-radius: 15px;
+  }
+}
+
+//------------------------------------------------------------------
+@media (min-width: 301px) and(max-width: 325px) {
   #main {
     border-radius: 5px;
-    margin-left: 10%;
+    margin-left: 25%;
     margin-right: 10%;
     margin-top: 2%;
     margin-bottom: 6%;
@@ -61,16 +115,103 @@ img {
     height: 150px;
   }
   #left {
-    margin-right: 2%;
-    margin-left: 5%;
+    width: 120px;
+    height: 120px;
+    right: 15px;
+    bottom: 50px;
   }
-  .card {
+
+  #right {
+    width: 120px;
+    height: 120px;
+    left: 15px;
+    bottom: 50px;
+  }
+
+  .img {
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+  }
+
+  .imgmain {
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+    margin: 15px 0px 0px 15px;
+    border: black;
+    border-width: 5px;
+  }
+  ion-button {
+    margin-top: 40%;
+  }
+}
+
+//------------------------------------------------------------------
+@media (min-width: 326px) and (max-width: 750px) {
+  #main {
+    border-radius: 15px;
+    margin-left: 25%;
+    margin-right: 10%;
+    margin-top: 2%;
+    width: 180px;
+    height: 180px;
+  }
+  .imgmain {
     width: 150px;
     height: 150px;
-    margin: 0px;
+    border-radius: 15px;
+    margin: 15px 0px 0px 15px;
+    border: black;
+    border-width: 5px;
   }
-  img {
-    width: 150px;
-    height: 150px;
+
+  ion-button {
+    margin-top: 40%;
+  }
+}
+
+//------------------------------------------------------------------
+@media (min-width: 1300px) {
+  #main {
+    border-radius: 15px;
+    margin-left: 40%;
+    margin-right: 30%;
+    margin-top: 2%;
+    width: 300px;
+    height: 300px;
+    background-color: #63a898;
+    border-width: 5px;
+  }
+
+  #left {
+    position: fixed;
+    bottom: 50px;
+    right: 150px;
+    width: 250px;
+    height: 250px;
+  }
+
+  #right {
+    position: fixed;
+    bottom: 50px;
+    left: 150px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .img {
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+  }
+
+  .imgmain {
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+    margin: 25px 0px 0px 25px;
+    border: black;
+    border-width: 5px;
   }
 }

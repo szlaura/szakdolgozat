@@ -38,6 +38,7 @@ export class BartComponent implements OnInit {
     private resService: ResultService, private dataService: DataService) { }
 
   ngOnInit() {
+    this.korte=true;
     this.whatistheMax(1);
   }
 

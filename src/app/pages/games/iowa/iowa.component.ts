@@ -82,6 +82,7 @@ export class IowaComponent implements OnInit, Exit{
     this.valueD = 0;
     this.maxValueCard = '';
     this.mostClicked = '';
+    this.korte=true;
   }
 
   canExit(): boolean | Observable<boolean> | Promise<boolean>{

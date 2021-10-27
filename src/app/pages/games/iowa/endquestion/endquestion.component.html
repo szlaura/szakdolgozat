@@ -23,13 +23,11 @@
 <ion-card *ngIf="isShown">
   <ion-item *ngIf="rightAnswer">
     <ion-label class="text" color="success">Helyes</ion-label>
-
   </ion-item>
   <ion-item *ngIf="!rightAnswer">
     <ion-label class="text" color="danger">Helytelen</ion-label>
-
   </ion-item>
-<ion-button color="secondary" (click)="showResult()">Eredmény</ion-button>
+<ion-button color="primary" (click)="showResult()">Eredmény</ion-button>
 </ion-card>
 
 

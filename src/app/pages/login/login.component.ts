@@ -9,8 +9,8 @@ import { Component, HostListener, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  iduser: any;
 
+  hide = true;
   form: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', [Validators.minLength(6), Validators.required])

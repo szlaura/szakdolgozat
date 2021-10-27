@@ -242,7 +242,7 @@ click(){
       data: {
         labels: arr2,
         datasets: [{
-          label: 'Átlagos reakcióidő',
+          label: 'Átlagos reakcióidő (ms)',
           data: arr,
           backgroundColor: [
             'rgba(255, 206, 86, 0.2)'

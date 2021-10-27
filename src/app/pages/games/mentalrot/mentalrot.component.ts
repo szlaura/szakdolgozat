@@ -41,6 +41,7 @@ export class MentalrotComponent implements OnInit, Exit, OnDestroy {
     private resService: ResultService, private dataService: DataService) {
    }
   ngOnDestroy(): void {
+    this.korte=true;
     this.rightans = 0;
     this.wrongans = 0;
     this.average = [];

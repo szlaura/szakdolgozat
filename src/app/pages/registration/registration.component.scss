@@ -1,11 +1,13 @@
 .centering {
-  margin-top: 10%;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin: 10%;
 }
 .btn {
   margin-top: 20px;
   margin-bottom: 10px;
+}
+
+#last {
+  margin-bottom: 20px;
 }
 
 button {
@@ -35,4 +37,20 @@ mat-form-field {
 /* Sets the label to red if dirty and invalid */
 .mat-form-field.ng-dirty.ng-invalid .mat-form-field-label {
   color: black;
+}
+
+/*mat-chip-list,
+mat-chip {
+  background-color: red;
+}*/
+
+.chip {
+  background-color: black;
+}
+
+a {
+  color: white;
+  margin-left: 10%;
+  margin-top: 10%;
+  margin-bottom: 10%;
 }

@@ -6,7 +6,7 @@ const routes: Routes = [
   {
       path: '',
       component: WelcomeComponent,
-      data: { title: 'Üdvözöllek' }
+      data: { title: 'CogSkills' }
   }
 ];
 

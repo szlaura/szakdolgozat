@@ -9,6 +9,10 @@
   box-shadow: none;
 }
 
+#marg {
+  margin-left: 20px;
+}
+
 .centering {
   margin-top: 10%;
   margin-left: 10%;
@@ -44,4 +48,18 @@ h1 {
 
 .log-card {
   background-color: #6c648b;
+}
+
+.chip {
+  background-color: black;
+  margin-left: 10px;
+}
+
+#last {
+  margin-bottom: 20px;
+}
+
+.mat-chip-list-wrapper input.mat-input-element,
+.mat-chip-list-wrapper .mat-standard-chip {
+  margin-left: 16px;
 }

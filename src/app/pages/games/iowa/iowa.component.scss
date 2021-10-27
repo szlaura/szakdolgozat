@@ -6,7 +6,7 @@ ion-title {
 
 ion-button {
   margin-left: 30%;
-  margin-top: 10%;
+  margin-top: 20%;
   height: 10%;
   width: 40%;
 }
@@ -54,5 +54,11 @@ img:active {
     height: 40%;
     background-color: none;
     border-radius: 25px;
+  }
+}
+
+@media (max-width: 800px) {
+  ion-button {
+    margin-top: 40%;
   }
 }

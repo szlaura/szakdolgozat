@@ -68,8 +68,7 @@ export class IowaComponent implements OnInit, Exit{
   constructor(private modalService: ResultService, private dataservice: DataService) {
     this.currentMoney =this.startMoney;
     this.shuffleArray(this.arrayCards);
-    //this.separateArrays(this.arrayCards);
-    console.log('Array: ' +this.arrayCards[0]+','+this.arrayCards[1]+','+this.arrayCards[2]+','+this.arrayCards[3]);
+    console.log('Iowa konstruktor');
   }
 
   ngOnInit() {
@@ -83,6 +82,8 @@ export class IowaComponent implements OnInit, Exit{
     this.maxValueCard = '';
     this.mostClicked = '';
     this.korte=true;
+    console.log('Iowa init');
+
   }
 
   canExit(): boolean | Observable<boolean> | Promise<boolean>{
@@ -107,7 +108,7 @@ export class IowaComponent implements OnInit, Exit{
 
   countTime(){
     this.gameTime = this.nd-this.st;
-    console.log('Time'+this.gameTime);
+    //console.log('Time'+this.gameTime);
   }
 
   caseOne(): any{
@@ -276,7 +277,7 @@ export class IowaComponent implements OnInit, Exit{
   }
 
   shuffleArray(array: any) {
-    console.log('Elotte: '+array);
+    //console.log('Elotte: '+array);
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];

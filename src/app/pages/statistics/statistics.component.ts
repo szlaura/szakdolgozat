@@ -24,8 +24,7 @@ export class StatisticsComponent implements OnInit {
       //his.asd = this.dataService.getItem();
       this.iduser = this.service.currentUserId;
       console.log('statpagere lepeskor:'+this.iduser);
+      console.log('OOOOOOOOOOKKKKKKKK');
   }
-
-
 
 }

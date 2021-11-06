@@ -1,3 +1,4 @@
+import { StartgameModule } from './../../../shared/components/startgame/startgame/startgame.module';
 import { MatRadioModule } from '@angular/material/radio';
 import { EndquestionComponent } from './endquestion/endquestion.component';
 import { IowaRoutingModule } from './iowa-routing.module';
@@ -10,7 +11,7 @@ import { IonicModule } from '@ionic/angular';
 @NgModule({
   declarations: [IowaComponent, EndquestionComponent],
   imports: [
-    CommonModule, IowaRoutingModule, IonicModule, MatRadioModule
+    CommonModule, IowaRoutingModule, IonicModule
   ]
 })
 export class IowaModule { }

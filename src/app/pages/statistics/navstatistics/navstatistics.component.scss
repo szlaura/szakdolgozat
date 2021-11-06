@@ -1,0 +1,50 @@
+ion-content {
+  --padding-top: 60px;
+}
+ion-button {
+  height: 100%;
+  width: 80%;
+  margin-top: 10px;
+  margin-left: 10%;
+}
+ion-item {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+ion-title {
+  margin: 10px 0px 20px 40px;
+  width: 100%;
+}
+@media (max-width: 325px) {
+  ion-title {
+    margin-left: 5%;
+  }
+}
+@media (min-width: 326px) and (max-width: 370px) {
+  ion-title {
+    margin-left: 12%;
+  }
+}
+
+@media (min-width: 371px) and (max-width: 450px) {
+  ion-title {
+    margin-left: 16%;
+  }
+}
+@media (min-width: 451px) and (max-width: 750px) {
+  ion-title {
+    margin-left: 30%;
+  }
+}
+@media (min-width: 751px) and (max-width: 950px) {
+  ion-title {
+    margin-left: 35%;
+  }
+}
+
+@media (min-width: 951px) {
+  ion-title {
+    margin-left: 40%;
+  }
+}

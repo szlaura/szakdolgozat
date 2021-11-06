@@ -1,20 +1,17 @@
 <ion-content>
   <ion-title>Balloon Analog Risk</ion-title>
-  <ion-button id="startbtn"[hidden]=!korte (click)="clickie(); starttimer();">Start</ion-button>
-  <app-startgame [hidden]=ishidden></app-startgame>
+  <ion-button [hidden]=!korte id="startbtn" (click)="clickie(); starttimer();">Start</ion-button>
+  <!-- <app-startgame [hidden]=ishidden></app-startgame> -->
  <ion-card [hidden]=korte>
   <div class="container" >
   <ion-chip>
-    <ion-label>Bank: {{bankmoney}}</ion-label>
-  </ion-chip >
-  <ion-chip>
-    <ion-label>temp: {{tempmoney}}</ion-label>
+    <ion-label color="primary">Bank: {{bankmoney}}</ion-label>
   </ion-chip >
   <div class="balloonn">
     <img id="balloon" src="../../../../assets/pictures/balloon.png">
   </div>
   <ion-button id="up" color="secondary" (click)="upMoney()">Fel</ion-button>
-  <ion-button id="bank" color="tertiary" (click)="addtoBank();">Bankba</ion-button>
+  <ion-button id="bank" color="primary" (click)="addtoBank();">Bankba</ion-button>
 </div>
 </ion-card>
 </ion-content>

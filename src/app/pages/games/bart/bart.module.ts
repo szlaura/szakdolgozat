@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [BartComponent],
   imports: [
-    CommonModule, IonicModule, BartRoutingModule, StartgameModule
+    CommonModule, IonicModule, BartRoutingModule
   ]
 })
 export class BartModule { }

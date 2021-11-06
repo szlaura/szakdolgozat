@@ -1,3 +1,41 @@
 ion-content {
   --padding-top: 60px;
 }
+ion-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#eredmenyek {
+  text-align: center;
+  font-size: x-large;
+  margin-top: 7px;
+  margin-right: 105px;
+}
+
+@media (max-width: 325px) {
+  #eredmenyek {
+    margin-right: 23%;
+  }
+}
+@media (min-width: 326px) and (max-width: 370px) {
+  #eredmenyek {
+    margin-right: 30%;
+  }
+}
+
+@media (min-width: 371px) and (max-width: 450px) {
+  #eredmenyek {
+    margin-right: 35%;
+  }
+}
+@media (min-width: 451px) and (max-width: 750px) {
+  #eredmenyek {
+    margin-right: 40%;
+  }
+}
+@media (min-width: 751px) {
+  #eredmenyek {
+    margin-right: 45%;
+  }
+}

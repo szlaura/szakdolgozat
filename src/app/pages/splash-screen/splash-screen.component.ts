@@ -50,17 +50,20 @@ export class SplashScreenComponent implements OnInit{
 
       case 'mentalrotation':
         this.title= 'Mental Rotation Feladat';
-        this.descript = 'Fel szabályokat be kell hozzá tartani.'+
-        '  A játék 10 percet vesz igénybe.';
-        this.rule = 'p meg';
+        this.descript = 'A mentális forgatási készségeid próbálhatod ki a játékkal. A képek közül az egyik megegyezik a minta képpel.'+
+        'De vajon melyik? A játék 10 percet vesz igénybe.';
+        this.rule = 'A minden körben új képet fogsz látni, mely alatt további két új jelenik meg. A bekeretezett kép és az egyik alsó kép'+
+         'megegyezik. Válaszd ki, hogy melyik a párja. A játék 10 percet vesz igénybe.';
         break;
 
       case 'bart':
         this.title= 'Ballon Analog Risk Feladat';
-        this.descript = 'A feladanod, hogy melyik lehet az alsó kártya párja.'+
-                '.';
-        this.rule = 'Minden körben c'+
-          'Minden k';
+        this.descript = 'A játékban egy lufit kell felfújnod, minden növelésért 5 dollárt kapsz.'+
+        'De vigyázz! Ha túl nagyra növeled, kidurran a lufi és elveszted az addig gyűjtött pénzt.'+
+        'Azonban, ha jókor hagyod abba, be tudod tenni a bankba a gyűjtött pénzed. A játék 10 percet vesz igénybe.';
+        this.rule = 'Minden körben saját belátásod szerint növeld a lufit, és ha úgy gondolod, eleget növelted,'+
+        ' tedd be a bankba a pénzed, ahol biztonságban lesz, onnan nem tudod elveszíteni. Azonban, ha kidurran a lufi'+
+        ', az abban a körben gyűjtött pénzed elveszik.';
         break;
   }
   this.sendValue(this.title, this.descript, this.rule);

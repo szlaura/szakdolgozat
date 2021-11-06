@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import { ResultService } from 'src/app/services/result.service';
 import { RightorwrongService } from 'src/app/services/rightorwrong.service';
 import { SoundService } from 'src/app/services/sound.service';
+import { Exit } from 'src/app/shared/guards/exitgame.guard';
 
 @Component({
   selector: 'app-bart',
   templateUrl: './bart.component.html',
   styleUrls: ['./bart.component.scss'],
 })
-export class BartComponent implements OnInit {
+export class BartComponent implements OnInit, Exit, OnDestroy{
 
   ishidden = true;
   korte=true;
@@ -34,20 +35,41 @@ export class BartComponent implements OnInit {
   wonamount = [];
   putToBank = 0;
 
+
   constructor(private rightorwrongService: RightorwrongService, private soundService: SoundService,
-    private resService: ResultService, private dataService: DataService) { }
+    private resService: ResultService, private dataService: DataService) {
+      //this.allStartPole();
+    }
+
+  ngOnDestroy() {
+    console.log('bart destroy');
+    this.korte=true;
+  };
 
   ngOnInit() {
-    this.korte=true;
     this.whatistheMax(1);
+    this.ishidden = true;
+    this.korte=true;
+    this.tempmoney = 0;
+    this.bankmoney = 0;
+    //this.scale = 0;
+    //this.scale2 = 1;
+    this.round=0;
+    this.won = 0;
+    this.lose = 0;
+    this.maxWon = 0;
+    this.wonamount = [];
+    this.putToBank = 0;
+    console.log('bart init');
+    console.log('wonamout:'+this.wonamount+ ', round: '+this.round);
   }
 
   canExit(): boolean | Observable<boolean> | Promise<boolean>{
     if(this.korte === false){
       return confirm('Biztosan kilépsz?');
     } else{
-    return true;
-  }
+      return true;
+    }
   };
 
   clickie(){
@@ -91,13 +113,16 @@ export class BartComponent implements OnInit {
       document.getElementById('balloon').style.transform='scale('+this.scale2+'.'+this.scale+')';
       this.soundService.playAudio('../../../../assets/audio/wrong.mp3');
       this.rightorwrongService.showAlert('Elvesztetted a pénzt', `<img src="../../../../assets/pictures/wronganswer.png">`);
+
       if(this.round === 10){
         this.endtimer();
+        console.log('kort a vegen:' +this.korte);
         this.maxWon = Math.max.apply(null, this.wonamount);
         console.log('maxwon '+this.maxWon);
         this.resService.setData({name:'bart', data:this.bankmoney, data2: this.maxWon, data3:this.gameTime});
         this.dataService.addBART(this.won, this.lose, this.maxWon, this.bankmoney, this.gameTime, this.date);
         this.resService.presentModal();
+       // this.allStartPole();
         return 0;
       }
       this.round++;
@@ -128,6 +153,7 @@ export class BartComponent implements OnInit {
         this.resService.setData({name:'bart', data:this.bankmoney, data2: this.maxWon, data3:this.gameTime});
         this.dataService.addBART(this.won, this.lose, this.maxWon, this.bankmoney, this.gameTime, this.date);
         this.resService.presentModal();
+        //this.allStartPole();
         return 0;
       }
       this.randomCase();
@@ -138,6 +164,20 @@ export class BartComponent implements OnInit {
     let rnd = this.random[Math.floor(Math.random()*this.random.length)];
     console.log('Random'+rnd);
     this.whatistheMax(rnd);
+  }
+
+  allStartPole(){
+    this.tempmoney = 0;
+    this.bankmoney = 0;
+    //this.scale = 0;
+    //this.scale2 = 1;
+    this.round=0;
+    this.won = 0;
+    this.lose = 0;
+    this.maxWon = 0;
+    this.wonamount = [];
+    this.putToBank = 0;
+    //this.max = 0;
   }
 
   whatistheMax(num: number){

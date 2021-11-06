@@ -1,4 +1,3 @@
-import { MentrotStatModule } from './../statistics/mentrot-stat/mentrot-stat.module';
 import { AuthGuard } from 'src/app/shared/guards/auth.guard';
 import { HomeComponent } from './home.component';
 import { NgModule } from '@angular/core';
@@ -35,14 +34,14 @@ const routes: Routes = [
             path: 'statistics',
             loadChildren: () => import('./../statistics/statistics.module').then(m => m.StatisticsModule),
           },
-          {
+          /*{
             path: 'statwcst',
             loadChildren: () => import('./../statistics/wcst-stat/wcst-stat.module').then(m => m.WcstStatModule),
           },
           {
             path: 'statiowa',
             loadChildren: () => import('./../statistics/iowa-stat/iowa-stat.module').then(m => m.IowaStatModule),
-          },
+          },*/
           {
             path: 'statmentalrot',
             loadChildren: () => import('./../statistics/mentrot-stat/mentrot-stat.module').then(m => m.MentrotStatModule),

@@ -9,7 +9,7 @@ const routes: Routes = [
       path: '',
       canDeactivate: [ExitgameGuard],
       component: DiagramsComponent,
-      data: { title: 'Statisztikák' }
+      data: { title: 'Statisztikak' }
   }
 ];
 

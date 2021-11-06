@@ -23,7 +23,7 @@ export class MentalrotComponent implements OnInit, Exit, OnDestroy {
   variable1='';
   variable2='';
   variable3='';
-  cases = [1, 2, 3];
+  cases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   timetoend=false;
   rightans = 0;
   wrongans = 0;
@@ -41,6 +41,7 @@ export class MentalrotComponent implements OnInit, Exit, OnDestroy {
     private resService: ResultService, private dataService: DataService) {
    }
   ngOnDestroy(): void {
+    console.log('mentrot destroy');
     this.korte=true;
     this.rightans = 0;
     this.wrongans = 0;
@@ -53,6 +54,7 @@ export class MentalrotComponent implements OnInit, Exit, OnDestroy {
   }
 
   ngOnInit() {
+    console.log('Mentrot init');
     this.count=0;
     this.max = this.cases.length;
     this.rightans = 0;
@@ -69,7 +71,7 @@ export class MentalrotComponent implements OnInit, Exit, OnDestroy {
       return confirm('Biztosan kilépsz?');
     } else{
     return true;
-  }
+    }
   };
 
   clickie(){
@@ -210,48 +212,137 @@ export class MentalrotComponent implements OnInit, Exit, OnDestroy {
      //const rnd = this.random(this.cases);
      //const rnd = this.randomRepeats(this.cases);
      console.log(rnd);
-     switch(rnd){
-       case 1:
-         this.variable1 = 'alak1';
-         const what = this.randomInRange(0, 1);
-         if(what === 0) {
-          this.variable2 = 'alak2';
-          this.variable3 = 'alak3';
+    switch(rnd){
+      case 1:
+        this.variable1 = 'al1';
+        const what = this.randomInRange(0, 1);
+        if(what === 0) {
+          this.variable2 = 'al2';
+          this.variable3 = 'al3';
           console.log('variables1: '+ this.variable2 +this.variable3);
-         } else{
-          this.variable2 = 'alak3';
-          this.variable3 = 'alak2';
+        } else{
+          this.variable2 = 'al3';
+          this.variable3 = 'al2';
           console.log('variables1: '+ this.variable2 +this.variable3);
-
-         }
-         break;
-       case 2:
-         this.variable1 = 'rbetu1';
-         const what2 = this.randomInRange(0, 1);
-         if(what2 === 0) {
+        }
+      break;
+      case 2:
+        this.variable1 = 'rbetu1';
+        const what2 = this.randomInRange(0, 1);
+        if(what2 === 0) {
           this.variable2 = 'rbetu2';
           this.variable3 = 'rbetu3';
           console.log('variables2: '+ this.variable2 +this.variable3);
-
-         } else{
+        } else{
           this.variable2 = 'rbetu3';
           this.variable3 = 'rbetu2';
           console.log('variables2: '+ this.variable2 +this.variable3);
-         }
-         break;
-       case 3:
-         this.variable1 = 'madar1';
-         const what3 = this.randomInRange(0, 1);
-         if(what3 === 0) {
+        }
+      break;
+      case 3:
+        this.variable1 = 'madar1';
+        const what3 = this.randomInRange(0, 1);
+        if(what3 === 0) {
           this.variable2 = 'madar2';
           this.variable3 = 'madar3';
           console.log('variables3: '+ this.variable2 +this.variable3);
-         } else{
+        } else{
           this.variable2 = 'madar3';
           this.variable3 = 'madar2';
           console.log('variables3: '+ this.variable2 +this.variable3);
-         }
-         break;
+        }
+      break;
+      case 4:
+        this.variable1 = 'ala1';
+        const what4 = this.randomInRange(0, 1);
+        if(what4 === 0) {
+          this.variable2 = 'ala2';
+          this.variable3 = 'ala3';
+          console.log('variables3: '+ this.variable2 +this.variable3);
+        } else{
+          this.variable2 = 'ala3';
+          this.variable3 = 'ala2';
+          console.log('variables3: '+ this.variable2 +this.variable3);
+        }
+      break;
+      case 5:
+        this.variable1 = 'alak1';
+        const what5 = this.randomInRange(0, 1);
+        if(what5 === 0) {
+          this.variable2 = 'alak2';
+          this.variable3 = 'alak3';
+          console.log('variables3: '+ this.variable2 +this.variable3);
+        } else{
+          this.variable2 = 'alak3';
+          this.variable3 = 'alak2';
+          console.log('variables3: '+ this.variable2 +this.variable3);
+        }
+      break;
+      case 6:
+        this.variable1 = 'alakk1';
+        const what6 = this.randomInRange(0, 1);
+        if(what6 === 0) {
+          this.variable2 = 'alakk2';
+          this.variable3 = 'alakk3';
+          console.log('variables3: '+ this.variable2 +this.variable3);
+        } else{
+          this.variable2 = 'alakk3';
+          this.variable3 = 'alakk2';
+          console.log('variables3: '+ this.variable2 +this.variable3);
+        }
+      break;
+      case 7:
+        this.variable1 = 'alakkk1';
+        const what7 = this.randomInRange(0, 1);
+        if(what7 === 0) {
+          this.variable2 = 'alakkk2';
+          this.variable3 = 'alakkk3';
+          console.log('variables3: '+ this.variable2 +this.variable3);
+        } else{
+          this.variable2 = 'alakkk3';
+          this.variable3 = 'alakkk2';
+          console.log('variables3: '+ this.variable2 +this.variable3);
+        }
+      break;
+      case 8:
+          this.variable1 = 'gbetu1';
+          const what8 = this.randomInRange(0, 1);
+          if(what8 === 0) {
+            this.variable2 = 'gbetu2';
+            this.variable3 = 'gbetu3';
+            console.log('variables3: '+ this.variable2 +this.variable3);
+          } else{
+            this.variable2 = 'gbetu3';
+            this.variable3 = 'gbetu2';
+            console.log('variables3: '+ this.variable2 +this.variable3);
+        }
+      break;
+      case 9:
+            this.variable1 = 'auto1';
+            const what9 = this.randomInRange(0, 1);
+          if(what9 === 0) {
+            this.variable2 = 'auto2';
+            this.variable3 = 'auto3';
+            console.log('variables3: '+ this.variable2 +this.variable3);
+          } else{
+            this.variable2 = 'auto3';
+            this.variable3 = 'auto2';
+            console.log('variables3: '+ this.variable2 +this.variable3);
+          }
+        break;
+        case 10:
+          this.variable1 = 'kez1';
+          const what10 = this.randomInRange(0, 1);
+          if(what10 === 0) {
+            this.variable2 = 'kez2';
+            this.variable3 = 'kez3';
+            console.log('variables3: '+ this.variable2 +this.variable3);
+          } else{
+            this.variable2 = 'kez3';
+            this.variable3 = 'kez2';
+            console.log('variables3: '+ this.variable2 +this.variable3);
+          }
+        break;
      }
   }
 

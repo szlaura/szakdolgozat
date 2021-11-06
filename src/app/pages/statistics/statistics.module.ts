@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   declarations: [StatisticsComponent],
   imports: [
     CommonModule, StatsticsRoutingModule, IonicModule
-  ]
+  ],
+  exports: [StatisticsComponent]
 })
 export class StatisticsModule { }

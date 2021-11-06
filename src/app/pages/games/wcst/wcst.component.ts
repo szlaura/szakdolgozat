@@ -1,4 +1,3 @@
-import { ConfirmexitService } from './../../../services/confirmexit.service';
 import { RightorwrongService } from './../../../services/rightorwrong.service';
 import { SoundService } from './../../../services/sound.service';
 import { DataService } from './../../../services/data.service';
@@ -63,11 +62,12 @@ cards = ['111', '112', '113', '114'/*, '121', '122', '123', '124', '131', '132',
 
 
 constructor(public modalService: ResultService, private dataService: DataService,
-    private soundService: SoundService, private rightorwrongService: RightorwrongService, private asd: ConfirmexitService) { }
+    private soundService: SoundService, private rightorwrongService: RightorwrongService) { }
 
 
   ngOnInit() {
     //this.korte=true;
+    console.log('wsct init');
     this.kulonkartya='111';
     this.counter=Math.floor(Math.random() * 3);
     this.randomnumber = Math.floor(Math.random() * (5 - 3 + 1)) + 3;
@@ -79,7 +79,7 @@ canExit(): boolean | Observable<boolean> | Promise<boolean>{
     return confirm('Biztosan kilépsz?');
   } else{
     return true;
-}
+  }
 };
 
 starttimer(){

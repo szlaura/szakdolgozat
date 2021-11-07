@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: '',
     component: IowaStatComponent,
-    data: { title: 'IOWA Statistics' }
+    data: { title: 'Iowa eredmenyek' }
   }
 ];
 

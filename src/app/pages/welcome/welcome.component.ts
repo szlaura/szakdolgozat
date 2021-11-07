@@ -24,7 +24,7 @@ export class WelcomeComponent implements OnInit {
     this.authService.isAnonymus('not');
   }
 
-  signAnonymus(): void {
+  signInAnonymus(): void {
     this.authService.signinAsAGusedt().then(
       result => {
         //console.log(result);

@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: '',
     component: BartStatComponent,
-    data: { title: 'Bart Statistics' }
+    data: { title: 'BART eredmenyek' }
   }
 ];
 

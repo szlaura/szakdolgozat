@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: '',
     component: WcstStatComponent,
-    data: { title: 'Wcst Statistics' }
+    data: { title: 'WCST eredmenyek' }
   }
 ];
 

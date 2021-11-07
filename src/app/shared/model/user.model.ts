@@ -1,3 +1,6 @@
 export interface User {
- identifier: any;
+  usersid: any;
+  nickname: string;
+  birthdate: any;
+  sex: string;
 }

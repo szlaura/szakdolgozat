@@ -1,8 +1,55 @@
 ion-card {
   padding: 10px;
-  margin-top: 90px;
 }
 ion-button {
   height: 100%;
   width: 120px;
+}
+.content {
+  height: 30%;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.nodata {
+  height: 200%;
+}
+
+ion-title {
+  text-align: center;
+  font-size: x-large;
+  margin: 10px;
+  margin-top: 80px;
+}
+
+ion-button {
+  height: 40px;
+  margin: 1% 40% 1% 40%;
+  width: 15%;
+}
+
+ion-card-title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#nodata {
+  text-align: center;
+}
+
+.input {
+  border-radius: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.data {
+  text-align: center;
+}
+
+@media (max-width: 750px) {
+  ion-button {
+    margin: 1% 35% 1% 35%;
+    width: 30%;
+  }
 }

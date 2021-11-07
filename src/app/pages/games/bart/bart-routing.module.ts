@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     component: BartComponent,
     canDeactivate: [ExitgameGuard],
-    data: { title: 'Balloon Analog RIsk Task' }
+    data: { title: 'Balloon Analog Risk Task' }
   }
 ];
 

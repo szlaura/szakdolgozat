@@ -35,43 +35,48 @@ export class SplashScreenComponent implements OnInit{
   switch(id){
     case 'wcst':
       this.title= 'Wisconsin Card Sorting Feladat';
-      this.descript = 'A feladatot kártyákkal játsszák. Négy kártya közül kell kiválasztanod, hogy melyik lehet az alsó kártya párja.'+
-            'A teszt 10-20 percet vesz igénybe.';
-      this.rule = 'Minden körben csak egy helyes válasz van. A szabályra neked kell rájönni. \n'+
+      this.descript = 'Ez egy neuropszichológiai teszt, amelyet gyakran használnak '+
+      'olyan magasabb szintű kognitív folyamatok mérésére, mint a figyelem, a kitartás vagy az absztrakt gondolkodás.';
+      this.rule = 'A feladatot kártyákkal játsszák. Négy kártya közül kell kiválasztanod, hogy melyik lehet az alsó kártya párja.'+
+      'A teszt 10-20 percet vesz igénybe. Minden körben csak egy helyes válasz van. A szabályra neked kell rájönni. \n'+
       'Minden körben visszajelzést kapsz, hogy jól választottál-e.';
       break;
     case 'iowa':
       this.title= 'IOWA Gambling Feladat';
-      this.descript = 'Négy pakli kártyából kell választani egyet minden körben. Minden pakliban'+
+      this.descript = 'Az Iowa szerencsejáték feladat (IGT) egy pszichológiai feladat, amely szimulálni tudja a valós döntéshozatalt.'+
+      ' Széles körben használják az észlelés és az érzékelés vizsgálatában';
+      this.rule = 'Négy pakli kártyából kell választani egyet minden körben. Minden pakliban'+
       'vannak kártyák, amelyekkel pénzt nyerhetsz vagy vagy veszíthetsz. A játék célja, hogy minél több pénzt nyerj.'+
       ' A teszt 10-20 percet vesz igénybe.';
-      this.rule = 'Minden körben válassz egy paklit, amellyel szerinted a legtöbbet nyerheted.';
       break;
 
       case 'mentalrotation':
         this.title= 'Mental Rotation Feladat';
-        this.descript = 'A mentális forgatási készségeid próbálhatod ki a játékkal. A képek közül az egyik megegyezik a minta képpel.'+
-        'De vajon melyik? A játék 10 percet vesz igénybe.';
-        this.rule = 'A minden körben új képet fogsz látni, mely alatt további két új jelenik meg. A bekeretezett kép és az egyik alsó kép'+
+        this.descript = 'A mentális rotáció készségeid próbálhatod ki a játékkal. A mentális rotáció azt jelenti, hogy elképzeljük,'+
+        ' hogyan nézne ki egy objektum (pl. kép, tárgy, stb.), ha elforgatnák.'+
+        ' Kapcsolat van az észleléssel és a mentális forgással kapcsolatos agyterületek között.'+
+        ' Összefüggés lehet továbbá még a térbeli feldolgozás kognitív sebessége,'+
+        ' az általános intelligencia és a mentális rotáció között is';
+        this.rule = 'A képek közül az egyik megegyezik a minta képpel.'+
+        'De vajon melyik? A játék 10 percet vesz igénybe. A minden körben új képet fogsz látni,'+
+        ' mely alatt további két új jelenik meg. A bekeretezett kép és az egyik alsó kép'+
          'megegyezik. Válaszd ki, hogy melyik a párja. A játék 10 percet vesz igénybe.';
         break;
 
       case 'bart':
         this.title= 'Ballon Analog Risk Feladat';
-        this.descript = 'A játékban egy lufit kell felfújnod, minden növelésért 5 dollárt kapsz.'+
+        this.descript = 'Ez a feladat a kockázatvállalási hajlandóságot méri. '+
+         'Modellezi a valós kockázatvállalást a potenciális jutalom és veszteség között.';
+        this.rule = 'A játékban egy lufit kell felfújnod, minden növelésért 5 dollárt kapsz.'+
         'De vigyázz! Ha túl nagyra növeled, kidurran a lufi és elveszted az addig gyűjtött pénzt.'+
-        'Azonban, ha jókor hagyod abba, be tudod tenni a bankba a gyűjtött pénzed. A játék 10 percet vesz igénybe.';
-        this.rule = 'Minden körben saját belátásod szerint növeld a lufit, és ha úgy gondolod, eleget növelted,'+
-        ' tedd be a bankba a pénzed, ahol biztonságban lesz, onnan nem tudod elveszíteni. Azonban, ha kidurran a lufi'+
-        ', az abban a körben gyűjtött pénzed elveszik.';
+        'Azonban, ha jókor hagyod abba, be tudod tenni a bankba a gyűjtött pénzed. Saját belátásod szerint dönts,'+
+        ' hogy mikor teszed be a bankba a pénzed A játék 10 percet vesz igénybe.';
         break;
   }
   this.sendValue(this.title, this.descript, this.rule);
 }
 
   sendValue(titlooo: string,desooo: string,rulezzz: string ){
-    //desooo=this.descript;
-    //rulezzz=this.rule;
     this.introService.setDescription(titlooo, desooo, rulezzz);
   }
 

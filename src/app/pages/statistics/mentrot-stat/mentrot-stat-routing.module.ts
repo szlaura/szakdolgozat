@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: '',
     component: MentrotStatComponent,
-    data: { title: 'MentRot Statistics' }
+    data: { title: 'MentRot eredmenyek' }
   }
 ];
 

@@ -1,8 +1,10 @@
+import { User } from './../shared/model/user.model';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { collection, addDoc, getFirestore} from 'firebase/firestore';
+import { collection, addDoc, getFirestore, doc, getDoc} from 'firebase/firestore';
 import { AngularFirestore, CollectionReference, Query} from '@angular/fire/compat/firestore';
+import { map } from '@firebase/util';
 //import { CollectionReference, Query } from '@angular/fire/firestore';
 
 
@@ -13,6 +15,7 @@ export class DataService {
 
   iduser: any;
   db = getFirestore();
+
   //wcstarray = [];
   //asdarayy: Observable<any[]>;
   constructor(private service: AuthService, private afs: AngularFirestore) {
@@ -26,51 +29,6 @@ export class DataService {
       return que;
     }).valueChanges() as Observable<any[]>;
   }
-
-
-  /*getItem(): Observable<WCST> {
-    const collect = this.afs.collection<WCST>('wcst', ref => ref.where('usersid', '==', this.iduser));
-    const userasd = collect
-    .valueChanges()
-    .pipe( map(users => {
-        const user = users[0];
-        console.log(user);
-        return user;
-      })
-    );
-
-  return userasd;
-  }*/
-
-  /*addResult(game: Game){
-    this.gamesRef.push({
-      user: game.user,
-      time: game.time,
-      right: game.right,
-      wrong: game.wrong
-    }).catch(error => {
-      this.errorMgmt(error);
-    });
-  }*/
-
-  /*add(asdd: any){
-     push(ref(this.databaseRef, 'games-list'), asdd);
-  }
-
-  getGame(id: string) {
-    this.gameRef = this.db.object('games-list/' + id);
-    return this.gameRef;
-  }
-
-  /* Get book list */
-  /*getGamesList() {
-    this.gamesRef = this.db.list('games-list');
-    return this.gamesRef;
-  }
-
-  private errorMgmt(error: any) {
-    console.log(error);
-  }*/
 
   async addWCST(good: number, bad: number, timee: number, datee: any){
     const ref = collection(this.db, 'wcst');
@@ -131,6 +89,65 @@ export class DataService {
       }
     );
   }
+
+  async addUserData(nicknamee: string, birth: any, gender: string){
+    const ref = collection(this.db, 'user');
+
+    const docRef = await addDoc(
+      ref, {
+        usersid: this.iduser,
+        nickname: nicknamee,
+        birthdate: birth,
+        sex: gender
+      }
+    );
+  }
+
+
+
+  /*getItem(): Observable<WCST> {
+    const collect = this.afs.collection<WCST>('wcst', ref => ref.where('usersid', '==', this.iduser));
+    const userasd = collect
+    .valueChanges()
+    .pipe( map(users => {
+        const user = users[0];
+        console.log(user);
+        return user;
+      })
+    );
+
+  return userasd;
+  }*/
+
+  /*addResult(game: Game){
+    this.gamesRef.push({
+      user: game.user,
+      time: game.time,
+      right: game.right,
+      wrong: game.wrong
+    }).catch(error => {
+      this.errorMgmt(error);
+    });
+  }*/
+
+  /*add(asdd: any){
+     push(ref(this.databaseRef, 'games-list'), asdd);
+  }
+
+  getGame(id: string) {
+    this.gameRef = this.db.object('games-list/' + id);
+    return this.gameRef;
+  }
+
+  /* Get book list */
+  /*getGamesList() {
+    this.gamesRef = this.db.list('games-list');
+    return this.gamesRef;
+  }
+
+  private errorMgmt(error: any) {
+    console.log(error);
+  }*/
 
 
 }

@@ -1,30 +1,3 @@
-<!-- <ion-content>
-  <ion-card class="log-card">
-    <form [formGroup]="form" (ngSubmit)="login()">
-      <h3>Login</h3>
-      <ion-card id="alertCard" class="alert" *ngIf="alertMessage">
-        {{alertMessage}}
-      </ion-card>
-      <ion-card-content class="max-width">
-        <ion-card-title>E-mail</ion-card-title>
-        <ion-input type="email" name="email" matInput placeholder="Pl. pat@example.com" formControlName="email"></ion-input>
-      </ion-card-content>
-
-      <br>
-      <ion-card-content class="max-width">
-        <ion-card-title>Jelszó</ion-card-title>
-        <ion-input type="password" name="password" matInput minlength="6" placeholder="Jelszó" formControlName="password"></ion-input>
-      </ion-card-content>
-      <br>
-      <ion-button type="submit" class="max-width" [disabled]="form.invalid">Bejelentkezés</ion-button>
-      <br>
-      <ion-button (click)="navTo('/registration')">Regisztráció</ion-button>
-      <br>
-      <ion-button (click)="signAnonymus()">Guest</ion-button> -->
-    <!-- </form>
-  </ion-card>
-</ion-content>  -->
-
 <div class="centering">
   <mat-card class="log-card">
     <form  [formGroup]="form" (ngSubmit)="login()">
@@ -44,10 +17,9 @@
           <mat-chip class="chip" > {{alertMessage}} </mat-chip>
         </mat-chip-list>
       </div>
-      <!-- <mat-card id="alertCard" class="alert" *ngIf="alertMessage"> {{alertMessage}} </mat-card> -->
-
       <div class="btn"><button type="submit" mat-raised-button class="max-width" [disabled]="form.invalid">Bejelentkezés</button></div>
-      <div class="btn"><button mat-raised-button [routerLink]="[ '/welcome' ]">Kezdőoldal</button></div>
+      <div id="kezdooldal" class="btn"><button mat-raised-button [routerLink]="[ '/welcome' ]">Kezdőoldal</button></div>
+      <a [routerLink]="[ '/registration' ]" mat-menu-item>Még nincs profilod? Kattints!</a>
     </form>
   </mat-card>
 </div>

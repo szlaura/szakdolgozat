@@ -34,22 +34,6 @@ const routes: Routes = [
             path: 'statistics',
             loadChildren: () => import('./../statistics/statistics.module').then(m => m.StatisticsModule),
           },
-          /*{
-            path: 'statwcst',
-            loadChildren: () => import('./../statistics/wcst-stat/wcst-stat.module').then(m => m.WcstStatModule),
-          },
-          {
-            path: 'statiowa',
-            loadChildren: () => import('./../statistics/iowa-stat/iowa-stat.module').then(m => m.IowaStatModule),
-          },*/
-          {
-            path: 'statmentalrot',
-            loadChildren: () => import('./../statistics/mentrot-stat/mentrot-stat.module').then(m => m.MentrotStatModule),
-          },
-          {
-            path: 'statbart',
-            loadChildren: () => import('./../statistics/bart-stat/bart-stat.module').then(m => m.BartStatModule),
-          },
           {
             path: 'profile',
             loadChildren: () => import('./../profile/profile.module').then(m => m.ProfileModule),

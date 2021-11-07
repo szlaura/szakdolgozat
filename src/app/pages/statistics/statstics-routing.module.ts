@@ -11,8 +11,8 @@ const routes: Routes = [
     //data: { title: 'Statistics' }
     children:[
     {
-        path: 'navstat',
-        loadChildren: () => import('./../statistics/navstatistics/navstatistics.module').then(m => m.NavstatisticsModule),
+      path: 'navstat',
+      loadChildren: () => import('./../statistics/navstatistics/navstatistics.module').then(m => m.NavstatisticsModule),
     },
     {
       path: 'statiowa',
@@ -21,6 +21,14 @@ const routes: Routes = [
     {
       path: 'statwcst',
       loadChildren: () => import('./../statistics/wcst-stat/wcst-stat.module').then(m => m.WcstStatModule),
+    },
+    {
+      path: 'statbart',
+      loadChildren: () => import('./../statistics/bart-stat/bart-stat.module').then(m => m.BartStatModule),
+    },
+    {
+      path: 'statmentrot',
+      loadChildren: () => import('./../statistics/mentrot-stat/mentrot-stat.module').then(m => m.MentrotStatModule),
     },
     ],
     canActivateChild: [AuthGuard]

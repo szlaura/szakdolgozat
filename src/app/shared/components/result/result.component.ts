@@ -25,7 +25,7 @@ export class ResultComponent implements OnInit, OnDestroy {
   s: any;
 
   constructor(private modalCtrl: ModalController, private res: ResultService,
-     private router: Router, private dataService: DataService, private timeService: MstotimeService) { }
+     private router: Router, private timeService: MstotimeService) { }
 
   ngOnInit() {
 

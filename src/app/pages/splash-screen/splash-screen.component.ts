@@ -5,7 +5,6 @@ import { StartgameComponent } from './../../shared/components/startgame/startgam
 import { StartnavService } from './../../services/startnav.service';
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-splash-screen',
@@ -42,12 +41,12 @@ export class SplashScreenComponent implements OnInit{
       'Minden körben visszajelzést kapsz, hogy jól választottál-e.';
       break;
     case 'iowa':
-      this.title= 'IOWA Gambling Feladat';
+      this.title= 'Iowa Gambling Feladat';
       this.descript = 'Az Iowa szerencsejáték feladat (IGT) egy pszichológiai feladat, amely szimulálni tudja a valós döntéshozatalt.'+
-      ' Széles körben használják az észlelés és az érzékelés vizsgálatában';
-      this.rule = 'Négy pakli kártyából kell választani egyet minden körben. Minden pakliban'+
-      'vannak kártyák, amelyekkel pénzt nyerhetsz vagy vagy veszíthetsz. A játék célja, hogy minél több pénzt nyerj.'+
-      ' A teszt 10-20 percet vesz igénybe.';
+      ' Széles körben használják az észlelés és az érzékelés vizsgálatában.';
+      this.rule = 'A 2000 $ tőkével indul a játék. Négy pakli kártyából kell választani egyet minden körben. Minden pakliban '+
+      'vannak kártyák, amelyekkel pénzt nyerhetsz vagy veszíthetsz. A játék célja, hogy minél több pénzt begyűjts a váték végére.'+
+      ' A teszt 10 percet vesz igénybe.';
       break;
 
       case 'mentalrotation':
@@ -56,7 +55,7 @@ export class SplashScreenComponent implements OnInit{
         ' hogyan nézne ki egy objektum (pl. kép, tárgy, stb.), ha elforgatnák.'+
         ' Kapcsolat van az észleléssel és a mentális forgással kapcsolatos agyterületek között.'+
         ' Összefüggés lehet továbbá még a térbeli feldolgozás kognitív sebessége,'+
-        ' az általános intelligencia és a mentális rotáció között is';
+        ' az általános intelligencia és a mentális rotáció között is.';
         this.rule = 'A képek közül az egyik megegyezik a minta képpel.'+
         'De vajon melyik? A játék 10 percet vesz igénybe. A minden körben új képet fogsz látni,'+
         ' mely alatt további két új jelenik meg. A bekeretezett kép és az egyik alsó kép'+
@@ -76,8 +75,8 @@ export class SplashScreenComponent implements OnInit{
   this.sendValue(this.title, this.descript, this.rule);
 }
 
-  sendValue(titlooo: string,desooo: string,rulezzz: string ){
-    this.introService.setDescription(titlooo, desooo, rulezzz);
+  sendValue(titl: string, des: string, rule: string ){
+    this.introService.setDescription(titl, des, rule);
   }
 
 

@@ -246,7 +246,7 @@ export class IowaComponent implements OnInit, Exit{
   clickieCard(whichyouclicked: string){
     this.clickCount++;
 
-    if(this.clickCount === 15){
+    if(this.clickCount === 25){
       this.endtimer();
       this.gameEnd();
       this.modalService.setData({name: 'iowa', data:this.currentMoney, data2:this.gameTime, data3: this.maxValueCard});

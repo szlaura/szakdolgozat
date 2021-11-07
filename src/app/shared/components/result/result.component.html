@@ -4,13 +4,19 @@
       <ion-card-title>Eredmények</ion-card-title>
     </ion-card-header>
     <ion-item>
+      <ion-label>
       Jó válasz: {{alu}}
+      </ion-label>
     </ion-item>
     <ion-item>
+      <ion-label>
       Rossz válasz: {{alu2}}
+      </ion-label>
     </ion-item>
     <ion-item>
+      <ion-label>
       Idő: {{msToTime(alu3)}}
+      </ion-label>
     </ion-item>
   </ion-card>
   <ion-card *ngIf="name==='iowa'">
@@ -18,13 +24,19 @@
       <ion-card-title>Eredmények</ion-card-title>
     </ion-card-header>
     <ion-item>
-      Össz pénz: {{alu}}
+      <ion-label>
+        Összes pénz: {{alu}} $
+      </ion-label>
     </ion-item>
     <ion-item>
-      Legtöbbet érő kártya: {{alu3}}
+      <ion-label>
+        Legtöbbet érő kártya: {{alu3}}
+      </ion-label>
     </ion-item>
     <ion-item>
-      Idő: {{msToTime(alu2)}}
+      <ion-label>
+         Idő: {{msToTime(alu2)}}
+      </ion-label>
     </ion-item>
   </ion-card>
   <ion-card *ngIf="name==='mentalrotation'">
@@ -32,13 +44,19 @@
       <ion-card-title>Eredmények</ion-card-title>
     </ion-card-header>
     <ion-item>
+      <ion-label>
       Jó válasz: {{alu}}
+      </ion-label>
     </ion-item>
     <ion-item>
+      <ion-label>
       Rossz válasz: {{alu2}}
+      </ion-label>
     </ion-item>
     <ion-item>
+      <ion-label>
       Idő: {{msToTime(alu3)}}
+      </ion-label>
     </ion-item>
   </ion-card>
 
@@ -47,15 +65,21 @@
       <ion-card-title>Eredmények</ion-card-title>
     </ion-card-header>
     <ion-item>
-      Bankban lévő pénz: {{alu}}
+      <ion-label>
+      Bankban lévő pénz: {{alu}} $
+      </ion-label>
     </ion-item>
     <ion-item>
-      Legnagyobb nyeremény: {{alu2}}
+      <ion-label>
+        Legnagyobb nyeremény: {{alu2}} $
+      </ion-label>
     </ion-item>
     <ion-item>
-      Idő: {{msToTime(alu3)}}
+      <ion-label>
+         Idő: {{msToTime(alu3)}}
+      </ion-label>
     </ion-item>
   </ion-card>
-  <ion-button (click)="closemodal(); gotoSplash();">Kezőlap</ion-button>
+  <ion-button (click)="closemodal(); gotoSplash();">Kezdőlap</ion-button>
   <ion-button (click)="closemodal(); gotoStatics();">Eredmények</ion-button>
  </ion-content>

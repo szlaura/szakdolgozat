@@ -1,7 +1,13 @@
 ion-card {
   padding: 20px;
+  margin-top: 5%;
 }
 ion-button {
-  padding-left: 20px;
+  margin-left: 10%;
   width: 80%;
+}
+
+ion-card-title,
+ion-label {
+  text-align: center;
 }

@@ -6,16 +6,6 @@
         <mat-label>E-mail</mat-label>
         <input type="email" name="email" matInput placeholder="Pl. vicc.elek@email.com" formControlName="email">
       </mat-form-field>
-      <!-- <mat-form-field class="max-width">
-        <mat-label>Név</mat-label>
-        <input type="name" name="name" matInput placeholder="Vicc Elek">
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Születési dátum</mat-label>
-        <input matInput [matDatepicker]="picker">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field> -->
       <mat-form-field class="form">
         <mat-label>Jelszó</mat-label>
         <input type="password" name="password" matInput placeholder="Jelszó" formControlName="password1" [type]="hide ? 'password' : 'text'">
@@ -30,10 +20,6 @@
         <mat-icon matSuffix (click)="hide2 = !hide2">{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
         <mat-hint align="end">min. hossz 6 / {{password2.value.length}}</mat-hint>
       </mat-form-field>
-      <!-- <mat-chip-list *ngIf="error">
-        <mat-chip color="warn" class="max-width" style="margin-top: 16px;" selected>
-          A jelszó megerősítés nem egyezik</mat-chip>
-      </mat-chip-list> -->
     <mat-chip-list *ngIf="alertMessage">
       <mat-chip class="chip" > {{alertMessage}} </mat-chip>
     </mat-chip-list>

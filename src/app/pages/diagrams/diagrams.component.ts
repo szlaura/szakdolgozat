@@ -77,7 +77,6 @@ click(){
       let num = 0;
       for (const d of this.data){
         this.allmoneyy.push(d.allmoney);
-        console.log('allmoney'+d.allmoney);
         num++;
         this.gametime2.push(num);
       }
@@ -92,15 +91,10 @@ click(){
       let num = 0;
       for (const d of this.data){
         this.avgreact.push(d.avgreacttime);
-        console.log('avgreacttime'+d.avgreacttime);
         num++;
         this.gametime3.push(num);
       }
       this.barChartMethod2(this.avgreact, this.gametime3);
-      for(const ivalami of this.avgreact){
-        console.log(ivalami);
-      }
-      console.log(this.avgreact);
     });
   }
 
@@ -126,7 +120,6 @@ click(){
 
 
   barChartMethod(arr: any, arr2: any) {
-    console.log('meghivodok');
     this.barChart = new Chart(this.barCanvas.nativeElement, {
       type: 'bar',
       data: {

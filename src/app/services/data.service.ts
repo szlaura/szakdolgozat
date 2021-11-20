@@ -21,7 +21,6 @@ export class DataService {
     return this.afs.collection(dbname, ref => {
       let que: CollectionReference | Query = ref;
       que = que.orderBy(order, sort).where('usersid','==', id);
-      console.log('que:'+que);
       return que;
     }).valueChanges() as Observable<any[]>;
   }

@@ -15,16 +15,10 @@ export class StatisticsComponent implements OnInit {
 
   constructor(private service: AuthService) {
     this.iduser = this.service.currentUserId;
-    console.log('statpagere lepeskor2:'+this.iduser);
   }
 
   ngOnInit() {
-    //this.dataService.getWcst(this.wcst);
-    //this.asd = this.dataService.getAsd();
-      //his.asd = this.dataService.getItem();
       this.iduser = this.service.currentUserId;
-      console.log('statpagere lepeskor:'+this.iduser);
-      console.log('OOOOOOOOOOKKKKKKKK');
   }
 
 }

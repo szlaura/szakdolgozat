@@ -24,7 +24,6 @@ export class ProfileComponent implements OnInit, Exit {
   empty: any;
 
   constructor(private auth: AuthService, private dataService: DataService) {
-    console.log('konstruktor');
   }
  /* ngOnDestroy() {
     this.userid='';
@@ -36,9 +35,7 @@ export class ProfileComponent implements OnInit, Exit {
   }*/
 
   ngOnInit() {
-    console.log('init profil');
     this.userid = this.auth.currentUserId;
-    console.log('id profil initkor '+this.userid);
     this.email = this.auth.currentUserEmail;
     this.getUsersData();
 
@@ -47,7 +44,6 @@ export class ProfileComponent implements OnInit, Exit {
   canExit(): boolean | Observable<boolean> | Promise<boolean>{
     this.userid='';
     this.user=null;
-    console.log('Useridnullazas: '+this.userid);
     return true;
 };
 

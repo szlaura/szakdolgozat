@@ -1,12 +1,9 @@
-import { User } from './../shared/model/user.model';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { collection, addDoc, getFirestore, doc, getDoc} from 'firebase/firestore';
+import { collection, addDoc, getFirestore} from 'firebase/firestore';
 import { AngularFirestore, CollectionReference, Query} from '@angular/fire/compat/firestore';
-import { map } from '@firebase/util';
-//import { CollectionReference, Query } from '@angular/fire/firestore';
-
+import { map } from 'rxjs/internal/operators/map';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +13,6 @@ export class DataService {
   iduser: any;
   db = getFirestore();
 
-  //wcstarray = [];
-  //asdarayy: Observable<any[]>;
   constructor(private service: AuthService, private afs: AngularFirestore) {
     this.iduser = this.service.currentUserId;
   }
@@ -26,6 +21,7 @@ export class DataService {
     return this.afs.collection(dbname, ref => {
       let que: CollectionReference | Query = ref;
       que = que.orderBy(order, sort).where('usersid','==', id);
+      console.log('que:'+que);
       return que;
     }).valueChanges() as Observable<any[]>;
   }
@@ -33,7 +29,7 @@ export class DataService {
   async addWCST(good: number, bad: number, timee: number, datee: any){
     const ref = collection(this.db, 'wcst');
 
-    const docRef = await addDoc(
+    await addDoc(
       ref, {
         usersid: this.iduser,
         right: good,
@@ -47,7 +43,7 @@ export class DataService {
   async addIOWA(mostclick: string, realmax: string, all: number, timee: number, datee: any){
     const ref = collection(this.db, 'iowa');
 
-    const docRef = await addDoc(
+    await addDoc(
       ref, {
         usersid: this.iduser,
         mostclicked: mostclick,
@@ -62,7 +58,7 @@ export class DataService {
   async addMentalrotation(good: number, bad: number, avgtimee: number,timee: number, dateee: any){
     const ref = collection(this.db, 'mentalrotation');
 
-    const docRef = await addDoc(
+    await addDoc(
       ref, {
         usersid: this.iduser,
         right: good,
@@ -77,7 +73,7 @@ export class DataService {
   async addBART(won: number, lost: number, max: number, bank: number, timee: number, dateee: any){
     const ref = collection(this.db, 'bart');
 
-    const docRef = await addDoc(
+    await addDoc(
       ref, {
         usersid: this.iduser,
         wontimes: won,
@@ -93,7 +89,7 @@ export class DataService {
   async addUserData(nicknamee: string, birth: any, gender: string){
     const ref = collection(this.db, 'user');
 
-    const docRef = await addDoc(
+    await addDoc(
       ref, {
         usersid: this.iduser,
         nickname: nicknamee,
@@ -103,50 +99,25 @@ export class DataService {
     );
   }
 
-
-
-  /*getItem(): Observable<WCST> {
-    const collect = this.afs.collection<WCST>('wcst', ref => ref.where('usersid', '==', this.iduser));
-    const userasd = collect
-    .valueChanges()
-    .pipe( map(users => {
-        const user = users[0];
-        console.log(user);
-        return user;
-      })
-    );
-
-  return userasd;
-  }*/
-
-  /*addResult(game: Game){
-    this.gamesRef.push({
-      user: game.user,
-      time: game.time,
-      right: game.right,
-      wrong: game.wrong
-    }).catch(error => {
-      this.errorMgmt(error);
-    });
-  }*/
-
-  /*add(asdd: any){
-     push(ref(this.databaseRef, 'games-list'), asdd);
+  edit(item: any){
+   const itemdoc = this.afs.doc(`user/VMcjkLAWCTKXwzriHP8C/`);
+   itemdoc.update({sex: item});
+    //const itemdoc = this.afs.collection('user');
+    //itemdoc.doc(this.iduser).update({ 'nickname'+: 'asdsda' });
+    //await this.afs.doc(`user/${this.iduser}/sex`).update({item});
   }
 
-  getGame(id: string) {
-    this.gameRef = this.db.object('games-list/' + id);
-    return this.gameRef;
-  }
-
-  /* Get book list */
-  /*getGamesList() {
-    this.gamesRef = this.db.list('games-list');
-    return this.gamesRef;
-  }
-
-  private errorMgmt(error: any) {
-    console.log(error);
+  /*updateDoc(_id: string, _value: string) {
+    const doc = this.afs.collection('user/', ref => ref.where('id', '==', _id));
+    doc.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.doc.data();
+        const id = a.doc.id;
+        return { id, data };
+      }))).subscribe((_doc: any) => {
+       const id = _doc[0].payload.doc.id; //first result of query [0]
+       this.afs.doc(`user/${id}`).update({sex: _value});
+      });
   }*/
 
 

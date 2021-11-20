@@ -8,7 +8,6 @@ import { MatCardModule } from '@angular/material/card';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegistrationComponent } from './registration.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatIconModule} from '@angular/material/icon';
 
 
@@ -16,7 +15,7 @@ import {MatIconModule} from '@angular/material/icon';
   declarations: [RegistrationComponent],
   imports: [
     CommonModule, FormsModule, ReactiveFormsModule, RegistrationRoutingModule, MatCardModule, MatButtonModule,
-    MatFormFieldModule, MatInputModule, MatChipsModule, MatDatepickerModule, MatIconModule
+    MatFormFieldModule, MatInputModule, MatChipsModule, MatIconModule
   ]
 })
 export class RegistrationModule { }

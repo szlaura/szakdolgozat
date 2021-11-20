@@ -2,34 +2,12 @@
 <ion-content >
 <ion-title class="tit">Wisconsin Card Sorting</ion-title>
 <ion-button [hidden]=!korte (click)="clickie(); starttimer();"> Start </ion-button>
-<!-- <app-startgame [hidden]=ishidden></app-startgame> -->
-    <!-- <ion-chip [hidden]=korte>
-      <ion-label>{{hanynaltart}}</ion-label>
-    </ion-chip>
-    <ion-chip [hidden]=korte>
-      <ion-label>{{right}}</ion-label>
-    </ion-chip >
-    <ion-chip [hidden]=korte>
-      <ion-label>{{wrong}}</ion-label>
-    </ion-chip>
-    <ion-chip [hidden]=korte>
-      <ion-label>Valtas utan rossz: {{valtasutanrossz}}</ion-label>
-    </ion-chip> -->
 <div class="container" [hidden]=korte>
-<div class="card1" (click)="chooseEset('111')" id="111" (click)="clickCount()"> <img src="../../../../assets/pictures/{{variable}}.jpg"></div>
-<div class="card2" (click)="chooseEset('222')" id="222" (click)="clickCount()"> <img src="../../../../assets/pictures/{{variable2}}.jpg"></div>
-<div class="card3" (click)="chooseEset('334')" id="334" (click)="clickCount()"> <img src="../../../../assets/pictures/{{variable3}}.jpg"></div>
-<div class="card4" (click)="chooseEset('443')" id="443" (click)="clickCount()"> <img src="../../../../assets/pictures/{{variable4}}.jpg"></div>
-  <!-- <a (click)="chooseEset('111')" id="111" (click)="clickCount()"> <img src="../../../../assets/pictures/{{variable}}.jpg"/></a>
-  <a (click)="chooseEset('222')" id="222" (click)="clickCount()"> <img src="../../../../assets/pictures/{{variable2}}.jpg"/></a>
-  <br>
-  <a id="334" (click)="chooseEset('334')" (click)="clickCount()"> <img src="../../../../assets/pictures/{{variable3}}.jpg"/></a>
-  <a id="443"(click)="chooseEset('443')" (click)="clickCount()"> <img src="../../../../assets/pictures/{{variable4}}.jpg"/></a> -->
+  <div class="card1" (click)="chooseCase('111')" id="111" (click)="clickCount()"> <img src="../../../../assets/pictures/{{variable}}.jpg"></div>
+  <div class="card2" (click)="chooseCase('222')" id="222" (click)="clickCount()"> <img src="../../../../assets/pictures/{{variable2}}.jpg"></div>
+  <div class="card3" (click)="chooseCase('334')" id="334" (click)="clickCount()"> <img src="../../../../assets/pictures/{{variable3}}.jpg"></div>
+  <div class="card4" (click)="chooseCase('443')" id="443" (click)="clickCount()"> <img src="../../../../assets/pictures/{{variable4}}.jpg"></div>
 </div>
-<div id="randomcard" [hidden]=korte> <img src="../../../../assets/pictures/{{kulonkartya}}.jpg"></div>
-
-  <!-- <a> <img src="../../../../assets/pictures/{{kulonkartya}}.jpg" width="100" height="100"/></a> -->
-  <!-- <button id="btn" (click)="choos()"  >Shake</button> -->
-<!-- </app-container> -->
+<div id="randomcard" [hidden]=korte> <img src="../../../../assets/pictures/{{refcard}}.jpg"></div>
 </ion-content>
 

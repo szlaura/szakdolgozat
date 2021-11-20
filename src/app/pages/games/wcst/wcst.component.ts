@@ -17,62 +17,40 @@ cards = ['112', '113', '114', '121', '122', '123', '124', '131', '132', '133', '
   '211', '212', '213', '214', '221', '222', '223', '224', '231', '232', '233', '234', '241', '242', '243', '244',
   '311', '312', '313', '314', '321', '322', '323', '324', '331', '332', '333', '334', '341', '342', '343', '344',
   '411', '412', '413', '414', '421', '422', '423', '424', '431', '432', '433', '434', '441', '442', '443', '444'];
-  array= [0,1,2];
-  gyujto=[1,2,3];
-  kulonkartya: any;
+
+  refcard: any;
+
   variable='111';
   variable2='222';
   variable3='334';
   variable4='443';
 
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-  randomkartya = <HTMLInputElement> document.getElementById('btn');
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-  kartya1 = <HTMLInputElement> document.getElementById('111');
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-  kartya2 = <HTMLInputElement> document.getElementById('222');
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-  kartya3 = <HTMLInputElement> document.getElementById('334');
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-  kartya4 = <HTMLInputElement> document.getElementById('443');
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-  content = <HTMLInputElement> document.getElementById('content');
-  //whichcase=1;
-  szamok: any;
   right=0;
   wrong=0;
   count=0;
+
   counter: any;
-  choos = this.randomNoRepeats(this.cards);
-  hanynaltart=0;
-  valtasutanrossz=0;
-  alma: any;
+
+  choos = this.randomCardNoRepeat(this.cards);
+
   korte=true;
-  clicked=false;
-  ishidden = true;
+  //clicked=false;
+  //ishidden = true;
   randomnumber: any;
-  interval: any;
   gameTime: any;
   st: any;
   nd: any;
-  h: any;
-  m: any;
-  s: any;
   date: any;
 
 
-constructor(public modalService: ResultService, private dataService: DataService,
+constructor(public resultService: ResultService, private dataService: DataService,
     private soundService: SoundService, private rightorwrongService: RightorwrongService) { }
 
 
   ngOnInit() {
-    //this.korte=true;
-    console.log('wsct init');
-    this.kulonkartya='111';
+    this.refcard='111';
     this.counter=Math.floor(Math.random() * 3);
     this.randomnumber = Math.floor(Math.random() * (10 - 8 + 1)) + 8;
-    console.log('RandomNumber'+this.randomnumber);
-
   }
 
 canExit(): boolean | Observable<boolean> | Promise<boolean>{
@@ -99,136 +77,99 @@ endtimer(){
 
 countTime(){
   this.gameTime = this.nd-this.st;
-  console.log('Time'+this.gameTime);
 }
 
 
-randomNoRepeats(array: any) {
+randomCardNoRepeat(array: any) {
   const copy = array.slice(0);
 
   return function() {
-    if (copy.length < 1) {
-      console.log('Elfogyott');
+
+    if (copy.length === 0) {
       this.endtimer();
-      this.modalService.setData({name:'wcst', data:this.right, data2: this.wrong, data3:this.gameTime});
+      this.resultService.setData({name:'wcst', data:this.right, data2: this.wrong, data3:this.gameTime});
       this.dataService.addWCST(this.right, this.wrong, this.gameTime, this.date);
-      this.modalService.presentModal();
+      this.resultService.presentModal();
       return 0;
-      /*copy = array.slice(0);*/ }
+    }
+
     const index = Math.floor(Math.random() * copy.length);
     const item = copy[index];
     copy.splice(index, 1);
-    console.log('Ittbezzegjo'+item);
-    this.kulonkartya=item;
-    this.hanynaltart++;
+    this.refcard=item;
     return item;
   };
 }
 
- jovalasz(){
-  this.soundService.playAudio('../../../../assets/audio/right.wav');
-  this.rightorwrongService.showAlert('Jó válasz', `<img src="../../../../assets/pictures/rightanswer.png">`);
-  this.choos();
-}
-
- rosszvalasz(){
-  this.soundService.playAudio('../../../../assets/audio/wrong.mp3');
-  this.rightorwrongService.showAlert('Rossz válasz', `<img src="../../../../assets/pictures/wronganswer.png">`);
-  this.choos();
-}
-
 chooseByNumber(event: string): void {
-  console.log('Szam szerint nezem'+event);
-  if(event.charAt(0) === this.kulonkartya.charAt(0)){
-    this.jovalasz();
+  if(event.charAt(0) === this.refcard.charAt(0)){
     this.countRight();
-
   }
   else{
-    this.rosszvalasz();
     this.countWrong();
   }
 }
 
 chooseByColor(event: string): void {
-  console.log('Szin szerint nezem'+event);
-  if(event.charAt(2) === this.kulonkartya.charAt(2)){
-    this.jovalasz();
+  if(event.charAt(2) === this.refcard.charAt(2)){
     this.countRight();
-
   }
   else{
-    this.rosszvalasz();
     this.countWrong();
   }
 }
 chooseByShape(event: string): void {
-  console.log('Shape szerint nezem'+event);
-  if(event.charAt(1) === this.kulonkartya.charAt(1)){
-    this.jovalasz();
+  if(event.charAt(1) === this.refcard.charAt(1)){
     this.countRight();
   }
   else{
-    this.rosszvalasz();
     this.countWrong();
   }
 }
 
 clickCount(){
   this.count++;
-  console.log('Klikk szama: '+this.count);
   if (this.count === this.randomnumber){
     this.count=0;
     this.counter=Math.floor(Math.random() * 3);
-    console.log('Random szam:  '+this.randomnumber);
   }
   return this.counter;
 }
 
-public chooseEset(event2: string){
-  console.log('Counter erteke:'+this.counter);
+chooseCase(cardidentifier: string){
 
- const whichcase = this.counter;
+  const whichcase = this.counter;
 
   switch(whichcase) {
-    case 0: //szam alapjan
-      this.chooseByNumber(event2);
+    case 0: //number
+      this.chooseByNumber(cardidentifier);
       break;
-    case 1: //szin alapjan
-      this.chooseByColor(event2);
+    case 1: //color
+      this.chooseByColor(cardidentifier);
       break;
-    case 2: //forma alapjan
-      this.chooseByShape(event2);
+    case 2: //shape
+      this.chooseByShape(cardidentifier);
       break;
   }
 }
 
 countRight(){
   this.right++;
-  //console.log('Jo valasz: '+this.right);
+  this.soundService.playAudio('../../../../assets/audio/right.wav');
+  this.rightorwrongService.showAlert('Jó válasz', `<img src="../../../../assets/pictures/rightanswer.png">`);
+  this.choos();
 }
 
 countWrong(){
   this.wrong++;
-  //console.log('Rossz valasz: '+this.wrong);
+  this.soundService.playAudio('../../../../assets/audio/wrong.mp3');
+  this.rightorwrongService.showAlert('Rossz válasz', `<img src="../../../../assets/pictures/wronganswer.png">`);
+  this.choos();
 }
 
 clickie(){
   this.korte=!this.korte;
 }
 
-
-/*randomEset(array: any) {
-  const copy = array.slice(0);
-  return function() {
-    if (copy.length < 1) {
-      this.copy = array.slice(0);
-    }
-    const index = Math.floor(Math.random() * copy.length);
-    const item = copy[index];
-    copy.splice(index, 1);
-    return item;
-  };
-}*/
 
 }

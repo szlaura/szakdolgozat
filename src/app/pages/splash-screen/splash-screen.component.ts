@@ -1,7 +1,5 @@
 import { Router } from '@angular/router';
-import { LoadingService } from './../../services/loading.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { StartgameComponent } from './../../shared/components/startgame/startgame/startgame.component';
 import { StartnavService } from './../../services/startnav.service';
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';

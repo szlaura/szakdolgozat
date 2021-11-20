@@ -4,6 +4,7 @@ import { MstotimeService } from 'src/app/helpers/mstotime.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
 import { WCST } from 'src/app/shared/model/wcst.model';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-wcst-stat',
@@ -18,7 +19,8 @@ export class WcstStatComponent implements OnInit {
   s: any;
   iduser: any;
 
-  constructor(private service: AuthService, private dataService: DataService, private timeService: MstotimeService) { }
+  constructor(private service: AuthService, private dataService: DataService,
+     private timeService: MstotimeService, private location: Location) { }
 
   ngOnInit() {
     this.iduser = this.service.currentUserId;

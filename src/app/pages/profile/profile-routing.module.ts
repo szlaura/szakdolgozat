@@ -7,8 +7,8 @@ import { ExitgameGuard } from 'src/app/shared/guards/exitgame.guard';
 const routes: Routes = [
   {
     path: '',
-    canDeactivate: [ExitgameGuard],
     component: ProfileComponent,
+    canDeactivate: [ExitgameGuard],
     data: { title: 'Profil' }
   }
 ];
@@ -16,6 +16,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-   providers: [ExitgameGuard]
+  providers: [ExitgameGuard]
 })
 export class ProfileRoutingModule { }

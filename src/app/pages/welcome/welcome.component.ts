@@ -25,9 +25,8 @@ export class WelcomeComponent implements OnInit {
   }
 
   signInAnonymus(): void {
-    this.authService.signinAsAGusedt().then(
+    this.authService.signinAsAGuest().then(
       result => {
-        //console.log(result);
         this.navTo('/home');
         this.authService.isAnonymus('anon');
       },

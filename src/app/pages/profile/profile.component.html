@@ -6,6 +6,7 @@
     </ion-item>
     <!-- <ion-content *ngIf="(user| async) as list; else loading"> -->
     <ion-content  class="container" *ngFor="let item of user | async" >
+      <!-- <ion-button (click)="updateee()"> UPDATE SEX</ion-button> -->
       <ion-item class="data">
         <ion-label>Becenév: {{item.nickname}}</ion-label>
       </ion-item>
@@ -27,7 +28,7 @@
       </ion-item>
     </ion-content>
   </ion-card>
-  <ion-card *ngIf="(user| async)?.length === 0" color="secondary">
+  <ion-card *ngIf="(user| async)?.length === 0" >
     <ion-card-title>Add meg további adataid itt</ion-card-title>
     <ion-item class="input">
       <ion-label position="floating" maxlength="15" >Becenév</ion-label>
@@ -44,7 +45,6 @@
         <ion-select-option color="tertiary" value="férfi">Férfi</ion-select-option>
       </ion-select>
     </ion-item>
-    <!-- <ion-button *ngIf="isEdit===true" (click)="updateUsersData()" >Frissítés</ion-button> -->
-    <ion-button *ngIf="isEdit===false" (click)="saveUsersData()" color="light">Mentés</ion-button>
+    <ion-button *ngIf="isEdit===false" (click)="saveUsersData()" color="secondary">Mentés</ion-button>
   </ion-card>
 </ion-content>

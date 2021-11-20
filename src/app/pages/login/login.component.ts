@@ -11,16 +11,18 @@ import { Component, HostListener, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   hide = true;
+
   form: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', [Validators.minLength(6), Validators.required])
   });
+
   alertMessage = '';
+
   alertsList: any = {
     user: () => 'Hibás e-mail cím vagy jelszó.',
     server: () => 'A szolgáltatás nem elérhető.',
-    false: () => ''
-  };
+    false: () => ''  };
 
   constructor(private router: Router, private authService: AuthService) { }
 
@@ -36,22 +38,12 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl(url);
   }
 
-  /*signAnonymus(): void {
-    this.authService.signinAsAGusedt().then(
-      result => {
-        //console.log(result);
-        this.navTo('/home');
-      },
-    );
-  }*/
-
   login(): void {
     if (this.form.invalid) {
       return;
     }
     this.authService.login(this.form.value.email, this.form.value.password).then(
-      result => {
-        console.log(result);
+      () => {
         this.navTo('/home');
       },
       (error) => {

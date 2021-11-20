@@ -16,7 +16,7 @@ export class StartnavService {
   async presentModal() {
     const modal = await this.modalCtrl.create({
       component: StartgameComponent,
-      cssClass: 'my-custom-class',
+      //cssClass: 'my-custom-class',
       backdropDismiss: false
     });
     return await modal.present();

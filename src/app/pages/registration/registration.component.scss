@@ -35,19 +35,13 @@ mat-form-field {
   width: 90%;
 }
 
-/* Sets the underline to red if dirty and invalid */
 .mat-form-field.ng-dirty.ng-invalid .mat-form-field-underline {
   background-color: black;
 }
-/* Sets the label to red if dirty and invalid */
+
 .mat-form-field.ng-dirty.ng-invalid .mat-form-field-label {
   color: black;
 }
-
-/*mat-chip-list,
-mat-chip {
-  background-color: red;
-}*/
 
 .chip {
   background-color: black;
@@ -64,11 +58,17 @@ a {
   a {
     margin-left: 40%;
   }
+  #chippie {
+    margin-left: 37%;
+  }
 }
 
 @media (min-width: 800px) and (max-width: 1100px) {
   a {
     margin-left: 35%;
+  }
+  #chippie {
+    margin-left: 33%;
   }
 }
 
@@ -76,11 +76,17 @@ a {
   a {
     margin-left: 32%;
   }
+  #chippie {
+    margin-left: 28%;
+  }
 }
 
 @media (min-width: 550px) and (max-width: 650px) {
   a {
     margin-left: 28%;
+  }
+  #chippie {
+    margin-left: 24%;
   }
 }
 
@@ -88,10 +94,16 @@ a {
   a {
     margin-left: 24%;
   }
+  #chippie {
+    margin-left: 20%;
+  }
 }
 
 @media (min-width: 400px) and (max-width: 500px) {
   a {
+    margin-left: 20%;
+  }
+  #chippie {
     margin-left: 20%;
   }
 }

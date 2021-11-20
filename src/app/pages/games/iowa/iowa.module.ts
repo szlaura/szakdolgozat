@@ -1,5 +1,3 @@
-import { StartgameModule } from './../../../shared/components/startgame/startgame/startgame.module';
-import { MatRadioModule } from '@angular/material/radio';
 import { EndquestionComponent } from './endquestion/endquestion.component';
 import { IowaRoutingModule } from './iowa-routing.module';
 import { NgModule } from '@angular/core';

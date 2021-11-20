@@ -13,8 +13,6 @@ import { Observable } from 'rxjs';
 })
 export class DiagramsComponent implements OnInit, AfterViewInit, Exit {
 
-  // Importing ViewChild. We need @ViewChild decorator to get a reference to the local variable
-  // that we have added to the canvas element in the HTML template.
   @ViewChild('barCanvas') private barCanvas: ElementRef;
   @ViewChild('barCanvas2') private barCanvas2: ElementRef;
   @ViewChild('lineCanvas') private lineCanvas: ElementRef;
@@ -40,18 +38,14 @@ export class DiagramsComponent implements OnInit, AfterViewInit, Exit {
   gametime3 = [];
   gametime4 = [];
   allmoneyy = [];
-  avgreacttime = [];
+  avgreact = [];
   maxwon = [];
 
   constructor(private dataService: DataService, private authService: AuthService) {
     Chart.register(...registerables);
     this.userid = this.authService.currentUserId;
   }
-  ngOnInit() {
-    //this.getWcstData();
-    //this.getIowaData();
-
-  }
+  ngOnInit() {}
 
   canExit(): boolean | Observable<boolean> | Promise<boolean>{
       this.clickdestroy();
@@ -62,6 +56,7 @@ export class DiagramsComponent implements OnInit, AfterViewInit, Exit {
 click(){
   window.location.reload();
 }
+
   getWcstData(){
     this.wcst = this.dataService.get(this.userid,'asc','wcst','date').subscribe((data) => {
       this.data = data;
@@ -73,7 +68,6 @@ click(){
         this.gametime.push(num);
       }
       this.lineChartMethod(this.wrongans, this.rightans, this.gametime);
-      //this.lineChart.destroy();
     });
   }
 
@@ -83,12 +77,11 @@ click(){
       let num = 0;
       for (const d of this.data){
         this.allmoneyy.push(d.allmoney);
-        console.log('allmoney'+this.allmoneyy);
+        console.log('allmoney'+d.allmoney);
         num++;
         this.gametime2.push(num);
       }
       this.barChartMethod(this.allmoneyy, this.gametime2);
-      //this.barChart.destroy();
     });
 
   }
@@ -98,12 +91,16 @@ click(){
       this.data = data;
       let num = 0;
       for (const d of this.data){
-        this.avgreacttime.push(d.avgreacttime);
+        this.avgreact.push(d.avgreacttime);
+        console.log('avgreacttime'+d.avgreacttime);
         num++;
         this.gametime3.push(num);
       }
-      this.barChartMethod2(this.avgreacttime, this.gametime3);
-      //this.lineChart.destroy();
+      this.barChartMethod2(this.avgreact, this.gametime3);
+      for(const ivalami of this.avgreact){
+        console.log(ivalami);
+      }
+      console.log(this.avgreact);
     });
   }
 
@@ -117,12 +114,9 @@ click(){
         this.gametime4.push(num);
       }
       this.lineChartMethod2(this.maxwon, this.gametime4);
-      //this.lineChart.destroy();
     });
   }
 
-  // When we try to call our chart to initialize methods in ngOnInit() it shows an error nativeElement of undefined.
-  // So, we need to call all chart methods in ngAfterViewInit() where @ViewChild and @ViewChildren will be resolved.
   ngAfterViewInit() {
     this.getWcstData();
     this.getIowaData();
@@ -132,8 +126,7 @@ click(){
 
 
   barChartMethod(arr: any, arr2: any) {
-    // Now we need to supply a Chart element reference with an object that defines the type of chart we want
-    //to use, and the type of data we want to display.
+    console.log('meghivodok');
     this.barChart = new Chart(this.barCanvas.nativeElement, {
       type: 'bar',
       data: {
@@ -178,25 +171,24 @@ click(){
         labels: arr3,
         datasets: [
           {
-            label: 'Helyes válaszok',
+            label: 'Jó válaszok',
+            data: arr,
+            borderColor: 'rgba(50,205,50)',
+            backgroundColor: 'rgba(50,205,50, 0.4)',
             fill: false,
-            backgroundColor: 'rgba(75,192,192,0.4)',
-            borderColor: 'rgba(75,192,192,1)',
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: 'rgba(75,192,192,1)',
-            pointBackgroundColor: '#fff',
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-            pointHoverBorderColor: 'rgba(220,220,220,1)',
-            pointHoverBorderWidth: 2,
-            pointRadius: 1,
-            pointHitRadius: 10,
-            data: arr2,
             borderWidth: 3,
+            pointRadius: 1,
+            pointHoverRadius: 5
+
+          },{
+            label: 'Rossz válaszok',
+            data: arr2,
+            borderColor: 'rgba(220,20,60)',
+            backgroundColor: 'rgba(220,20,60, 0.4)',
+            fill: false,
+            borderWidth: 3,
+            pointRadius: 1,
+            pointHoverRadius: 5
           }
         ]
       }
@@ -214,19 +206,10 @@ click(){
             fill: false,
             backgroundColor: 'rgba(75,192,192,0.4)',
             borderColor: 'rgba(75,192,192,1)',
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
             pointBorderColor: 'rgba(75,192,192,1)',
-            pointBackgroundColor: '#fff',
             pointBorderWidth: 1,
             pointHoverRadius: 5,
-            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-            pointHoverBorderColor: 'rgba(220,220,220,1)',
-            pointHoverBorderWidth: 2,
             pointRadius: 1,
-            pointHitRadius: 10,
             data: arr2,
             borderWidth: 3
           }
@@ -274,29 +257,11 @@ click(){
   }
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
-  @HostListener('window:unload', ['$event'])
-  unloadHandler(event) {
-    console.log('DESTROYYYYYYYYY');
+ /* @HostListener('window:unload', ['$event'])
+  unloadHandler() {
     this.clickdestroy();
-  }
+  }*/
 
-  /*canExit(): boolean | Observable<boolean> | Promise<boolean>{
-    this.clickdestroy();
-    return true;
-  };*/
-
- /*@HostListener('unloaded')
- ngOnDestroy() {
-   console.log('DESTROYYYYYYYYY');
-  this.lineChart.destroy();
-  this.lineChart2.destroy();
-  this.barChart.destroy();
-  this.barChart2.destroy();
-  this.wcst.unsubscribe();
-  this.iowa.unsubscribe();
-  this.mentrot.unsubscribe();
-  this.bart.unsubscribe();
- }*/
 
 }
 

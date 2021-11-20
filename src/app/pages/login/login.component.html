@@ -14,7 +14,7 @@
       </mat-form-field>
       <div id="marg">
         <mat-chip-list *ngIf="alertMessage">
-          <mat-chip class="chip" > {{alertMessage}} </mat-chip>
+          <mat-chip id="chippie" class="chip" > {{alertMessage}} </mat-chip>
         </mat-chip-list>
       </div>
       <div class="btn"><button type="submit" mat-raised-button class="max-width" [disabled]="form.invalid">Bejelentkezés</button></div>

@@ -1,4 +1,3 @@
-import { StartgameModule } from './../../../shared/components/startgame/startgame/startgame.module';
 import { BartRoutingModule } from './bart-routing.module';
 import { IonicModule } from '@ionic/angular';
 import { BartComponent } from './bart.component';

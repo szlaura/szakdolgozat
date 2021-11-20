@@ -17,14 +17,10 @@ export class NavComponent{
    }
 
   logout(): void {
-   this.authService.logout();
-    console.log('mukodok');
-    this.router.navigateByUrl('welcome'); //login volt
+    this.authService.logout();
+    this.router.navigateByUrl('welcome');
   }
 
-  navigate(page: string){
-    console.log('asd');
-  }
 
   closeMenu() {
     this.menuCtrl.close();
@@ -32,7 +28,6 @@ export class NavComponent{
 
   hidefromAnonymus(){
     if(this.authService.getifAnonymus() === true){
-      console.log('hidefromani');
       this.isShown = !this.isShown;
     }
   }

@@ -1,6 +1,4 @@
 import { MstotimeService } from 'src/app/helpers/mstotime.service';
-import { Observable } from 'rxjs';
-import { DataService } from './../../../services/data.service';
 import { ResultService } from './../../../services/result.service';
 import { ModalController } from '@ionic/angular';
 import { Component, OnInit, OnDestroy } from '@angular/core';

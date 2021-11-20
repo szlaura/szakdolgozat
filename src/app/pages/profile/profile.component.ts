@@ -4,7 +4,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Exit } from './../../shared/guards/exitgame.guard';
-import { defaultIfEmpty, map } from 'rxjs/operators';
 
 
 @Component({
@@ -12,7 +11,7 @@ import { defaultIfEmpty, map } from 'rxjs/operators';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent implements OnInit, Exit, OnDestroy {
+export class ProfileComponent implements OnInit, Exit {
 
   userid: any;
   email: string;
@@ -27,17 +26,19 @@ export class ProfileComponent implements OnInit, Exit, OnDestroy {
   constructor(private auth: AuthService, private dataService: DataService) {
     console.log('konstruktor');
   }
-  ngOnDestroy() {
+ /* ngOnDestroy() {
     this.userid='';
     this.nickname='';
     this.birth=0;
     this.sex='';
-  }
+    this.user=null;
+    console.log('DEEEEEEEEEEESTOOOOOOOY');
+  }*/
 
   ngOnInit() {
-    console.log('init');
+    console.log('init profil');
     this.userid = this.auth.currentUserId;
-    console.log(this.userid);
+    console.log('id profil initkor '+this.userid);
     this.email = this.auth.currentUserEmail;
     this.getUsersData();
 
@@ -45,6 +46,7 @@ export class ProfileComponent implements OnInit, Exit, OnDestroy {
 
   canExit(): boolean | Observable<boolean> | Promise<boolean>{
     this.userid='';
+    this.user=null;
     console.log('Useridnullazas: '+this.userid);
     return true;
 };
@@ -59,24 +61,14 @@ export class ProfileComponent implements OnInit, Exit, OnDestroy {
 
   getUsersData(){
     this.user = this.dataService.get(this.userid,'asc', 'user', 'nickname');
-    /*if(this.user === null){
-      console.log(this.user);
-      this.isEdit = false;
-    }
-    else{
-      console.log(this.user);
-      this.isEdit = true;
-    }*/
-    /*this.empty = this.user.pipe(map(list => list.length === 0));
-    console.log('empty'+this.empty);
-
-    this.empty = this.user.pipe(
-      map(count => count.length > 0), defaultIfEmpty(false));
-  console.log('empty'+this.empty.defaultIfEmpty);*/
-
   }
 
   refresh(){
     this.isEdit = true;
+  }
+
+  updateee(){
+   this.dataService.edit('OK BROsndosndok');
+   //this.dataService.updateDoc('VMcjkLAWCTKXwzriHP8C', 'MIzu');
   }
 }

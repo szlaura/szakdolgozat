@@ -9,7 +9,7 @@ import { StartgameModule } from './../../../shared/components/startgame/startgam
 @NgModule({
   declarations: [WcstComponent,  ResultComponent],
   imports: [
-    CommonModule, WcstRoutingModule, IonicModule, StartgameModule
+    CommonModule, WcstRoutingModule, IonicModule/*, StartgameModule*/
   ]
 })
 export class WcstModule { }

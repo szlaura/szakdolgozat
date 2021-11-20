@@ -78,10 +78,16 @@ a {
   a {
     margin-left: 40%;
   }
+  #chippie {
+    margin-left: 39%;
+  }
 }
 
 @media (min-width: 800px) and (max-width: 1100px) {
   a {
+    margin-left: 35%;
+  }
+  #chippie {
     margin-left: 35%;
   }
 }
@@ -90,11 +96,17 @@ a {
   a {
     margin-left: 32%;
   }
+  #chippie {
+    margin-left: 31%;
+  }
 }
 
 @media (min-width: 550px) and (max-width: 650px) {
   a {
     margin-left: 28%;
+  }
+  #chippie {
+    margin-left: 25%;
   }
 }
 
@@ -102,10 +114,16 @@ a {
   a {
     margin-left: 24%;
   }
+  #chippie {
+    margin-left: 23%;
+  }
 }
 
 @media (min-width: 400px) and (max-width: 500px) {
   a {
     margin-left: 20%;
+  }
+  #chippie {
+    margin-left: 19%;
   }
 }

@@ -1,7 +1,5 @@
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Injectable } from '@angular/core';
-import * as firebase from 'firebase/compat';
-import { getAuth, updatePassword } from 'firebase/auth';
 
 
 @Injectable({
@@ -16,7 +14,7 @@ export class AuthService {
       this.afAuth.authState.subscribe( authState => {
         this.authState = authState;
       });
-     }
+    }
 
     async logout(): Promise<void> {
         await this.afAuth.signOut();
@@ -39,7 +37,7 @@ export class AuthService {
         return this.afAuth.authState;
     }
 
-    signinAsAGusedt(): Promise<any>{
+    signinAsAGuest(): Promise<any>{
       return this.afAuth.signInAnonymously();
     }
 
@@ -51,9 +49,6 @@ export class AuthService {
       return this.authenticated ? this.authState.email : null;
     }
 
-    get currentUserPwd(): string {
-      return this.authenticated ? this.authState.pwd : null;
-    }
 
     isAnonymus(add: string){
       if(add==='anon'){

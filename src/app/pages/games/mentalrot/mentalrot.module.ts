@@ -1,4 +1,3 @@
-import { StartgameModule } from './../../../shared/components/startgame/startgame/startgame.module';
 import { MentalrotComponent } from './mentalrot.component';
 import { MentalrotRoutingModule } from './mentalrot-routing.module';
 import { IonicModule } from '@ionic/angular';
@@ -10,7 +9,7 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [MentalrotComponent],
   imports: [
-    CommonModule, IonicModule, MentalrotRoutingModule, StartgameModule
+    CommonModule, IonicModule, MentalrotRoutingModule
   ]
 })
 export class MentalrotModule { }

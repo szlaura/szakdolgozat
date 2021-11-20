@@ -8,8 +8,6 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [StartgameComponent],
   imports: [CommonModule, IonicModule],
-   exports: [
-    StartgameComponent
-  ]
+  exports: [StartgameComponent]
 })
 export class StartgameModule { }

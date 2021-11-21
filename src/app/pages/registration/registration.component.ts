@@ -35,6 +35,7 @@ export class RegistrationComponent{
 
   registration(): void {
     if (this.form.invalid) {
+      this.alertMessage = 'A jelszó nem egyezik!';
         return;
     }
     if (this.form.value.password1 === this.form.value.password2) {
@@ -52,6 +53,8 @@ export class RegistrationComponent{
           }
         }
       );
+    }else{
+      this.alertMessage = 'A jelszó nem egyezik!';
     }
   }
 

@@ -6,8 +6,8 @@ import { ExitgameGuard } from 'src/app/shared/guards/exitgame.guard';
 const routes: Routes = [
   {
       path: '',
-      canDeactivate: [ExitgameGuard],
       component: DiagramsComponent,
+      canDeactivate: [ExitgameGuard],
       data: { title: 'Statisztikak' }
   }
 ];

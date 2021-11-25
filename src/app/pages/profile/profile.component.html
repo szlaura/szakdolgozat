@@ -4,9 +4,7 @@
     <ion-item class="data">
       <ion-label>E-mail: {{email}}</ion-label>
     </ion-item>
-    <!-- <ion-content *ngIf="(user| async) as list; else loading"> -->
     <ion-content  class="container" *ngFor="let item of user | async" >
-      <!-- <ion-button (click)="updateee()"> UPDATE SEX</ion-button> -->
       <ion-item class="data">
         <ion-label>Becenév: {{item.nickname}}</ion-label>
       </ion-item>
@@ -17,7 +15,6 @@
         <ion-label>Születési dátum: {{item.birthdate}}</ion-label>
       </ion-item>
     </ion-content>
-    <!-- </ion-content> -->
     <ion-content *ngIf="(user| async)?.length === 0" >
       <ion-item>
       </ion-item>
@@ -34,10 +31,14 @@
       <ion-label position="floating" maxlength="15" >Becenév</ion-label>
       <ion-input [(ngModel)]="nickname" required></ion-input>
     </ion-item>
+
     <ion-item class="input">
       <ion-label>Születési dátum</ion-label>
-      <ion-datetime color="tertiary" [(ngModel)]="birth" required displayFormat="YYYY. MMM. DD" min="1900-01-01" max="2019-12-31" placeholder="Válaszd ki a dátumot"></ion-datetime>
+      <ion-datetime color="primary" [(ngModel)]="birth" required displayFormat="YYYY. MMM. DD"
+       min="1900-01-01" max="2019-12-31" placeholder="Válaszd ki a dátumot"></ion-datetime>
     </ion-item>
+
+
     <ion-item class="input">
       <ion-label>Nem</ion-label>
       <ion-select [(ngModel)]="sex" required placeholder="Válassz egyet" color="tertiary">

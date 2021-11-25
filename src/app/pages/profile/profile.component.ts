@@ -25,14 +25,6 @@ export class ProfileComponent implements OnInit, Exit {
 
   constructor(private auth: AuthService, private dataService: DataService) {
   }
- /* ngOnDestroy() {
-    this.userid='';
-    this.nickname='';
-    this.birth=0;
-    this.sex='';
-    this.user=null;
-    console.log('DEEEEEEEEEEESTOOOOOOOY');
-  }*/
 
   ngOnInit() {
     this.userid = this.auth.currentUserId;
@@ -63,8 +55,4 @@ export class ProfileComponent implements OnInit, Exit {
     this.isEdit = true;
   }
 
-  updateee(){
-   this.dataService.edit('OK BROsndosndok');
-   //this.dataService.updateDoc('VMcjkLAWCTKXwzriHP8C', 'MIzu');
-  }
 }

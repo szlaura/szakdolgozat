@@ -1,8 +1,10 @@
+import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { StartnavService } from './../../services/startnav.service';
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { User } from 'src/app/shared/model/user.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-splash-screen',
@@ -15,13 +17,13 @@ export class SplashScreenComponent implements OnInit{
   descript: string;
   rule: string;
   iduser: any;
+  user: Observable<User[]> | null = null;
 
-  constructor(private introService: StartnavService, private modal: ModalController, private service: AuthService, private router: Router) {
+  constructor(private introService: StartnavService, private service: AuthService, private router: Router) {
     this.router.onSameUrlNavigation='reload';
     this.iduser = this.service.currentUserId;
-
   }
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   openIntro(){
@@ -76,6 +78,5 @@ export class SplashScreenComponent implements OnInit{
   sendValue(titl: string, des: string, rule: string ){
     this.introService.setDescription(titl, des, rule);
   }
-
 
 }

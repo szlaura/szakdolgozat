@@ -1,0 +1,970 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>szakdolgozat documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">szakdolgozat documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  BartStatComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/statistics/bart-stat/bart-stat.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-bart-stat</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./bart-stat.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./bart-stat.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#bart" >bart</a>
+                            </li>
+                            <li>
+                                <a href="#h" >h</a>
+                            </li>
+                            <li>
+                                <a href="#iduser" >iduser</a>
+                            </li>
+                            <li>
+                                <a href="#m" >m</a>
+                            </li>
+                            <li>
+                                <a href="#s" >s</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#bankMoney" >bankMoney</a>
+                            </li>
+                            <li>
+                                <a href="#bartFillDate" >bartFillDate</a>
+                            </li>
+                            <li>
+                                <a href="#lostTimes" >lostTimes</a>
+                            </li>
+                            <li>
+                                <a href="#maxWonMoney" >maxWonMoney</a>
+                            </li>
+                            <li>
+                                <a href="#msToTime" >msToTime</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#wonTimes" >wonTimes</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, dataService: <a href="../injectables/DataService.html" target="_self">DataService</a>, timeService: <a href="../injectables/MstotimeService.html" target="_self">MstotimeService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/statistics/bart-stat/bart-stat.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DataService.html" target="_self" >DataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>timeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MstotimeService.html" target="_self" >MstotimeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bankMoney"></a>
+                    <span class="name">
+                        <span ><b>bankMoney</b></span>
+                        <a href="#bankMoney"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>bankMoney()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/pages/statistics/bart-stat/bart-stat.component.ts:28</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bartFillDate"></a>
+                    <span class="name">
+                        <span ><b>bartFillDate</b></span>
+                        <a href="#bartFillDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>bartFillDate()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/app/pages/statistics/bart-stat/bart-stat.component.ts:31</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lostTimes"></a>
+                    <span class="name">
+                        <span ><b>lostTimes</b></span>
+                        <a href="#lostTimes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>lostTimes()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/pages/statistics/bart-stat/bart-stat.component.ts:34</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="maxWonMoney"></a>
+                    <span class="name">
+                        <span ><b>maxWonMoney</b></span>
+                        <a href="#maxWonMoney"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>maxWonMoney()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/pages/statistics/bart-stat/bart-stat.component.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="msToTime"></a>
+                    <span class="name">
+                        <span ><b>msToTime</b></span>
+                        <a href="#msToTime"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>msToTime(duration: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/app/pages/statistics/bart-stat/bart-stat.component.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>duration</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/pages/statistics/bart-stat/bart-stat.component.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="wonTimes"></a>
+                    <span class="name">
+                        <span ><b>wonTimes</b></span>
+                        <a href="#wonTimes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>wonTimes()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/app/pages/statistics/bart-stat/bart-stat.component.ts:37</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bart"></a>
+                    <span class="name">
+                        <span ><b>bart</b></span>
+                        <a href="#bart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/BART.html" target="_self" >Observable&lt;BART[]&gt; | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/statistics/bart-stat/bart-stat.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="h"></a>
+                    <span class="name">
+                        <span ><b>h</b></span>
+                        <a href="#h"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/statistics/bart-stat/bart-stat.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="iduser"></a>
+                    <span class="name">
+                        <span ><b>iduser</b></span>
+                        <a href="#iduser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/statistics/bart-stat/bart-stat.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="m"></a>
+                    <span class="name">
+                        <span ><b>m</b></span>
+                        <a href="#m"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/statistics/bart-stat/bart-stat.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="s"></a>
+                    <span class="name">
+                        <span ><b>s</b></span>
+                        <a href="#s"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/statistics/bart-stat/bart-stat.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BART } from &#x27;./../../../shared/model/bart.model&#x27;;
+import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { MstotimeService } from &#x27;src/app/helpers/mstotime.service&#x27;;
+import { DataService } from &#x27;src/app/services/data.service&#x27;;
+import { AuthService } from &#x27;src/app/services/auth.service&#x27;;
+
+@Component({
+  selector: &#x27;app-bart-stat&#x27;,
+  templateUrl: &#x27;./bart-stat.component.html&#x27;,
+  styleUrls: [&#x27;./bart-stat.component.scss&#x27;],
+})
+export class BartStatComponent implements OnInit {
+
+  bart: Observable&lt;BART[]&gt; | null &#x3D; null;
+  h: any;
+  m: any;
+  s: any;
+  iduser: any;
+
+  constructor(private authService: AuthService, private dataService: DataService, private timeService: MstotimeService) { }
+
+  ngOnInit() {
+    this.iduser &#x3D; this.authService.currentUserId;
+    this.bankMoney();
+  }
+
+  bankMoney(){
+    this.bart &#x3D; this.dataService.get(this.iduser,&#x27;desc&#x27;,&#x27;bart&#x27;,&#x27;bankmoey&#x27;);
+  }
+  bartFillDate(){
+    this.bart &#x3D; this.dataService.get(this.iduser,&#x27;desc&#x27;,&#x27;bart&#x27;,&#x27;date&#x27;);
+  }
+  lostTimes(){
+    this.bart &#x3D; this.dataService.get(this.iduser,&#x27;desc&#x27;,&#x27;bart&#x27;,&#x27;losttimes&#x27;);
+  }
+  wonTimes(){
+    this.bart &#x3D; this.dataService.get(this.iduser,&#x27;desc&#x27;,&#x27;bart&#x27;,&#x27;wontimes&#x27;);
+  }
+  maxWonMoney(){
+    this.bart &#x3D; this.dataService.get(this.iduser,&#x27;desc&#x27;,&#x27;bart&#x27;,&#x27;maxwon&#x27;);
+  }
+
+  msToTime(duration: any) {
+    return this.timeService.msToTime(duration);
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-content&gt;
+  &lt;ion-header&gt;
+    &lt;ion-button [routerLink]&#x3D;&quot;[ &#x27;/home/statistics/navstat&#x27; ]&quot; color&#x3D;&quot;light&quot;&gt;&lt;ion-icon name&#x3D;&quot;arrow-back-outline&quot;&gt;&lt;/ion-icon&gt;&lt;/ion-button&gt;
+    &lt;ion-label id&#x3D;&quot;eredmenyek&quot;&gt;Eredmények&lt;/ion-label&gt;
+  &lt;/ion-header&gt;
+  &lt;ion-segment color&#x3D;&quot;secondary&quot; value&#x3D;&quot;right&quot;&gt;
+    &lt;ion-segment-button (click)&#x3D;&quot;bankMoney()&quot; value&#x3D;&quot;right&quot;&gt;
+      &lt;ion-icon name&#x3D;&quot;cash-outline&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/ion-segment-button&gt;
+    &lt;ion-segment-button (click)&#x3D;&quot;maxWonMoney()&quot; value&#x3D;&quot;max&quot;&gt;
+      &lt;ion-icon name&#x3D;&quot;arrow-up-outline&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/ion-segment-button&gt;
+    &lt;ion-segment-button (click)&#x3D;&quot;lostTimes()&quot; value&#x3D;&quot;lost&quot;&gt;
+      &lt;ion-icon name&#x3D;&quot;close-circle-outline&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/ion-segment-button&gt;
+    &lt;ion-segment-button (click)&#x3D;&quot;bartFillDate()&quot; value&#x3D;&quot;date&quot;&gt;
+      &lt;ion-icon name&#x3D;&quot;calendar-outline&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/ion-segment-button&gt;
+  &lt;/ion-segment&gt;
+  &lt;ion-card  *ngFor&#x3D;&quot;let item of bart | async ; let i &#x3D; index&quot; color&#x3D;&quot;secondary&quot;&gt;
+    &lt;ion-card-header&gt;
+      &lt;ion-card-title&gt;Balloon Analog Risk Eredmény {{i+1}}&lt;/ion-card-title&gt;
+    &lt;/ion-card-header&gt;
+    &lt;ion-item&gt;
+      &lt;ion-label&gt;Pénz a bankban: {{item.bankmoey}}&lt;/ion-label&gt;
+    &lt;/ion-item&gt;
+    &lt;ion-item&gt;
+      &lt;ion-label&gt;Nyerési alkalom: {{item.wontimes}}&lt;/ion-label&gt;
+    &lt;/ion-item&gt;
+    &lt;ion-item&gt;
+      &lt;ion-label&gt;Vesztési alkalom: {{item.losttimes}}&lt;/ion-label&gt;
+    &lt;/ion-item&gt;
+    &lt;ion-item&gt;
+      &lt;ion-label&gt;Legnagyobb nyeremény: {{item.maxwon}}&lt;/ion-label&gt;
+    &lt;/ion-item&gt;
+    &lt;ion-item&gt;
+      &lt;ion-label&gt;Kitöltési idő: {{msToTime(item.time)}}&lt;/ion-label&gt;
+    &lt;/ion-item&gt;
+    &lt;ion-item&gt;
+      &lt;ion-label&gt;Dátum: {{item.date?.toDate() | date: &#x27;yyyy.MM.dd. HH:mm:ss&#x27;}}&lt;/ion-label&gt;
+    &lt;/ion-item&gt;
+  &lt;/ion-card&gt;
+&lt;/ion-content&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./bart-stat.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">ion-content {
+  --padding-top: 60px;
+}
+ion-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+ion-card-title {
+  font-size: large;
+}
+
+#eredmenyek {
+  text-align: center;
+  font-size: x-large;
+  margin-top: 7px;
+  margin-right: 105px;
+}
+
+@media (max-width: 325px) {
+  #eredmenyek {
+    margin-right: 23%;
+  }
+}
+@media (min-width: 326px) and (max-width: 370px) {
+  #eredmenyek {
+    margin-right: 30%;
+  }
+}
+
+@media (min-width: 371px) and (max-width: 450px) {
+  #eredmenyek {
+    margin-right: 35%;
+  }
+}
+@media (min-width: 451px) and (max-width: 750px) {
+  #eredmenyek {
+    margin-right: 40%;
+  }
+}
+@media (min-width: 751px) {
+  #eredmenyek {
+    margin-right: 45%;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content>  <ion-header>    <ion-button [routerLink]="[ \'/home/statistics/navstat\' ]" color="light"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>    <ion-label id="eredmenyek">Eredmények</ion-label>  </ion-header>  <ion-segment color="secondary" value="right">    <ion-segment-button (click)="bankMoney()" value="right">      <ion-icon name="cash-outline"></ion-icon>    </ion-segment-button>    <ion-segment-button (click)="maxWonMoney()" value="max">      <ion-icon name="arrow-up-outline"></ion-icon>    </ion-segment-button>    <ion-segment-button (click)="lostTimes()" value="lost">      <ion-icon name="close-circle-outline"></ion-icon>    </ion-segment-button>    <ion-segment-button (click)="bartFillDate()" value="date">      <ion-icon name="calendar-outline"></ion-icon>    </ion-segment-button>  </ion-segment>  <ion-card  *ngFor="let item of bart | async ; let i = index" color="secondary">    <ion-card-header>      <ion-card-title>Balloon Analog Risk Eredmény {{i+1}}</ion-card-title>    </ion-card-header>    <ion-item>      <ion-label>Pénz a bankban: {{item.bankmoey}}</ion-label>    </ion-item>    <ion-item>      <ion-label>Nyerési alkalom: {{item.wontimes}}</ion-label>    </ion-item>    <ion-item>      <ion-label>Vesztési alkalom: {{item.losttimes}}</ion-label>    </ion-item>    <ion-item>      <ion-label>Legnagyobb nyeremény: {{item.maxwon}}</ion-label>    </ion-item>    <ion-item>      <ion-label>Kitöltési idő: {{msToTime(item.time)}}</ion-label>    </ion-item>    <ion-item>      <ion-label>Dátum: {{item.date?.toDate() | date: \'yyyy.MM.dd. HH:mm:ss\'}}</ion-label>    </ion-item>  </ion-card></ion-content></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BartComponent', 'selector': 'app-bart'},{'name': 'BartStatComponent', 'selector': 'app-bart-stat'},{'name': 'DiagramsComponent', 'selector': 'app-diagrams'},{'name': 'EndquestionComponent', 'selector': 'app-endquestion'},{'name': 'HeaderToolbarComponent', 'selector': 'app-header-toolbar'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'IowaComponent', 'selector': 'app-iowa'},{'name': 'IowaStatComponent', 'selector': 'app-iowa-stat'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MentalrotComponent', 'selector': 'app-mentalrot'},{'name': 'MentrotStatComponent', 'selector': 'app-mentrot-stat'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'NavstatisticsComponent', 'selector': 'app-navstatistics'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegistrationComponent', 'selector': 'app-registration'},{'name': 'ResultComponent', 'selector': 'app-result'},{'name': 'SplashScreenComponent', 'selector': 'app-splash-screen'},{'name': 'StartgameComponent', 'selector': 'app-startgame'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'WcstComponent', 'selector': 'app-wcst'},{'name': 'WcstStatComponent', 'selector': 'app-wcst-stat'},{'name': 'WelcomeComponent', 'selector': 'app-welcome'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'BartStatComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'BartStatComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -8,7 +8,6 @@ const routes: Routes = [
   {
     path: '',
     component: StatisticsComponent,
-    //data: { title: 'Statistics' }
     children:[
     {
       path: 'navstat',

@@ -250,10 +250,10 @@ click(){
   }
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
- /* @HostListener('window:unload', ['$event'])
+  @HostListener('window:unload', ['$event'])
   unloadHandler() {
     this.clickdestroy();
-  }*/
+  }
 
 
 }

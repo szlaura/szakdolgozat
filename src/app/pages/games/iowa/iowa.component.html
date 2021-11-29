@@ -1,6 +1,5 @@
 <ion-content >
   <ion-title>Iowa Gambling</ion-title>
-  <!-- [maxValues]="whichisTheMostValueable()" -->
   <app-endquestion [hidden]=hidewhileend [valueA]="valueA" [valueB]="valueB" [valueC]="valueC" [valueD]="valueD" [maxValues]="maxValueCard"></app-endquestion>
     <ion-button size="large"  [hidden]=showstartbtn (click)="clickie();startbtnhide();starttimer();"> Start </ion-button>
     <ion-chip [hidden]=korte color="warning">

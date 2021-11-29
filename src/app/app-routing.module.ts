@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'welcome', //login volt
+    redirectTo: 'welcome',
     pathMatch: 'full'
   }
 ];

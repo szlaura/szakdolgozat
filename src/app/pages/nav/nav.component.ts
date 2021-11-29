@@ -1,6 +1,6 @@
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import { Component, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-nav',
